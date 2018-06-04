@@ -1,0 +1,63 @@
+[#n1ql-lang-ref]
+= N1QL Language Reference
+
+[abstract]
+The N1QL reference guide describes the N1QL language structure, syntax, and shows how to run N1QL queries from a command line.
+It also provides reference information about the basic elements in N1QL which can be combined to build N1QL statements.
+
+== N1QL Language Structure
+
+The N1QL language structure is composed of statements, expressions, and comments.
+
+Statements:: N1QL statements are categorized into the following groups:
+* *Data Definition Language* (DDL) statements to xref:n1ql:createindex.adoc#concept_npk_mth_rq[create indexes], modify indexes, and xref:n1ql:dropindex.adoc#concept_jbf_qth_rq[drop indexes].
+* *Data Manipulation Language* (DML) statements to xref:n1ql:selectintro.adoc#topic_xwp_r3k_dx[select], xref:n1ql:insert.adoc#topic_dqm_qvm_zw[insert], xref:n1ql:update.adoc#topic_11_8[update], xref:n1ql:delete.adoc#concept_yzq_ktc_np[delete], and xref:n1ql:upsert.adoc#topic_11_9[upsert] data into JSON documents.
+
+Expressions:: The following are the different types of N1QL expressions:
+* xref:n1ql:aggregatefun.adoc#topic_8_1[aggregate]
+* xref:n1ql:arithmetic.adoc#concept_ldw_fz5_mp[arithmetic]
+* xref:n1ql:collectionops.adoc#topic_7_1[collection]
+* xref:n1ql:comparisonops.adoc#topic_7_2[comparison]
+* xref:n1ql:conditionalops.adoc#topic_7_3[conditional]
+* xref:n1ql:constructionops.adoc#topic_7_4[construction]
+* xref:n1ql:functions.adoc#topic_8[function call]
+* xref:n1ql:identifiers.adoc#topic_6[identifier]
+* xref:n1ql:literals.adoc#topic_5[literal-value]
+* xref:n1ql:logicalops.adoc#topic_7_5[logical]
+* <<nested-path-exp,nested expression>>
+* xref:n1ql:stringfun.adoc#topic_8_12[string]
+* xref:n1ql:subqueries.adoc#topic_9[subquery]
+
+Comments:: N1QL supports block comments with the following syntax:
+
+----
+/*  [ [text] | [newline] ]+  */
+----
+
+[#nested-path-exp]
+== Nested Path Expressions
+
+In N1QL, nested paths indicate an expression to access nested sub-documents within a JSON document or expression.
+
+For example, the latitude of a location in the` type="airport" ` documents in the` `travel-sample` `are in the `geo` sub-document and can be addressed as the nested path` `travel-sample`.geo.lat`:
+
+----
+SELECT airportname, city, geo, round(geo.lat) as latitude
+FROM `travel-sample` t1
+WHERE t1.type = "airport" LIMIT 1;
+
+[
+  {
+    "airportname": "Calais Dunkerque",
+    "city": "Calais",
+    "geo": {
+      "alt": 12,
+      "lat": 50.962097,
+      "lon": 1.954764
+    }
+    "latitude": 51,
+  }
+]
+----
+
+Dot Notation (.) is used to access sub-document fields within a document.

@@ -1,0 +1,22 @@
+[#topic_8]
+= Functions Overview
+
+[abstract]
+Function names are used to apply a function to values, to values at a specified path, or to values derived from a DISTINCT clause.
+Function names are case insensitive.
+
+Here are the categories of N1QL functions:
+
+* xref:n1ql:aggregatefun.adoc[Aggregate Functions]
+* xref:n1ql:arrayfun.adoc[Array Functions]
+* xref:n1ql:comparisonfun.adoc[Comparison Functions]
+* xref:n1ql:condfununknown.adoc[Conditional Functions for Unknowns]
+* xref:n1ql:condfunnum.adoc[Conditional Functions for Numbers]
+* xref:n1ql:datefun.adoc[Date Functions]
+* xref:n1ql:jsonfun.adoc[JSON Functions]
+* xref:n1ql:metafun.adoc[Miscellaneous Utility Functions]
+* xref:n1ql:numericfun.adoc[Number Functions]
+* xref:n1ql:objectfun.adoc[Object Functions]
+* xref:n1ql:patternmatchingfun.adoc[Pattern-matching Functions]
+* xref:n1ql:stringfun.adoc[String Functions]
+* xref:n1ql:typefun.adoc[Type Functions]

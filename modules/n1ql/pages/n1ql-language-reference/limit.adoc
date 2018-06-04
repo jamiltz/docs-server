@@ -1,0 +1,97 @@
+[#topic_dsd_hgk_np]
+= LIMIT clause
+
+[abstract]
+The `LIMIT` clause specifies the maximum number of objects to be returned in a resultset by a `SELECT` statement.
+
+_(Introduced in Couchbase Server 4.0)_
+
+[#section_blb_qhx_2cb]
+== Purpose
+
+When you don't need the entire resultset, use the `LIMIT` clause to specify the maximum number of objects to be returned in a result set by a `SELECT` query.
+
+A negative value is the same as `LIMIT 0`.
+
+NOTE: Starting from version 4.5, the `LIMIT` clause in DML statements is no longer a hint.
+It indicates that the actual number of mutations will be less than or equal to the specified `LIMIT`.
+
+[#section_u1b_whx_2cb]
+== Syntax
+
+----
+LIMIT expr
+----
+
+[#image_skg_gkx_2cb]
+image::limit-clause.png[]
+
+[#section_wz2_tkx_2cb]
+== Arguments
+
+expr:: Integer or an expression that evaluates to an integer representing the number of resulting documents.
+
+[#section_nsz_gkx_2cb]
+== Examples
+
+*Example 1: Get only 2 documents of hotels with an empty room.*
+
+----
+SELECT name, address, city, country, url 
+FROM `travel-sample` 
+WHERE type="hotel" 
+  AND vacancy = true 
+LIMIT 2;
+----
+
+Result:
+
+----
+[
+  {
+    "address": "Capstone Road, ME7 3JE",
+    "city": "Medway",
+    "country": "United Kingdom",
+    "name": "Medway Youth Hostel",
+    "url": "http://www.yha.org.uk"
+  },
+  {
+    "address": "6 rue aux Juifs",
+    "city": "Giverny",
+    "country": "France",
+    "name": "The Robins",
+    "url": "http://givernyguesthouse.com/robin.htm"
+  }
+]
+----
+
+*Example 2: Set the limit of Example 1 based on an equation.*
+
+----
+SELECT name, address, city, country, url 
+FROM `travel-sample` 
+WHERE type="hotel" 
+  AND vacancy = true 
+LIMIT (20/10);
+----
+
+Result:
+
+----
+[
+  {
+    "address": "Capstone Road, ME7 3JE",
+    "city": "Medway",
+    "country": "United Kingdom",
+    "name": "Medway Youth Hostel",
+    "url": "http://www.yha.org.uk"
+  },
+  {
+    "address": "6 rue aux Juifs",
+    "city": "Giverny",
+    "country": "France",
+    "name": "The Robins",
+    "url": "http://givernyguesthouse.com/robin.htm"
+  }
+]
+----

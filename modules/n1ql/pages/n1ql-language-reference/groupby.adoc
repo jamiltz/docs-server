@@ -1,0 +1,211 @@
+[#topic_Group_By_clause]
+= GROUP BY clause
+
+[abstract]
+The GROUP BY clause arranges aggregate values into groups, based on one more fields.
+
+_(Introduced in Couchbase Server 4.0)_
+
+[#section_y5m_qwb_qcb]
+== Purpose
+
+Use the GROUP BY clause to arrange aggregate values into groups of one or more fields.
+This `GROUP BY` clause follows the `WHERE` clause and precedes the optional `LETTING`, `HAVING`, and `ORDER BY` clauses.
+
+[#section_cpq_5wb_qcb]
+== Syntax
+
+[#image_qr2_q1b_2cb]
+image::group-by-clause.png[]
+
+----
+GROUP BY expr [, expr2 ]* 
+  [ LETTING alias = expr [, alias2 = expr2 ]* ] 
+  [ HAVING cond ]
+| 
+LETTING alias = expr [, alias2 = expr2 ]*
+----
+
+[#section_lbk_bxb_qcb]
+== Arguments
+
+expr:: [At least one is required] String or expression representing the xref:n1ql:aggregatefun.adoc[aggregate function] or fields to group together.
+
+`LETTING` letting-clause:: [Optional] Stores the result of a sub-expression in order to use it in subsequent clauses.image:letting-clause.png[]
+alias;; String or expression representing the name of the clause to be referred to.
+expr;; String or expression representing the value of the `LETTING` [.var]`alias` variable.
+
+`HAVING` having-clause:: [Optional] To return items where xref:n1ql:aggregatefun.adoc[aggregate] values meet the specified conditions.image:having-clause.png[]
+cond;; String or expression representing the clause of aggregate values.
+
+[#section_cg4_jxb_qcb]
+== Limitations
+
+`GROUP BY` works only on a group key or xref:n1ql:aggregatefun.adoc[aggregate function].
+
+[#section_ub1_nxb_qcb]
+== Examples
+
+*Example 1: Group the unique landmarks by city and list the top 4 cities with the most landmarks in descending order.*
+
+----
+SELECT city City, COUNT(DISTINCT name) LandmarkCount 
+FROM `travel-sample`
+WHERE type = "landmark"
+GROUP BY city
+ORDER BY LandmarkCount DESC
+LIMIT 4;
+----
+
+Results:
+
+----
+[
+  {
+    "City": "San Francisco",
+    "LandmarkCount": 797
+  },
+  {
+    "City": "London",
+    "LandmarkCount": 443
+  },
+  {
+    "City": "Los Angeles",
+    "LandmarkCount": 284
+  },
+  {
+    "City": "San Diego",
+    "LandmarkCount": 197
+  }
+]
+----
+
+*Example 2: Use LETTING to find cities that have a minimum number of things to see.*
+
+----
+SELECT city City, COUNT(DISTINCT name) LandmarkCount 
+FROM `travel-sample`
+WHERE type = "landmark"
+GROUP BY city
+LETTING MinimumThingsToSee = 400
+HAVING COUNT(DISTINCT name) > MinimumThingsToSee;
+----
+
+Results:
+
+----
+[
+  {
+    "City": "London",
+    "LandmarkCount": 443
+  },
+  {
+    "City": "San Francisco",
+    "LandmarkCount": 797
+  }
+]
+----
+
+*Example 3: Use HAVING to specify cities that have more than 180 landmarks.*
+
+----
+SELECT city City, COUNT(DISTINCT name) LandmarkCount 
+FROM `travel-sample`
+WHERE type = "landmark"
+GROUP BY city
+HAVING COUNT(DISTINCT name) > 180;
+----
+
+Results:
+
+----
+[
+  {
+    "City": "London",
+    "LandmarkCount": 443
+  },
+  {
+    "City": "Los Angeles",
+    "LandmarkCount": 284
+  },
+  {
+    "City": "San Francisco",
+    "LandmarkCount": 797
+  },
+  {
+    "City": "San Diego",
+    "LandmarkCount": 197
+  }
+]
+----
+
+NOTE: The above `HAVING` clause must use the xref:n1ql:aggregatefun.adoc#topic_8_1[aggregate function] `COUNT` instead of its alias `LandmarkCount`.
+
+*Example 4: Use HAVING to specify landmarks that begin with an "S" or higher.*
+
+----
+SELECT city City, COUNT(DISTINCT name) LandmarkCount 
+FROM `travel-sample`
+WHERE type = "landmark"
+GROUP BY city
+HAVING city > "S";
+----
+
+138 Results in 150ms:
+
+----
+[
+  {
+    "City": "Santa Barbara",
+    "LandmarkCount": 53
+  },
+  {
+    "City": "San Francisco",
+    "LandmarkCount": 797
+  },
+  {
+    "City": "Stable Yd",
+    "LandmarkCount": 1
+  },
+  {
+    "City": "Wembley",
+    "LandmarkCount": 1
+  },
+...
+----
+
+*Example 4b: Using WHERE yields the same results as HAVING, however, WHERE is faster.*
+
+----
+SELECT city City, COUNT(DISTINCT name) LandmarkCount 
+FROM `travel-sample`
+WHERE type = "landmark"
+AND city > "S"
+GROUP BY city
+----
+
+138 Results in 94ms:
+
+----
+[
+  {
+    "City": "San Luis Obispo",
+    "LandmarkCount": 1
+  },
+  {
+    "City": "Twentynine Palms",
+    "LandmarkCount": 1
+  },
+  {
+    "City": "Westlake Village",
+    "LandmarkCount": 1
+  },
+  {
+    "City": "Surrey",
+    "LandmarkCount": 1
+  },
+...
+----
+
+NOTE: The `WHERE` clause is faster because `WHERE` gets processed _before_ any `GROUP BY` and doesn't have access to aggregated values.
+`HAVING` gets processed _after_ `GROUP BY` and is used to constrain the resultset to only those with aggregated values.
