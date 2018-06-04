@@ -90,11 +90,11 @@ ID lookups are quicker, but querying documents allows for richer search capabili
 Updating a document means changing the existing document.
 For example, take the file above and edit the `likes` field:
 
-----
+....
     ...
     "likes": ["doge", "pastries", "couchbase"]
     ....
-----
+....
 
  $ cbc create --mode replace mnunberg < mnunberg.json
 

@@ -24,7 +24,7 @@ Queries are issued in the SDK using the _query_ operation.
 This API accepts a string which is the statement to execute, and returns the rows (or an iterable object which returns rows) representing the query’s result.
 Here is an example of a query executed in Python:
 
-----
+....
 >>> for row in cb.n1ql_query('SELECT type FROM `travel-sample` LIMIT 4'):
 ...   print(row)
 ...
@@ -32,11 +32,11 @@ Here is an example of a query executed in Python:
 {'type': 'airline'}
 {'type': 'airline'}
 {'type': 'airport'}
-----
+....
 
 The above query using _cbq_ (some output truncated for clarity):
 
-----
+....
 cbq> SELECT type FROM `travel-sample` LIMIT 4;
 {
     ...
@@ -59,7 +59,7 @@ cbq> SELECT type FROM `travel-sample` LIMIT 4;
     ...
     }
 }
-----
+....
 
 The result is a JSON object.
 The important field within the object is the `results` property, which contains an array of results (a result set).
@@ -91,7 +91,7 @@ Specify multiple predicates using the `AND` or `OR` keywords.
 
 The following example selects all documents that have a `type` of _airport_ and a `city` of _Reno_.
 
-----
+....
 cbq> SELECT airportname, city, country FROM `travel-sample` WHERE type="airport" AND city="Reno";
 {
     ...
@@ -107,7 +107,7 @@ cbq> SELECT airportname, city, country FROM `travel-sample` WHERE type="airport"
     ...
     }
 }
-----
+....
 
 == Querying Nested Documents
 
@@ -120,7 +120,7 @@ See xref:n1ql:n1ql-intro/queriesandresults.adoc#topic_1_2[N1QL Queries and Resul
 IMPORTANT: N1QL sub-document queries are not related to _Key-Value_ sub-document operations.
 (Key-Value sub-document operations are explained in the section xref:sdk:subdocument-operations.adoc[Sub-Document Operations]).
 
-----
+....
 cbq> SELECT airportname, city, country, geo.alt FROM `travel-sample` WHERE type="airport" AND geo.alt > 4000 AND country="United States" LIMIT 3;
 {
     ...
@@ -149,7 +149,7 @@ cbq> SELECT airportname, city, country, geo.alt FROM `travel-sample` WHERE type=
     ...
     }
 }
-----
+....
 
 The actual airport document looks like this.
 Note that the `geo` field itself contains a JSON object.

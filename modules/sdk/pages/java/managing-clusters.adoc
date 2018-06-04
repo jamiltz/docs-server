@@ -89,12 +89,12 @@ bucket.bucketManager().flush()
 
 The [.api]`flush` operation may fail if the bucket does not have flush enabled:
 
-----
+....
 com.couchbase.client.java.error.FlushDisabledException: Flush is disabled for this bucket.
     at com.couchbase.client.java.bucket.BucketFlusher$6.call(BucketFlusher.java:145)
     at com.couchbase.client.java.bucket.BucketFlusher$6.call(BucketFlusher.java:140)
     ...
-----
+....
 
 == N1QL Index Management
 

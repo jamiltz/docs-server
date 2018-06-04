@@ -105,11 +105,11 @@ When using a storage operation, the _full content_ of the document is replaced w
 The following example shows a document being stored using the xref:sdk:webui-cli-access.adoc#cli-access[`cbc`] utility.
 The ID of the document is `docid` and its value is JSON containing a single field (`json`) with the value of `value`.
 
-----
+....
 # When storing JSON data using cbc, ensure it is properly quoted for your shell:
 $ cbc create docid -V '{"json":"value"}' -M upsert -U couchbase://cluster-node/bucket-name
 docid               Stored. CAS=0x8234c3c0f213
-----
+....
 
 You can also specify additional options when storing a document in Couchbase
 
@@ -144,11 +144,11 @@ Primary key lookups are performed using the key-value API, which simplifies use 
 In Couchbase, documents are stored with their IDs.
 Retrieving a document via its ID is the simplest and quickest operation in Couchbase.
 
-----
+....
 >>> result = cb.get('docid')
 >>> print result.value
 {'json': 'value'}
-----
+....
 
 [source,bash]
 ----

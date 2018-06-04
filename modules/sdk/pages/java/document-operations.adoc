@@ -95,9 +95,9 @@ JsonDocument doc = JsonDocument.create("document_id", JsonObject.create().put("s
 System.out.println(bucket.insert(doc));
 ----
 
-----
+....
 Output: JsonDocument{id='document_id', cas=216109389250560, expiry=0, content={"some":"value"}, mutationToken=null}
-----
+....
 
 If the same code is called again, a `DocumentAlreadyExistsException` will be thrown.
 If you don't care that the document is overridden, you can use [.api]`upsert` instead:
@@ -108,9 +108,9 @@ JsonDocument doc = JsonDocument.create("document_id", JsonObject.empty().put("so
 System.out.println(bucket.upsert(doc));
 ----
 
-----
+....
 Output: JsonDocument{id='document_id', cas=216109392920576, expiry=0, content={"some":"other value"}, mutationToken=null}
-----
+....
 
 Finally, a full document can be replaced if it existed before.
 If it didn't exist, then a `DocumentDoesNotExistException` will be thrown:
@@ -121,9 +121,9 @@ JsonDocument doc = JsonDocument.create("document_id", JsonObject.empty().put("mo
 System.out.println(bucket.replace(doc));
 ----
 
-----
+....
 Output: JsonDocument{id='document_id', cas=216109395083264, expiry=0, content={"more":"content"}, mutationToken=null}
-----
+....
 
 [#java-retrieving-full-docs]
 == Retrieving full documents
@@ -141,9 +141,9 @@ It accepts one mandatory argument:
 System.out.println(bucket.get("document_id"));
 ----
 
-----
+....
 Output: JsonDocument{id='document_id', cas=216109395083264, expiry=0, content={"more":"content"}, mutationToken=null}
-----
+....
 
 Other overloads are available for advanced purposes:
 
@@ -159,9 +159,9 @@ JsonDocument someDoc = JsonDocument.create("document_id");
 System.out.println(bucket.get(someDoc));
 ----
 
-----
+....
 Output: JsonDocument{id='document_id', cas=216109395083264, expiry=0, content={"more":"content"}, mutationToken=null}
-----
+....
 
 [source,java]
 ----
@@ -171,9 +171,9 @@ String content = doc.content();
 System.out.println(content);
 ----
 
-----
+....
 Output: {"more":"content"}
-----
+....
 
 [source,java]
 ----
@@ -286,9 +286,9 @@ Thread.sleep(3000);
 System.out.println(bucket.get("expires"));
 ----
 
-----
+....
 null
-----
+....
 
 ----
 bucket.touch("expires", 2);
@@ -333,13 +333,13 @@ for (JsonDocument doc : foundDocs) {
 }
 ----
 
-----
+....
 key1
 key2
 key3
 key4
 key5
-----
+....
 
 Note that this always returns a list, but it may contain 0 to 6 documents (here 5) depending on how many are actually found.
 Also, at the very end the observable is converted into a blocking one, but everything before that, including the network calls and the aggregation, is happening completely asynchronously.

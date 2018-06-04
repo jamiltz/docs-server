@@ -156,17 +156,17 @@ The resultant typecode (actually stored as the _flags_ value is a bitwise OR of 
 For example, the older legacy Python code for _JSON_ was `0x00` and the unified typecode for _JSON_ is `0x02`.
 The resultant typecode is thus:
 
-----
+....
 (0x02 << 24) | (0x00)
 0x02000000
-----
+....
 
 Another example: The legacy typecode for the _RAW_ format in Python is `0x02`, and the common type code is `0x03`.
 The resultant typecode is:
 
-----
+....
 (0x03 << 24) | (0x02)
 0x03000002
-----
+....
 
 When defining a new type code using the transcoder, ensure to keep the above information in mind, so as not to clash with any existing ones.
