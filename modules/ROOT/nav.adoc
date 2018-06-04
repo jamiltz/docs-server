@@ -123,6 +123,4 @@
   *** xref:n1ql:n1ql-language-reference/upsert.adoc[UPSERT]
 * xref:fts:full-text-intro.adoc[Full Text Search: Fundamentals]
 * xref:eventing:eventing-overview.adoc[Eventing Service: Fundamentals]
-* Couchbase Analytics Service (Developer Preview)
- ** Using Analytics
- ** SQL++ Language Reference
+include::../analytics/pages/_partials/nav.adoc[]
