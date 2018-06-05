@@ -71,15 +71,15 @@ In the below table,
 
 [#table_wld_nzh_4bb,cols="4,1,1,1,1"]
 |===
-| N1QL Query | SELECT ALL | SELECT DISTINCT
+| N1QL Query 2+| SELECT ALL 2+| SELECT DISTINCT
 
 | Q1: `SELECT city FROM `travel-sample`;`
-| slightly slower
-| slightly faster
+2+| slightly slower
+2+| slightly faster
 
 | Q2: `SELECT META().id FROM `travel-sample`;`
-| much faster
-| much slower
+2+| much faster
+2+| much slower
 |===
 
 In the below `EXPLAIN` example of using `DISTINCT`, the lines using the `DISTINCT` operator are boldfaced:
@@ -188,7 +188,6 @@ keyspace_name1, keyspace_name2, ..., keyspace_nameX:: [Optional; if the keyspace
 The name of the keyspace or keyspaces used, separated by a comma.
 Keyspaces map to buckets in Couchbase Server.
 A keyspace is a set of documents that may vary in structure and are a unit of authorization and resource allocation.
-+
 +
 ----
 SELECT * FROM `travel-sample` WHERE type="hotel";

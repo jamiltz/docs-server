@@ -49,67 +49,67 @@ The following matrix shows which versions of the Couchbase Java SDK support the 
 |===
 |  | Server 1.8 | Server 2.0 | Server 2.5 | Server 3.0, 3.1 | Server 4.0, 4.1 | Server 4.5, 4.6 | Server 5.0
 
-| *Basic Features*
+8+| *Basic Features*
 
 | CRUD Operations
-| Since 1.0
+7+| Since 1.0
 
 | View Querying APIs
-| Since 1.1
+7+| Since 1.1
 
 | Geospatial Views
 | Not Supported
-| 1.1 - 1.4
-| Since 2.1
+2+| 1.1 - 1.4
+4+| Since 2.1
 
-| *Advanced Features*
+8+| *Advanced Features*
 
 | Durability Requirements
-| Since 1.1
+7+| Since 1.1
 
 | Carrier Publication Configuration
-| Not Supported
-| Since 1.4
+2+| Not Supported
+5+| Since 1.4
 
 | SSL Connectivity
-| Not Supported
-| Since 2.0
+3+| Not Supported
+4+| Since 2.0
 
 | Bulk Operations
-| Since 1.0
+7+| Since 1.0
 
 | N1QL Querying
-| Since 2.0 (experimental)
-| Since 2.2
+4+| Since 2.0 (experimental)
+3+| Since 2.2
 
 | Multi-Dimensional Scaling
-| Not Supported
-| Since 2.2
+4+| Not Supported
+3+| Since 2.2
 
 | Sub-document API
-| Not Supported
-| Since 2.3
+5+| Not Supported
+2+| Since 2.3
 
 | Full Text Search
-| Not Supported
+5+| Not Supported
 | Since 2.3 (Experimental)
 | Since 2.4
 
-| *Administrative Features*
+8+| *Administrative Features*
 
 | Datastructures
-| Not Supported
-| Since 2.3
+5+| Not Supported
+2+| Since 2.3
 
 | Extended Attributes
-| Not Supported
+6+| Not Supported
 | Since 2.4
 
 | Administrative API
-| Since 1.0
+7+| Since 1.0
 
 | RBAC
-| Not Supported
+6+| Not Supported
 | Since 2.4
 |===
 

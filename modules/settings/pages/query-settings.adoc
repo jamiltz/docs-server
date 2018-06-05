@@ -122,7 +122,7 @@ $<_identifier_>
 
 
 
-| *Both Service-level and Request-level Settings*
+2+| *Both Service-level and Request-level Settings*
 
 | controls
 
@@ -184,7 +184,7 @@ These are the only two ways to set these settings, and not all settings can be s
 .Service-Level Query Settings
 [#table_kgw_2lr_hz,cols="185,100,130,260,341,571"]
 |===
-| Setting | Type | Default | Description
+| Setting | Type | Default 3+| Description
 
 | `completed-limit`
 | int
@@ -194,7 +194,7 @@ These are the only two ways to set these settings, and not all settings can be s
 ----
 curl http://hostname:8093/admin/settings -d '{"completed-limit":7000}' -u user:pword
 ----
-| Maximum number of completed requests.
+3+| Maximum number of completed requests.
 As new completed requests are added, old ones are removed.
 
 Increase this when the completed request keyspace is not big enough to track the slow requests, such as when customers want a larger sample of slow requests.
@@ -209,7 +209,7 @@ Increase this when the completed request keyspace is not big enough to track the
 ----
 curl http://hostname:8093/admin/settings -d '{"completed-threshold":7000}' -u user:pword
 ----
-| Cache completed query lasting longer than this many milliseconds.
+3+| Cache completed query lasting longer than this many milliseconds.
 
 Specify 0 to track all requests independent of duration.
 
@@ -222,7 +222,7 @@ Specify any negative number to track none.
 | `false`
 
 NOTE: If the request qualifies for caching, these values will also be cached in the` completed_requests `system keyspace.
-| [Optional] Specifies if there should be a controls section returned with the request results.
+3+| [Optional] Specifies if there should be a controls section returned with the request results.
 
 When set to` true`, the query response document includes a controls section with runtime information provided along with the request, such as positional and named parameters or settings.
 
@@ -235,7 +235,7 @@ cbq> \set -controls true; curl http://[.var]`hostname`:8093/admin/settings -d '{
 | `""`
 
 NOTE: If `cpuprofile` is left running too long, it can slow the system down as its file size increases.
-| The absolute path and filename to write the CPU profile to a local file.
+3+| The absolute path and filename to write the CPU profile to a local file.
 
 The output file includes a controls section and performance measurements, such as memory allocation and garbage collection, to pinpoint bottlenecks and ways to improve your code execution.
 
@@ -257,7 +257,7 @@ curl http://[.var]`hostname`:8093/admin/settings -d '{"cpuprofile":"/tmp/info.tx
 ----
 curl http://hostname:8093/admin/settings -d '{"debug":true}' -u user:pword
 ----
-| Use debug mode.
+3+| Use debug mode.
 
 When set to `true`, extra logging is provided.
 
@@ -271,14 +271,14 @@ When set to `true`, extra logging is provided.
 ----
 curl http://hostname:8093/admin/settings -d '{"keep-alive-length":7000}' -u user:pword
 ----
-| Maximum size of buffered result.
+3+| Maximum size of buffered result.
 
 
 
 | `loglevel`
 | string
 | `"INFO"`
-| Log level used in the logger.
+3+| Log level used in the logger.
 All values in descending order of data:
 
  DEBUG
@@ -316,7 +316,7 @@ All values in descending order of data:
 | 
 | Doesn't write anything.
 
-| curl http://[.var]`hostname`:8093/admin/settings -d '{"loglevel":"DEBUG"}' -u [.var]`user`:[.var]`pword`
+3+| curl http://[.var]`hostname`:8093/admin/settings -d '{"loglevel":"DEBUG"}' -u [.var]`user`:[.var]`pword`
 
 | `max-parallelism`
 | int
@@ -328,7 +328,7 @@ cbq> \set -max-parallelism 3;
 
 curl http://hostname:8093/admin/settings -d '{"max-parallelism":0}' -u user:pword
 ----
-| [Optional] Specifies the maximum parallelism for the query.
+3+| [Optional] Specifies the maximum parallelism for the query.
 
 A zero or negative value means the number of logical CPUs will be used as the parallelism for the query.
 
@@ -348,7 +348,7 @@ NOTE: If` memprofile `is left running too long, it can slow the system down as i
 ----
 curl http://hostname:8093/admin/settings -d '{"memprofile":"/tmp/memory-usage.log"}' -u user:pword
 ----
-| Filename to write the diagnostic memory usage log.
+3+| Filename to write the diagnostic memory usage log.
 
 To stop` memprofile`, run with the empty setting of` ""`.
 
@@ -370,7 +370,7 @@ cbq> \set -pipeline_batch 64;
 
 curl http://hostname:8093/admin/settings -d '{"pipeline-batch":64' -u user:pword
 ----
-| [Optional] Controls the number of items execution operators can batch for Fetch from the KV.
+3+| [Optional] Controls the number of items execution operators can batch for Fetch from the KV.
 
 
 
@@ -384,7 +384,7 @@ cbq> \set -pipeline_cap 1024;
 
 curl http://hostname:8093/admin/settings -d '{"pipeline-cap":1024}' -u user:pword
 ----
-| [Optional] Maximum number of items each execution operator can buffer between various operators.
+3+| [Optional] Maximum number of items each execution operator can buffer between various operators.
 
 
 
@@ -396,7 +396,7 @@ curl http://hostname:8093/admin/settings -d '{"pipeline-cap":1024}' -u user:pwor
 ----
 curl http://hostname:8093/admin/settings -d '{"prepared-limit":65536}' -u user:pword
 ----
-| The number of bytes the Prepared Limit sizes the prepared statement cache.
+3+| The number of bytes the Prepared Limit sizes the prepared statement cache.
 
 When this cache reaches the limit, the least recently used prepared statements will be discarded as new prepared statements are created.
 
@@ -412,7 +412,7 @@ cbq> \set -pretty true;
 
 curl http://hostname:8093/admin/settings -d '{"pretty":false}' -u user:pword
 ----
-| [Optional] Specifies the query results returned in pretty format.
+3+| [Optional] Specifies the query results returned in pretty format.
 
 There is also a server-wide` pretty `parameter which defaults to` true`.
 If a request does not include pretty, the server-wide` pretty `will be used.
@@ -441,7 +441,7 @@ cbq> \set -profile "phases";
 
 curl http://hostname:8093/admin/settings -d '{"profile":"phases"}' -u user:pword
 ----
-| [Optional] Specifies if there should be a profile section returned with the request results.
+3+| [Optional] Specifies if there should be a profile section returned with the request results.
 The valid values are:
 
 
@@ -458,7 +458,7 @@ The valid values are:
 ----
 curl http://hostname:8093/admin/settings -d '{"request-size-cap":70000}' -u user:pword
 ----
-| Maximum size of a request.
+3+| Maximum size of a request.
 
 
 
@@ -472,7 +472,7 @@ cbq> \set -scan_cap 1024;
 
 curl http://hostname:8093/admin/settings -d '{"scan-cap":1024}' -u user:pword
 ----
-| [Optional] Maximum buffered channel size between the indexer client and the query service for index scans.
+3+| [Optional] Maximum buffered channel size between the indexer client and the query service for index scans.
 This parameter controls when to use scan backfill.
 
 Use `0` or a negative number to disable.
@@ -491,7 +491,7 @@ The index channel capacity is configurable per request.
 ----
 curl http://hostname:8093/admin/settings -d '{"servicers":8}' -u user:pword
 ----
-| The number of service threads for the query.
+3+| The number of service threads for the query.
 
 
 
@@ -515,7 +515,7 @@ cbq> \set -timeout "30m";
 
 curl http://hostname:8093/admin/settings -d '{"timeout":"30m"}' -u user:pword
 ----
-| [Optional] Maximum time to spend on the request before timing out.
+3+| [Optional] Maximum time to spend on the request before timing out.
 
 The default value means no timeout is applied and the request runs for however long it takes.
 
@@ -541,7 +541,7 @@ This table contains details of all the parameters that can be passed in a reques
 .Request-Level Parameters
 [#table_fbs_vjk_k1b,cols="185,100,180,110,824"]
 |===
-| Parameter Name | Type | Default | Description
+| Parameter Name | Type | Default 2+| Description
 
 | `args`
 | list
@@ -553,7 +553,7 @@ NOTE: Positional parameters apply to` prepared `also.
 ----
 cbq > \set -args ["LAX", 6];
 ----
-| [Optional] If the statement has 1 or more positional parameters, this parameter needs to be in the request; this is a list of JSON values, one for each positional parameter in the statement.
+2+| [Optional] If the statement has 1 or more positional parameters, this parameter needs to be in the request; this is a list of JSON values, one for each positional parameter in the statement.
 
 
 
@@ -572,7 +572,7 @@ INSERT INTO location (id, name) VALUES ($1, $2)
 ----
 
 NOTE: The inner lists need to match the positional parameters in the` statement`.
-| [Optional] Applies to POST requests containing UPDATE/INSERT/DELETE statements.
+2+| [Optional] Applies to POST requests containing UPDATE/INSERT/DELETE statements.
 
 DML statements containing _positional_ parameters.
 
@@ -592,7 +592,7 @@ INSERT INTO location (id, name) VALUES ($id, $n)
 ----
 
 NOTE: The keys in each object need to match the named parameters in the` statement`.
-| [Optional] Applies to POST requests only, containing a UPDATE/INSERT/DELETE statement.
+2+| [Optional] Applies to POST requests only, containing a UPDATE/INSERT/DELETE statement.
 
 DML statements containing _named_ parameters.
 
@@ -605,7 +605,7 @@ These require the values to be given in` batch_named_args`, which contains a lis
 | `client_context_id`
 | string
 | 
-| [Optional] A piece of data supplied by the client that is echoed in the response, if present.
+2+| [Optional] A piece of data supplied by the client that is echoed in the response, if present.
 N1QL is agnostic about the content of this parameter; it is just echoed in the response.
 
 Note:
@@ -622,7 +622,7 @@ Note:
 ----
 cbq> \set -compression "zip";
 ----
-| [Optional] Compression format to use for response data on the wire.
+2+| [Optional] Compression format to use for response data on the wire.
 
 Possible values are `ZIP`, `RLE`, `LZMA`, `LZO`, or `NONE`.
 
@@ -633,7 +633,7 @@ Values are case-insensitive.
 | `controls`
 | bool
 | `false`
-| [Optional] Specifies if there should be a controls section returned with the request results.
+2+| [Optional] Specifies if there should be a controls section returned with the request results.
 
 When set to` true`, the query response document includes a controls section with runtime information provided along with the request, such as positional and named parameters or settings.
 
@@ -649,7 +649,7 @@ cbq> \set -controls true; curl http://[.var]`hostname`:8093/admin/settings -d '{
 ----
 cbq> \set -creds travel-sample user:pword, beer-sample user:pword;
 ----
-| [Optional] Specify the login credentials in the form of `user:password`.
+2+| [Optional] Specify the login credentials in the form of `user:password`.
 
 You can specify credentials for different buckets by separating them with a comma.
 
@@ -668,7 +668,7 @@ If credentials are supplied in the request header, then` creds `is ignored since
 
  $ curl -v http://localhost:8093/query/service \
  -d 'statement=PREPARE pricy_hotel FROM SELECT name, max(price) FROM `travel-sample` WHERE type="hotel";
-| [Optional] For later, multiple executions, a query can be prepared, which results in five properties, of which one is called encoded_plan.
+2+| [Optional] For later, multiple executions, a query can be prepared, which results in five properties, of which one is called encoded_plan.
 This can then be used to execute the query.
 
 *Example*: Prepare the query result of the most expensive hotel.
@@ -688,7 +688,7 @@ Both the encoded plan and the prepared N1QL statement output the same.
 | `encoding`
 | string
 | `"UTF-8"`
-| [Optional] Desired character encoding for the query results.
+2+| [Optional] Desired character encoding for the query results.
 
 Only possible value is` UTF-8 `and is case-insensitive.
 
@@ -700,7 +700,7 @@ Only possible value is` UTF-8 `and is case-insensitive.
 ----
 cbq> \set -format "XML";
 ----
-| [Optional] Desired format for the query results.
+2+| [Optional] Desired format for the query results.
 
 Possible values are `JSON`, `XML`, `CSV`, and `TSV`.
 
@@ -716,7 +716,7 @@ cbq> \set -max-parallelism 3;
 
 curl http://hostname:8093/admin/settings -d '{"max-parallelism":0}' -u user:pword
 ----
-| [Optional] Specifies the maximum parallelism for the query.
+2+| [Optional] Specifies the maximum parallelism for the query.
 
 A zero or negative value means the number of logical CPUs will be used as the parallelism for the query.
 
@@ -736,7 +736,7 @@ cbq> \set -metrics false;
 
 curl http://localhost:8093/query/service -u user:pword -d 'statement=select * from default&metrics=true'
 ----
-| [Optional] Specifies that metrics should be returned with query results.
+2+| [Optional] Specifies that metrics should be returned with query results.
 
 There is also a server wide` metrics `parameter which defaults to` true`.
 If a request does not include` metrics`, the server wide metrics will be used.
@@ -751,7 +751,7 @@ If a request does not include` metrics`, the server wide metrics will be used.
 ----
 cbq> \set -namespace travel-sample;
 ----
-| [Optional] Specifies the namespace to use.
+2+| [Optional] Specifies the namespace to use.
 
 There is a server-wide namespace parameter, which is used if a request does not specify a namespace.
 
@@ -767,7 +767,7 @@ cbq> \set -pipeline_batch 64;
 
 curl http://hostname:8093/admin/settings -d '{"pipeline-batch":64}' -u user:pword
 ----
-| [Optional] Controls the number of items execution operators can batch for Fetch from the KV.
+2+| [Optional] Controls the number of items execution operators can batch for Fetch from the KV.
 
 
 
@@ -781,7 +781,7 @@ cbq> \set -pipeline_cap 1024;
 
 curl http://hostname:8093/admin/settings -d '{"pipeline-cap":1024}' -u user:pword
 ----
-| [Optional] Maximum number of items each execution operator can buffer between various operators.
+2+| [Optional] Maximum number of items each execution operator can buffer between various operators.
 
 
 
@@ -793,7 +793,7 @@ NOTE: If both` prepared `and` statement `are present and non-empty, an error is 
 
  $ curl -v http://localhost:8093/query/service \
  -d 'statement=PREPARE pricy_hotel FROM SELECT name, max(price) FROM `travel-sample` WHERE type="hotel";
-| [Required if` statement `not provided]
+2+| [Required if` statement `not provided]
 
 The prepared form of the N1QL statement to be executed.
 
@@ -826,7 +826,7 @@ cbq> \set -pretty true;
 
 curl http://hostname:8093/admin/settings -d '{"pretty":false}' -u user:pword
 ----
-| [Optional] Specifies the query results returned in pretty format.
+2+| [Optional] Specifies the query results returned in pretty format.
 
 
 
@@ -854,7 +854,7 @@ cbq> \set -profile "phases";
 
 curl http://hostname:8093/admin/settings -d '{"profile":"phases"}' -u user:pword
 ----
-| [Optional] Specifies if there should be a profile section returned with the request results.
+2+| [Optional] Specifies if there should be a profile section returned with the request results.
 The valid values are:
 
 
@@ -883,7 +883,7 @@ NOTE: There is a server-wide` readonly `parameter; and if that is true, it super
 ----
 cbq> \set -readonly true;
 ----
-| [Optional] Controls whether a query can change a resulting recordset.
+2+| [Optional] Controls whether a query can change a resulting recordset.
 
 If` readonly `is` true`, then the following statements are not allowed:
 
@@ -905,7 +905,7 @@ cbq> \set -scan_cap 1024;
 
 curl http://hostname:8093/admin/settings -d '{"scan-cap":1024}' -u user:pword
 ----
-| [Optional] Maximum buffered channel size between the indexer client and the query service for index scans.
+2+| [Optional] Maximum buffered channel size between the indexer client and the query service for index scans.
 This parameter controls when to use scan backfill.
 
 Use `0` or a negative number to disable.
@@ -943,7 +943,7 @@ NOTE: The default behavior is RYOW within the request, however, if you want to d
 ----
 cbq> \set -scan_consistency "at_plus";
 ----
-| [Optional] Specify the consistency guarantee/constraint for index scanning.
+2+| [Optional] Specify the consistency guarantee/constraint for index scanning.
 The valid values are:
 
 
@@ -976,7 +976,7 @@ scan_vector={ "5 ": [5409393,"VB5ID"], "19": [47574574, "VB19ID"] }
 . *Sparse scan vectors*: provide entries for specific vbuckets, mapping a vbucket number (a string) to a [[.var]`value`, [.var]`guard`] entry.
 
 NOTE: `scan_vector `can only be used if the query uses at most one bucket; if it is used for a query referencing more than one bucket, the query will fail with an error.
-| [`scan_vector `or` scan_vectors `is required if` scan_consistency=at_plus`]
+2+| [`scan_vector `or` scan_vectors `is required if` scan_consistency=at_plus`]
 
 Specify the lower bound vector timestamp for one bucket when using` at_plus `scan consistency.
 
@@ -997,7 +997,7 @@ For queries referencing multiple buckets, use` scan_vectors`.
 | `scan_vectors`
 | object
 | 
-| [`scan_vector `or` scan_vectors `is required if` scan_consistency=at_plus`]
+2+| [`scan_vector `or` scan_vectors `is required if` scan_consistency=at_plus`]
 
 A map from bucket names to scan vectors.
 See `scan_vector`.
@@ -1024,7 +1024,7 @@ NOTE: Specify `0` or a negative integer to disable.
 ----
 cbq> \set -scan_wait "30m";
 ----
-| [Optional] Can be supplied with` scan_consistency `values of` request_plus`,` statement_plus `and` at_plus`.
+2+| [Optional] Can be supplied with` scan_consistency `values of` request_plus`,` statement_plus `and` at_plus`.
 
 Specifies the maximum time the client is willing to wait for an index to catch up to the vector timestamp in the request.
 
@@ -1051,7 +1051,7 @@ cbq> \set -signature false;
 
 curl http://localhost:8093/query/service -u user:pword -d 'statement=select * from default&signature=false'
 ----
-| [Optional] Include a header for the results schema in the response.
+2+| [Optional] Include a header for the results schema in the response.
 
 
 
@@ -1062,7 +1062,7 @@ curl http://localhost:8093/query/service -u user:pword -d 'statement=select * fr
 | 
 
 NOTE: If both` prepared `and` statement `are present and non-empty, an error is returned.
-| [Required if` prepared `not provided]
+2+| [Required if` prepared `not provided]
 
 Any valid N1QL statement for a POST request, or a read-only N1QL statement (SELECT, EXPLAIN) for a GET request.
 
@@ -1090,7 +1090,7 @@ cbq> \set -timeout "30m";
 
 curl http://hostname:8093/admin/settings -d '{"timeout":"30m"}' -u user:pword
 ----
-| [Optional] Maximum time to spend on the request before timing out.
+2+| [Optional] Maximum time to spend on the request before timing out.
 
 The default value means no timeout is applied and the request runs for however long it takes.
 
@@ -1114,7 +1114,7 @@ Ex:` 10ms `(10 milliseconds) and` 0.5s `(half a second).
 [#ol_hvv_3kc_m1b]
 . The $ character
 . An identifier that starts with an alpha character followed by one or more alphanumeric characters.
-| [Optional] If the` statement `has 1 or more named parameters, there should be 1 or more named parameters in the request.
+2+| [Optional] If the` statement `has 1 or more named parameters, there should be 1 or more named parameters in the request.
 
 A named parameter consists of two parts:
 

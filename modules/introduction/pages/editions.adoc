@@ -40,7 +40,7 @@ The following table compares the features available in the Enterprise and Commun
 |===
 | Feature | Enterprise Edition | Community Edition
 
-| *Software updates and support*
+3+| *Software updates and support*
 
 | <<frequent-quality-releases,Frequent releases with quality improvements>>
 | image:yes.png[]
@@ -58,7 +58,7 @@ The following table compares the features available in the Enterprise and Commun
 | image:yes.png[]
 | image:no.png[]
 
-| *High availability & disaster recovery*
+3+| *High availability & disaster recovery*
 
 | <<intra-cluster-replication,Intra-cluster replication>>
 | image:yes.png[]
@@ -100,7 +100,7 @@ The following table compares the features available in the Enterprise and Commun
 | image:yes.png[]
 | image:no.png[]
 
-| *Security*
+3+| *Security*
 
 | <<built-in-ac-mgr,Built-in account management>>
 | image:yes.png[]
@@ -142,7 +142,7 @@ The following table compares the features available in the Enterprise and Commun
 | image:yes.png[]
 | image:no.png[]
 
-| *Data access*
+3+| *Data access*
 
 | <<core-data-access-api,Core data access APIs ( Get/Set Operations)>>
 | image:yes.png[]
@@ -176,7 +176,7 @@ The following table compares the features available in the Enterprise and Commun
 | image:yes.png[]
 | image:yes.png[]
 
-| *Development and Administration Tools*
+3+| *Development and Administration Tools*
 
 | <<web-console-dev,Visual Web Console for development>>
 | image:yes.png[]
@@ -202,7 +202,7 @@ The following table compares the features available in the Enterprise and Commun
 | image:yes.png[]
 | image:yes.png[]
 
-| *Performance and scaling*
+3+| *Performance and scaling*
 
 | <<concurrent-query-exec,High performance concurrent query execution>>
 | image:yes.png[]
