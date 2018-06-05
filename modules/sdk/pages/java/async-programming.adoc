@@ -1,5 +1,6 @@
 [#async-programming-java]
 = Asynchronous Progamming Using the Java SDK with Couchbase Server
+:navtitle: Asynchronous Programming
 
 [abstract]
 The Couchbase Java SDK has a complete asynchronous API based in part on RxJava.

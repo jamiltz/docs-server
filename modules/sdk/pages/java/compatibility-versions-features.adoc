@@ -1,5 +1,6 @@
 [#topic_bhl_2cv_xv]
 = Compatibility of Couchbase Features, Couchbase Versions and the Couchbase Java SDK
+:navtitle: Compatibility
 
 [#feature-matrix]
 == Couchbase Version/SDK Version Matrix

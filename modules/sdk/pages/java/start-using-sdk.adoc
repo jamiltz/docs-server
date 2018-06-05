@@ -1,5 +1,6 @@
 [#topic_vpj_dh5_xv]
 = Install and Start Using the Java SDK with Couchbase Server
+:navtitle: Start Using the SDK
 
 [abstract]
 The Couchbase Java SDK allows Java applications to access a Couchbase cluster.

@@ -1,5 +1,6 @@
 [#java-n1ql]
 = N1QL Queries Using the Java SDK with Couchbase Server
+:navtitle: N1QL from the SDK
 
 [abstract]
 You can perform N1QL queries via the Java client.

@@ -1,5 +1,6 @@
 [#topic_wxg_cwb_mv]
 = Failure Considerations for the Java SDK in Couchbase
+:navtitle: Failure Considerations
 
 == #Anonymous Section#
 

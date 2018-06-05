@@ -1,5 +1,6 @@
 [#concept2677]
 = Managing Connections using the Java SDK with Couchbase Server
+:navtitle: Managing Connections
 
 [abstract]
 This section describes how to connect the Java SDK to a Couchbase cluster and bucket.

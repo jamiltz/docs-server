@@ -1,5 +1,6 @@
 [#managing-clusters-java]
 = Managing clusters using the Java SDK with Couchbase Server
+:navtitle: Managing Clusters
 
 {blank}
 

@@ -1,5 +1,6 @@
 [#topic_bpn_4bv_xv]
 = Handling Exceptions and Other Errors with the Java SDK in Couchbase
+:navtitle: Handling Errors
 
 [abstract]
 This topic provides information on error handling when using the Couchbase Java SDK.
