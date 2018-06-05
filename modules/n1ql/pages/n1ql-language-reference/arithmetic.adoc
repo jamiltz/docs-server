@@ -6,6 +6,10 @@ Additionally, N1QL provides a negation operation which changes the sign of a val
 
 [NOTE]
 ====
+These arithmetic operators only operate on numbers.
+In N1QL, arithmetic operators have their usual meaning.
+However, in any of these expressions:
+
 [#ul_dxb_523_qbb]
 * If any operand is MISSING, the value of the expression is MISSING.
 * If any operand is NULL and no operand is MISSING, the value of the expression is NULL.

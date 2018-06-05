@@ -122,17 +122,22 @@ See <<expiry,Expiry>> for more information on expiration.
 Seexref:sdk:concurrent-mutations-cluster.adoc#concept_iq4_bts_zs[CAS] for a description on how to use CAS values in your application.
 * xref:sdk:durability.adoc#concept_gyg_14s_zs[Durability Requirements]
 
+[NOTE]
+====
+If you wish to only modify certain parts of a document, you can use xref:sdk:subdocument-operations.adoc#subdoc-operations[sub-document] operations which operate on specific subsets of documents:
 
 [source,python]
 ----
 cb.mutate_in('docid', subdoc.array_addunique('tags', 'fast'))
 ----
 
+or xref:n1ql:n1ql-language-reference/update.adoc#topic_11_8[N1QL UPDATE] to update documents based on specific query criteria:
+
 [source,sql]
 ----
 update `default` SET sale_price = msrp * 0.75 WHERE msrp < 19.95;
 ----
-NOTE: If you wish to only modify certain parts of a document, you can use xref:sdk:subdocument-operations.adoc#subdoc-operations[sub-document] operations which operate on specific subsets of documents:or xref:n1ql:n1ql-language-reference/update.adoc#topic_11_8[N1QL UPDATE] to update documents based on specific query criteria:
+====
 
 [#devguide_kvcore_get_generic]
 == Retrieving Documents
@@ -260,12 +265,15 @@ bucket.map_get('map_id', 'name').value  # 'mark nunberg'
 [#devguide_kvcore_append_prepend_generic]
 == Raw Byte Concatenation
 
+[WARNING]
+====
+The following methods should not be used with JSON documents.
 
 The append and prepend operations operate at the byte level and are unsuitable for dealing with JSON documents.
 Use these methods only when explicitly dealing with binary or UTF-8 documents.
 Using the append and prepend methods may invalidate an existing JSON document.
 You can use xref:sdk:subdocument-operations.adoc#subdoc-operations[sub-document operations] if you want to have true JSON-aware prepend and append operations which add values to JSON arrays.
-WARNING: 
+====
 
 [source,python]
 ----

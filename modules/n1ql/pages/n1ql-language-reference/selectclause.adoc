@@ -189,6 +189,10 @@ The name of the keyspace or keyspaces used, separated by a comma.
 Keyspaces map to buckets in Couchbase Server.
 A keyspace is a set of documents that may vary in structure and are a unit of authorization and resource allocation.
 +
+[NOTE]
+====
+When specifying the keyspace name in` SELECT keyspace_name.* `for all fields, the keyspace name will not appear in the result set; whereas not specifying the keyspace name in` SELECT * FROM keyspace_name `adds the keyspace name to the result set.
+
 ----
 SELECT * FROM `travel-sample` WHERE type="hotel";
 
@@ -201,7 +205,7 @@ Results:
       "checkin": null,
 ...
 ----
-+
+
 ----
 SELECT `travel-sample`.* FROM `travel-sample` WHERE type="hotel";
 
@@ -213,7 +217,7 @@ Results:
     "checkin": null,
 ...
 ----
-+
+
 ----
 SELECT meta().id,email,city,phone,`travel-sample`.reviews[0].ratings
 FROM `travel-sample` WHERE type="hotel" LIMIT 5;
@@ -236,7 +240,7 @@ Results:
   },
 ...
 ----
-NOTE: When specifying the keyspace name in` SELECT keyspace_name.* `for all fields, the keyspace name will not appear in the result set; whereas not specifying the keyspace name in` SELECT * FROM keyspace_name `adds the keyspace name to the result set.
+====
 
 field_expr:: The name of the field or fields, separated by a comma, to be in the query's ResultSet, such as:
 +

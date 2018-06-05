@@ -56,6 +56,8 @@ DefaultViewRow{id=brasserie_de_brunehaut-abbaye_de_saint_martin_blonde, key=Abba
 
 [TIP]
 ====
+[.param]`includeDocs`: This parameter allows for eager retrieval of the document associated with each row.
+
 It is only beneficial in the synchronous API (in the async API you could just call `get(row.id())` on the async bucket with the same effects).
 It impacts the row's `document(...)` method by preloading the return value of said method.
 

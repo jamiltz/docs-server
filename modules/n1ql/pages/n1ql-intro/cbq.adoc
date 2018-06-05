@@ -24,11 +24,14 @@ $ cd /Applications/Couchbase\ Server.app/Contents/Resources/couchbase-core/bin
 
  $ ./cbq
 +
-+
+[NOTE]
+====
+Run the following command to connect to the cluster, the IP address can be any node in the cluster as cbq will automatically discover the query nodes:
+
 ----
 ./cbq -engine=http://123.45.67.89:8091
 ----
-NOTE: Run the following command to connect to the cluster, the IP address can be any node in the cluster as cbq will automatically discover the query nodes:
+====
 
 . At the [.cmd]`cbq` prompt, enter a N1QL query and end the query with a semicolon.
 Press return to execute the query.

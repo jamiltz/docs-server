@@ -303,9 +303,15 @@ Got: 3
 Got: 4
 ----
 
+[NOTE]
+====
+One common mistake is to use `Thread.sleep()` instead of a latch to synchronize the execution between threads.
+This is a bad idea because it synchronizes nothing and just keeps one thread alive for a specific amount of time.
+If the actual calls take less time you are wasting time, and if it takes longer you won't get the desired effect.
+If you do this in unit tests, be prepared for a good amount of non-determinism and randomly failing tests.
 
 *Always use a CountDownLatch!*
-NOTE: 
+====
 
 A technique unique to `Observables` is to convert it into a `BlockingObservable` to achieve the same effect.
 In simple terms, it converts an `Observable` into an `iterable` and makes it execute on the caller thread, blocking it until one or more values arrive.

@@ -29,6 +29,9 @@ Array of [[.var]`field_name`, [.var]`value`] arrays for each field in the input 
 
 [NOTE]
 ====
+When the field_name is in curly brackets, it's treated as an array and returns an array; but without curly bracket, it's treated as a primitive data type and returns NULL.
+For example,
+
 [#ul_o25_cbg_5z]
 * `PAIRS(public_likes)` return NULL
 * `PAIRS({public_likes})` returns an array

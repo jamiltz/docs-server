@@ -169,6 +169,9 @@ In cases where the timezone is not specified, the local system time is assumed:
 +
 [NOTE]
 ====
+Currently N1QL only accepts numeric format strings with valid values for each component.
+For example, you should pass something like` "1111-11-11" `as the date format rather than` "YYYY-MM-DD"`, this has the same effect as passing in any other valid date in the same format (such as` "2017-01-31"`).
+
 If the date string does not explicitly declare the value of a component, then a value of 0 is assumed.
 For example` 2016-02-07 `is equivalent to` 2016-02-07T00:00:00`.
 This is with the exception of the time zone, which if unspecified in the date string will default to the local system time zone.

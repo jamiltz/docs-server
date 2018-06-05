@@ -21,13 +21,16 @@ This status field and other index metadata can be queried using `system:indexes`
 User executing the CREATE INDEX statement must have the _Query Manage Index_ privilege granted on the keyspace/bucket.
 For more details about user roles, see xref:..:security/security-authorization.adoc#authorization[Authorization].
 
+[IMPORTANT]
+====
+Indexes cannot be built concurrently on a given bucket unless the `defer_build` option of the CREATE INDEX statement is used in combination with BUILD INDEX statement.
+The following error is reported if a second index creation operation is kicked off before the completion of the ongoing index creation.
 
 ----
 "errors": [{"code": 12014, 
     "msg": "error: Build Already In Progress. Bucket BUCKET_NAME. Index INDEX_NAME. Index state: pending"}]
 ----
-IMPORTANT: Indexes cannot be built concurrently on a given bucket unless the `defer_build` option of the CREATE INDEX statement is used in combination with BUILD INDEX statement.
-The following error is reported if a second index creation operation is kicked off before the completion of the ongoing index creation.
+====
 
 You can create multiple identical secondary indexes on a bucket for better index availability and place them on separate nodes using the "nodes" clause.
 

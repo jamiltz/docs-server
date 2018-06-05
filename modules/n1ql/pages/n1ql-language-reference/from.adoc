@@ -366,6 +366,8 @@ alias:: [Required if `AS` is used] String to assign a name to a keyspace, such a
 +
 [NOTE]
 ====
+Since the original name may lead to referencing wrong data and wrong results, you must use the alias name throughout the query instead of the original keyspace name.
+
 When no alias is used, the keyspace or last field name of an expression is given as the implicit alias.
 
 When an alias conflicts with a keyspace or field name in the same scope, the identifier always refers to the alias.
@@ -990,9 +992,17 @@ Below are different join scenarios involving arrays and ways to handle each scen
 
 [NOTE]
 ====
+These buckets and indexes will be used throughout this section's array scenarios.
+As a convention, when a field name starts with` a `it is an array, so each bucket has two array fields and two regular fields.
+Also, both `_idx1` indexes index each element of its array, while both `_idx2` indexes use its entire array as the index key.
+
 `bucket b1 (a11, a12, c11, c12)`
 
+`bucket b2 (a21, a22, c21, c22)`
+
 `CREATE INDEX b1_idx1 ON b1 (c11, c12, DISTINCT a11)`
+
+`CREATE INDEX b1_idx2 ON b1 (a12)`
 
 `CREATE INDEX b2_idx1 ON b2 (c21, c22, DISTINCT a21)`
 
