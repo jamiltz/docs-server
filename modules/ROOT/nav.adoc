@@ -577,6 +577,7 @@ include::../cli/pages/_partials/cbcli/nav.adoc[]
     ***** xref:n1ql:n1ql-rest-api/exunsupportedhttp.adoc[Unsupported HTTP method]
     ***** xref:n1ql:n1ql-rest-api/exauthhttp.adoc[Request with authentication - HTTP header]
     ***** xref:n1ql:n1ql-rest-api/exauthrequest.adoc[Request with authentication - request parameter]
+ ** xref:rest-api:api-explorer.adoc[Admin API Explorer]
 * xref:tools:tools-ref.adoc[Couchbase Server Tools]
  ** Query Tools
   *** xref:tools:cbq-shell.adoc[cbq: The Command Line Shell for N1QL]
