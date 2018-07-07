@@ -1,0 +1,38 @@
+[#security_best_practices_overview]
+= Security Best Practices
+
+[abstract]
+Best practices should be observed at all times, in order to ensure the security of Couchbase Server itself, the media it uses for data-persistence, the internal and external networks on which it resides, and the applications that query it.
+
+== Securing Couchbase Server
+
+Security must be enforced — in order to protect data from being stolen, eavesdropped upon, or corrupted — throughout the entire Couchbase Server-environment: this environment includes the internal memory, processing, and storage-facilities of individual server-nodes within a cluster; the network across which the nodes communicate with one another; and the network beyond the cluster-perimeter.
+Security procedures must be checked constantly; and should be upgraded with frequency.
+
+== Within the Cluster
+
+On each node of the Couchbase Server-cluster, essential security measures include:
+
+* xref:security:security-passwords.adoc#topic_iyx_5ps_lq[Password enforcement]
+* xref:security:security-bucket-protection.adoc#topic_pfp_dpg_tq[Bucket authentication and protection]
+* xref:security:security-admin-access.adoc[Securing administrative access]
+* xref:security:security-encryption.adoc[Performing encryption]
+* xref:security:security-access-logs.adoc#topic_hm2_qqt_sq[Maintaining access-logs]
+
+All are described in detail, in this section.
+
+== Beyond the Cluster
+
+Security must be maintained:
+
+* Across the network, by proper configuration of xref:security:security-iptables.adoc#concept_h5v_5jc_bq[IP tables and ports.]
++
+{blank}
+
+* Within individual applications, by appropriate use of the xref:security:security-config-cache.adoc#topic_pws_syg_tq[client configuration cache], and by performing xref:security:security-user-input.adoc#concept_hvz_4qc_bq[user input validation].
++
+{blank}
+
+* In the cloud, through appropriate configuration of xref:security:security-acls-new.adoc#topic_xgm_f1l_sq[Network Access Control Lists (ACLs) and security groups], as well as xref:xdcr:xdcr-intro.adoc#topic1500[Cross Datacenter Replication (XDCR)].
++
+{blank}

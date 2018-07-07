@@ -1,0 +1,283 @@
+[#cbcollect-info-tool]
+= [.cmd]` cbcollect_info `
+
+[abstract]
+The [.cmd]`cbcollect_info` tool provides detailed statistics for a specific node.
+
+== Syntax
+
+The basic syntax is:
+
+----
+cbcollect_info [options] [output-file]
+----
+
+where `output-file` is the name of the .zip file containing the diagnostic information.
+
+== Description
+
+The [.cmd]`cbcollect_info` command gathers statistics from an individual node in the cluster.
+
+To collect diagnostic information for an entire cluster, run the command for every node that exists in that cluster.
+If you are experiencing problems with multiple nodes in a cluster, you may need to run it on all nodes in a cluster.
+
+A root account is required to run this command and collect all the server information.
+There are internal server files and directories that this tool accesses that require root privileges.
+
+To use this command, remotely connect to the machine which contains the Couchbase Server then issue the command with appropriate options.
+This command is typically run under the direction of technical support at Couchbase and generates a large .zip file.
+This archive contains files which contain performance statistics and server logs.
+
+[caption=Attention]
+IMPORTANT: [.cmd]`cbcollect_info` is one of the most important diagnostic tools.
+Run [.cmd]`cbcollect_info` on all nodes in the cluster, and upload all of the resulting files to Couchbase technical support.
+
+This tool is at the following locations:
+
+.Tool locations
+[cols="1,3"]
+|===
+| Operating System | Location
+
+| Linux
+| [.path]_/opt/couchbase/bin/cbcollect_info_
+
+| Windows
+| [.path]_C:\Program Files\Couchbase\Server\bin\cbcollect_info_
+
+| Mac OS X
+| [.path]_/Applications/Couchbase Server.app/Contents/Resources/couchbase-core/bin/cbcollect_info_
+|===
+
+The tool creates the following log files in the output archive:
+
+.Output files
+[cols="1,4"]
+|===
+| File | Log Contents
+
+| `couchbase.log`
+| Contains system-level information, primarily the result of shell commands.
+Generated at collection-time.
+
+| `ddocs.log`
+| Contains the design documents for each bucket in json format, taken from the view file on disk.
+
+| `diag.log`
+| A diagnostic summary of the cluster manager, obtained by downloading `/diag` output from the node's running service.
+
+| `ini.log`
+| A dump of all ini configuration files.
+
+| `memcached.log`
+| Contains information relating to the core memcached component, including DCP stream requests and slow operations.
+
+| `ns_server.babysitter.log`
+| Troubleshooting log for the babysitter process which is responsible for spawning all Couchbase Server processes and respawning them where necessary.
+
+| `ns_server.couchdb.log`
+| Troubleshooting log for the couchdb subsystem which underlies map-reduce and spatial views
+
+| `ns_server.debug.log`
+| Debug-level troubleshooting for the cluster management component.
+
+| `ns_server.error.log`
+| Error-level troubleshooting log for the cluster management component.
+
+| `ns_server.fts.log`
+| Troubleshooting logs for the full-text search service.
+
+| `ns_server.goxdcr.log`
+| Troubleshooting log for the cross datacenter replication (XDCR) component used in Couchbase Server versions after 4.0.
+
+| `ns_server.http_access.log`
+| The admin access log records server requests (including administrator logins) to the REST API or Couchbase Server web console.
+It is output in common log format and contains several important fields such as remote client IP, timestamp, GET/POST request and resource requested, HTTP status code, and so on.
+
+| `ns_server.http_access_internal.log`
+| The admin access log records internal server requests (including administrator logins) to the REST API or Couchbase Server web console.
+It is output in common log format and contains several important fields such as remote client IP, timestamp, GET/POST request and resource requested, HTTP status code, and so on.
+
+| `ns_server.indexer.log`
+| Troubleshooting log for the indexing and storage subsystem.
+
+| `ns_server.info.log`
+| Info-level troubleshooting log for the cluster management component.
+
+| `ns_server.mapreduce_errors.log`
+| JavaScript and other view-processing errors are reported in this file.
+
+| `ns_server.metakv.log`
+| Troubleshooting log for the metakv store, a cluster-wide metadata store.
+
+| `ns_server.ns_couchdb.log`
+| Contains information related to starting up the CouchDB subsystem.
+
+| `ns_server.projector.log`
+| Troubleshooting log for the projector process which is responsible for sending appropriate mutations from Data nodes to Index nodes.
+
+| `ns_server.reports.log`
+| Contains progress and crash reports for the Erlang processes.
+Due to the nature of Erlang, processes crash and restart upon an error.
+
+| `ns_server.ssl_proxy.log`
+| Troubleshooting log for the ssl proxy spawned by the cluster manager.
+
+| `ns_server.stats.log`
+| Contains periodic statistic dumps from the cluster management component.
+
+| `ns_server.views.log`
+| Troubleshooting log for the view engine, predominantly focussing on the changing of partition states.
+
+| `ns_server.xdcr.log`
+| Troubleshooting log for the cross datacenter replication (XDCR) component used in Couchbase Server versions prior to 4.0.
+
+| `ns_server.xdcr_errors.log`
+| Error-level troubleshooting log for the cross datacenter replication (XDCR) component used in Couchbase Server versions prior to 4.0.
+
+| `ns_server.xcdr_trace.log`
+| Trace-level troubleshooting log for the cross datacenter replication (XDCR) component used in Couchbase Server versions prior to 4.0.
+Unless trace-level logging is explicitly turned on this log is empty.
+
+| `projector_pprof.log`
+| Goroutine dump captured for the projector process.
+A goroutine dump is the equivalent of a full thread dump in other languages and can give valuable insight into what a process is doing at that time.
+
+| `stats.log`
+| Contains output from various xref:cli:cbstats-intro.adoc[cbstats] commands.
+Generated at collection-time.
+
+| `syslog.tar.gz`
+| Archive of various system-level logs.
+|===
+
+== Options
+
+The following are the command options:
+
+.cbcollect_info options
+[cols="3,5"]
+|===
+| Parameter | Description
+
+| `-h, --help`
+| Shows help information.
+
+| `-r ROOT`
+| Specifies the root directory.
+Defaults on Linux to `/opt/couchbase/bin/..`
+
+| `-v`
+| Increases the verbosity level: debugging information will thereby be included in the console-display.
+
+| `-p`
+| Specifies that only product-related information should be gathered.
+
+| `-d`
+| Dumps a list of commands required by `cbcollect_info`.
+
+| `--bypass-sensitive-data`
+| If set to `true`, skips collecting breakpad crash-dumps.
+
+| `--task-regexp=TASK_REGEXP`
+| Runs only those tasks that match the specified regexp.
+(This flag is provided for debugging purposes.)
+
+| `--tmp-dir=TMP_DIR`
+| Specifies the `tmp` directory that is used during data-processing.
+This setting overrides any existing setting of the `TMPDIR` environment variable.
+
+| `--initargs=INITARGS`
+| Specifies the server `initargs` path.
+
+| `--multi-node-diag`
+| Specifies that diagnostic information should be collected for each reachable node in the cluster.
+The default is for collection on the current node only.
+
+| `--log-redaction-level=REDACT_LEVEL`
+| Specifies the redaction level for the logs collected; which can be either `none` (the default) or `partial`.
+
+| `--log-redaction-salt=SALT_VALUE`
+| Salts the hashing of tagged data.
+The default value is a random uuid.
+If this flag is used, a `--log-redaction-level` value should be specified.
+
+| `--upload-host=UPLOAD_HOST`
+| Specifies the fully-qualified domain name of the host you want the logs uploaded to.
+The protocol prefix of the domain name, `https://`, is optional.
+It is the default-only supported protocol.
+
+| `--customer=UPLOAD_CUSTOMER`
+| Specifies the customer name.
+This value must be a string whose maximum length is 50 characters.
+Only the following characters can be used: [A-Za-z0-9_.-].
+If any other characters are included, the request is rejected.
+
+| `--upload-proxy=UPLOAD_PROXY`
+| Specifies a proxy for upload.
+
+| `--ticket=UPLOAD_TICKET`
+| Specifies the Couchbase Support ticket-number.
+The value must be a string with a maximum length of 7 characters, containing only digits in the range of 0-9.
+|===
+
+== Sharing files with Couchbase support
+
+Run the command below, replacing [.var]`FILE-NAME` and [.var]`COMPANY-NAME,` to upload a file to our cloud storage on Amazon AWS.
+Make sure to include the last slash ("/") character after the company name.
+
+----
+curl --upload-file 
+	<FILE-NAME> https://s3.amazonaws.com/customers.couchbase.com/<COMPANY-NAME>/
+----
+
+== Examples
+
+To create a diagnostics .zip file, log onto the node and run the `cbcollect_info` tool.
+
+On Linux, run as root or use sudo:
+
+----
+sudo /opt/couchbase/bin/cbcollect_info <node_name>.zip
+----
+
+On Windows, run as Administrator:
+
+----
+C:\Program Files\Couchbase\Server\bin\cbcollect_info <node_name>.zip
+----
+
+*Response*
+
+The following example response shows partial output when running the `cbcollect_info` command.
+
+----
+uname (uname -a) - OK
+time and TZ (date; date -u) - OK
+raw /etc/sysconfig/clock (cat /etc/sysconfig/clock) - OK
+raw /etc/timezone (cat /etc/timezone) - Exit code 1
+System Hardware (lshw -json || lshw) - Exit code 127
+
+...
+
+adding: /tmp/tmpMYbSyD/couchbase.log -> cbcollect_info_ns_1@10.5.2.117_20141209-024045/couchbase.log
+adding: /tmp/tmpMYbSyD/ns_server.xdcr.log -> cbcollect_info_ns_1@10.5.2.117_20141209-024045/ns_server.xdcr.log
+adding: /tmp/tmpMYbSyD/ns_server.couchdb.log -> cbcollect_info_ns_1@10.5.2.117_20141209-024045/ns_server.couchdb.log
+adding: /tmp/tmpMYbSyD/stats.log -> cbcollect_info_ns_1@10.5.2.117_20141209-024045/stats.log
+adding: /tmp/tmpMYbSyD/ini.log -> cbcollect_info_ns_1@10.5.2.117_20141209-024045/ini.log
+adding: /tmp/tmpMYbSyD/ns_server.error.log -> cbcollect_info_ns_1@10.5.2.117_20141209-024045/ns_server.error.log
+adding: /tmp/tmpMYbSyD/ns_server.ssl_proxy.log -> cbcollect_info_ns_1@10.5.2.117_20141209-024045/ns_server.ssl_proxy.log
+adding: /tmp/tmpMYbSyD/ns_server.views.log -> cbcollect_info_ns_1@10.5.2.117_20141209-024045/ns_server.views.log
+adding: /tmp/tmpMYbSyD/ns_server.info.log -> cbcollect_info_ns_1@10.5.2.117_20141209-024045/ns_server.info.log
+adding: /tmp/tmpMYbSyD/ns_server.xdcr_errors.log -> cbcollect_info_ns_1@10.5.2.117_20141209-024045/ns_server.xdcr_errors.log
+adding: /tmp/tmpMYbSyD/ns_server.mapreduce_errors.log -> cbcollect_info_ns_1@10.5.2.117_20141209-024045/ns_server.mapreduce_errors.log
+adding: /tmp/tmpMYbSyD/diag.log -> cbcollect_info_ns_1@10.5.2.117_20141209-024045/diag.log
+adding: /tmp/tmpMYbSyD/ns_server.http_access.log -> cbcollect_info_ns_1@10.5.2.117_20141209-024045/ns_server.http_access.log
+adding: /tmp/tmpMYbSyD/syslog.tar.gz -> cbcollect_info_ns_1@10.5.2.117_20141209-024045/syslog.tar.gz
+adding: /tmp/tmpMYbSyD/ns_server.debug.log -> cbcollect_info_ns_1@10.5.2.117_20141209-024045/ns_server.debug.log
+adding: /tmp/tmpMYbSyD/ddocs.log -> cbcollect_info_ns_1@10.5.2.117_20141209-024045/ddocs.log
+adding: /tmp/tmpMYbSyD/ns_server.reports.log -> cbcollect_info_ns_1@10.5.2.117_20141209-024045/ns_server.reports.log
+adding: /tmp/tmpMYbSyD/memcached.log -> cbcollect_info_ns_1@10.5.2.117_20141209-024045/memcached.log
+adding: /tmp/tmpMYbSyD/ns_server.babysitter.log -> cbcollect_info_ns_1@10.5.2.117_20141209-024045/ns_server.babysitter.log
+adding: /tmp/tmpMYbSyD/ns_server.stats.log -> cbcollect_info_ns_1@10.5.2.117_20141209-024045/ns_server.stats.log
+----

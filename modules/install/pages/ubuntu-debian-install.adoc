@@ -1,0 +1,132 @@
+[#topic3429]
+= Ubuntu/Debian Installation
+
+[abstract]
+This installation information applies both to Ubuntu and Debian platforms.
+
+Only 64 bit systems are supported.
+
+You need to be logged in as root (superuser) to complete the installation.
+
+On modern versions of Debian (Debian 8+) and Ubuntu (Ubuntu 14.04+), the "apt" command simplifies the installation greatly.
+
+. Download and install the appropriate meta package from the https://packages.couchbase.com/releases/couchbase-release/couchbase-release-1.0-4-amd64.deb[package download location].
+This will install the package source and the Couchbase public keys:
++
+[source,bash]
+----
+curl -O http://packages.couchbase.com/releases/couchbase-release/couchbase-release-1.0-4-amd64.deb   
+sudo dpkg -i couchbase-release-1.0-4-amd64.deb
+----
+
+. Run the following commands to automatically download and install Couchbase along with the appropriate `libssl` and Python dependencies.
++
+----
+apt-get update
+apt install ./couchbase-server.deb
+----
++
+NOTE: The "./" in the command is necessary as the command expects a path.
+Otherwise the apt command handles it like a package name.
+
+. On earlier versions of Debian, run the following commands to install Couchbase Server:
++
+----
+apt-get update
+dpkg -i ./couchbase-server.deb
+apt-get -f install
+----
++
+Couchbase Server starts automatically and is configured to automatically start during boot under the 2, 3, 4, and 5 run levels.
++
+Refer to the Ubuntu documentation for more information about installing packages using the Debian package manager.
++
+After installation is completed, the installation process displays a message similar to the following:
++
+----
+Selecting previously deselected package couchbase-server. 
+(Reading database … 73755 files and directories currently installed.)
+Unpacking couchbase-server (from couchbase-server_x86_64_2.1.0-xxx-rel.deb) … 
+libssl0.9.8 is installed. Continue installing 
+Minimum RAM required : 4 GB 
+System RAM configured : 4058708 kilobytes
+      
+      
+Minimum number of processors required : 4 cores 
+Number of processors on the system : 4 cores
+Setting up couchbase-server  … 
+
+Starting couchbase-server[  OK  ]
+
+You have successfully installed Couchbase Server.
+Browse to http://cen-1733:8091/ to configure your server.
+Refer to http://couchbase.com for additional resources.
+
+Update your firewall configuration to
+allow connections to the following ports: 11211, 11210, 11209, 4369,
+8091, 8092, 18091, 18092, 11214, 11215 and from 21100 to 21299.
+
+By using this software you agree to the End User License Agreement.
+See /opt/couchbase/LICENSE.txt.
+----
+
+NOTE: After successful installation, use the [.cmd]`service` command to manage the Couchbase Server service, including checking the current status.
+Refer to the Ubuntu documentation for instructions.
+
+[NOTE]
+====
+Microsoft Azure Ubuntu version 12 and Ubuntu version 14 images from Canonical may throw the following warning messages during installation.
+The installation completes without a problem and it is safe to ignore these messages.
+
+`sent invalidate(group) request, exiting`
+
+`sent invalidate(passwd) request, exiting`
+====
+
+Open a web browser and access the Couchbase Web Console to set up Couchbase Server.
+
+[#deb-nonroot-nonsudo]
+== Installing as non-root, non-sudo
+
+A non-root, non-sudo installation will run Couchbase Server and all Couchbase Server command-line tools.
+
+NOTE: Only 64 bit systems are supported.
+
+. After downloading the Couchbase Server DEB package, go to the directory where it is located and extract it:
++
+[source,bash]
+----
+dpkg-deb -x couchbase-server-version.deb $HOME
+----
++
+In the directory where you extracted the files, you will see [.path]_/opt_ and [.path]_/etc_ subdirectories.
+
+. After you extract the Couchbase Server installation files, go to the subdirectory:
++
+[source,bash]
+----
+cd opt/couchbase
+----
+
+. Run the following script to relocate the Couchbase Server installation to the present working directory (PWD):
++
+[source,bash]
+----
+./bin/install/reloc.sh `pwd`
+----
++
+This allows you to continue the installation as a non-root, non-sudo user.
+
+. To run the server use
++
+[source,bash]
+----
+./bin/couchbase-server -- -noinput -detached
+----
+
+. To stop the server use
++
+[source,bash]
+----
+./bin/couchbase-server -k
+----

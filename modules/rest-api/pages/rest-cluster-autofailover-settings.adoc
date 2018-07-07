@@ -1,0 +1,93 @@
+[#rest-cluster-autofailover-settings]
+= Retrieving Auto-Failover Settings
+
+[abstract]
+Auto-failover settings are retrieved by means of the `GET /settings/autoFailover` HTTP method and URI.
+
+== HTTP method and URI
+
+Retrieves auto-failover settings for a cluster.
+Auto-failover is a global setting, which applies to all nodes in the cluster.
+To read auto-failover settings, appropriate privileges are required.
+
+----
+GET /settings/autoFailover
+----
+
+Parameters include:
+
+{blank}
+
+* `enabled=[true|false]`.
+Enables or disables automatic failover.
+* `timeout=`_number-of-seconds_.
+Integer between 5 and 3600.
+Specifies the number of seconds that must elapse after a node has become unavailable, before automatic failover is triggered.
+* `count=[0|1]`.
+Determines whether any node in a cluster can be automatically failed-over.
+After one auto-failover occurs, the count is set to 1, and Couchbase Server does not perform another auto-failover for the cluster until the count is reset to 0.
+To fail over more than one node at a time in a cluster, perform a manual failover.
+
+== Syntax
+
+Curl request syntax:
+
+[source,bourne]
+----
+curl -u [admin]:[password] http://[localhost]:8091/settings/autoFailover
+----
+
+== Example
+
+Curl request example:
+
+[source,bourne]
+----
+curl -u Administrator:password http://10.5.2.54:8091/settings/autoFailover
+----
+
+== Response
+
+If successful, execution returns the auto-failover settings for the cluster.
+For example:
+
+[source,javascript]
+----
+{
+  "enabled": true,
+  "timeout": 72,
+  "count": 0,
+  "failoverOnDataDiskIssues": {
+    "enabled": true,
+    "timePeriod": 89
+  },
+    "failoverServerGroup": true,
+    "maxCount": 2
+}
+----
+
+== Response codes
+
+Possible errors include:
+
+[source,bourne]
+----
+HTTP/1.1 401 Unauthorized
+This endpoint isn't available yet.
+----
+
+[source,bourne]
+----
+GET /settings/autoFailover HTTP/1.1
+Host: localhost:8091
+Authorization: Basic YWRtaW46YWRtaW4=
+Accept: */*
+----
+
+[source,bourne]
+----
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: nnn
+{ "enabled": false, "timeout": 30, "count": 0 }
+----

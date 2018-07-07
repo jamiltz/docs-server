@@ -1,0 +1,229 @@
+[#topic_gbk_tyh_t5]
+= Release Notes
+
+Couchbase Server 5.5.0 Beta is a significant update of the Couchbase Data Platform.
+This release specifically highlights agility, performance, and manageability and includes enhancements to existing services as well as new server and SDK components.
+Take a look at xref:introduction:whats-new.adoc#whats-new[What's New?] for a list of new features and improvements that are available in this release.
+
+Couchbase Server 5.5.0 Beta was released in April 2018.
+
+[IMPORTANT]
+====
+This pre-release version of Couchbase Server 5.5 (Beta) is intended for development purposes only.
+Some features are still in development and may have some rough edges and bugs, and may change significantly before the final GA release.
+This pre-release version is *not supported* in production.
+
+The pre-release versions do *not support* upgrading from an earlier version of Couchbase Server.
+====
+
+[#changes-in-behavior]
+== Major Behavior Changes
+
+[#table_change-behavior,cols="25,66"]
+|===
+| Issue | Description
+
+| https://issues.couchbase.com/browse/MB-28778[MB-28778]
+| The default number of Data Service worker threads has been increased; from 3/4 of the number of available CPU threads, to 7/8 of the number of available CPU threads (minimum of 4 in both cases).
+This makes better use of the available CPU resource, particularly on larger systems, as such users may see an increase in CPU utilization on such systems.
+
+| https://issues.couchbase.com/browse/MB-27173[MB-27173]
+| Prior to 5.5, the [.cmd]`mctimings` command defined the _request start_ as the time when the 24 byte request header had been read by the Data Service.
+However, many requests contain a _body_ which also needs to be read before a request can be processed.
+As such, the reported duration didn't accurately reflect how long the server actually spent processing a request, if it was still waiting for the body to be received from the network.
+
+In 5.5, the definition of _request start_ has been changed to be when the header _and_ body have both been read.
+This has the effect of more accurately reflecting the time spent by the Data Service in servicing a request, as the time the body spends in transit over the network is no longer included.
+As a result command timings for affected request will have shorter durations compared to how they were measured before 5.5.
+
+| https://issues.couchbase.com/browse/MB-27060[MB-27060]
+| The Couchbase Server 5.5 Windows installer package no longer bundles the DLL [.path]_dbghelp.dll_ which is required by Breakpad to produce dumps on Windows platforms.
+Starting version 5.5, Breakpad will pick the DLL (dbghelp.dll) that is shipped with the OS.
+|===
+
+[#v550-known-issues]
+== Known Issues
+
+*Cross Data-center Replication (XDCR)*
+
+[#table_knownissues_v55-xdcr,cols="25,66"]
+|===
+| Issue | Description
+
+| https://issues.couchbase.com/browse/MB-29209[MB-29209], https://issues.couchbase.com/browse/MB-29205[MB-29205], https://issues.couchbase.com/browse/MB-29113[MB-29113], https://issues.couchbase.com/browse/MB-29040[MB-29040]
+| *Summary*: There are a number of open issues in Couchbase Server, which can cause rebalance to fail from time to time.
+These issues are being worked on and will be addressed for GA.
+
+*Workaround*: Rerun rebalance as the subsequent rebalance operations succeed in most cases.
+
+| https://issues.couchbase.com/browse/MB-27719[MB-27719]
+| *Summary*: The [.cmd]`cbrecovery` command throws an exception when recovering data from a cluster that has failed over nodes.
+|===
+
+*Administration/Cluster Management*
+
+[#table_knownissues_v55-cluster,cols="25,66"]
+|===
+| Issue | Description
+
+| https://issues.couchbase.com/browse/MB-28417[MB-28417]
+| *Summary*: The permissions assigned to the cluster_admin role have been downgraded.
+As a result, The cluster_admin role no longer has FTS write permissions used to create FTS searches.
+
+_Workaround_: Add  the *fts_admin* role as required.
+
+| https://issues.couchbase.com/browse/MB-23074[MB-23074]
+| *Summary*: Performance issues may be observed when running Couchbase Server on CentOS 7.3 with kernel 3.10.0-514.6.
+
+| https://issues.couchbase.com/browse/MB-17571[MB-17571]
+| *Summary:* On an undersized node, the default memory quota assigned to all the selected services by the server might result in a failure.
+
+*Workaround:* Adjust the memory allocations appropriately to work around this issue.
+|===
+
+*Data Service*
+
+[#table_knownissues_v55-kv-data,cols="25,66"]
+|===
+| Issue | Description
+
+| https://issues.couchbase.com/browse/MB-29227[MB-29227]
+| *Summary*: Couchbase Server can get into a livelock state due to high checkpoint memory usage.
+
+| https://issues.couchbase.com/browse/MB-28868[MB-28868]
+| *Summary*: The index service undergoes a race condition in the storage engine which leads to a crash.
+The crash is most likely to happen if the index service is restarted with existing build indexes and they continue to process mutations after the index service restarts.
+|===
+
+*Eventing Service*
+
+[#table_knownissues_v55-eventing,cols="25,66"]
+|===
+| Issue | Description
+
+| https://issues.couchbase.com/browse/MB-29235[MB-29235]
+| *Summary*: Eventing does not retry bucket operation failures that are determined by the appropriate LCB macro to be retriable.
+
+| https://issues.couchbase.com/browse/MB-29147[MB-29147]
+| *Summary*: Rebalance of KV/Eventing nodes can hang if the cluster contains Eventing nodes due to stale authentication info with the GoCB SDK.
+
+| https://issues.couchbase.com/browse/MB-29076[MB-29076]
+| *Summary*: The signatures of docTimer and cronTimer functions are not consistent.
+
+| https://issues.couchbase.com/browse/MB-28968[MB-28968]
+| *Summary*: Rebalance of KV/Eventing nodes can hang if the cluster contains Eventing nodes.
+
+| https://issues.couchbase.com/browse/MB-28779[MB-28779]
+| *Summary*: If the handler code is not idempotent, there could be more docs on the destination bucket than expected post rebalance.
+
+| https://issues.couchbase.com/browse/MB-28775[MB-28775]
+| *Summary*: On Windows, there could be orphan processes with [.path]_.rbf _extension running even after uninstalling Couchbase Server.
+
+*Workaround*: Kill all [.path]_eventing-consumer.exe_ processes before reinstalling Couchbase Server.
+
+| https://issues.couchbase.com/browse/MB-28667[MB-28667]
+| *Summary*: In some circumstances, like function undergoing bootstrap or buckets referenced by the function (source, metadata, destination) get flushed or deleted, the function cannot be undeployed.
+
+| https://issues.couchbase.com/browse/MB-28550[MB-28550]
+| *Summary*: After restoring from a enterprise backup of eventing functions, eventing service will not process mutations in the destination cluster.
+
+| https://issues.couchbase.com/browse/MB-28315[MB-28315]
+| *Summary*: Redeploying a function results in the application log being truncated instead of appending to the existing log.
+
+| https://issues.couchbase.com/browse/MB-27814[MB-27814]
+| *Summary*: When there are multiple functions being deployed, undeployment does not happen until all functions are deployed.
+
+| https://issues.couchbase.com/browse/MB-27679[MB-27679]
+| *Summary*: The Eventing service can crash when processing documents in source buckets with size > 1 MB.
+
+| https://issues.couchbase.com/browse/MB-27559[MB-27559]
+| *Summary*: Benign panics can be seen in the eventing service logs during undeployment.
+
+| https://issues.couchbase.com/browse/MB-27491[MB-27491]
+| *Summary*: Failed rebalance, when retried, can hang.
+
+| https://issues.couchbase.com/browse/MB-27454[MB-27454]
+| *Summary*: Rebalance-in of a data(KV) node after recovery from failover may hang if eventing service is processing mutations.
+|===
+
+*Full-text Search Service*
+
+[#table_knownissues_v55-fts,cols="25,66"]
+|===
+| Issue | Description
+
+| https://issues.couchbase.com/browse/MB-29142[MB-29142]
+| *Summary*:
+
+| https://issues.couchbase.com/browse/MB-28894[MB-28894]
+| *Summary*:
+
+| https://issues.couchbase.com/browse/MB-28847[MB-28847]
+| *Summary*: The memory usage during index build overshoots the RAM quota.
+
+| https://issues.couchbase.com/browse/MB-28468[MB-28468]
+| *Summary*: The full-text search service repeatedly attempts to setup DCP streams to non-existing vBuckets.
+
+| https://issues.couchbase.com/browse/MB-25714[MB-25714]
+| *Summary*: On Windows platform, a very high memory/CPU usage may be observed when search service is indexing.
+|===
+
+*Indexing Service*
+
+[#table_knownissues_v55-gsi-views,cols="25,66"]
+|===
+| Issue | Description
+
+| https://issues.couchbase.com/browse/MB-28139[MB-28139]
+| *Summary*: If the index files are corrupted, the index service may continue to crash.
+
+*Workaround*: Failover the indexer node, or manually delete the corrupt index files from the server.
+
+| https://issues.couchbase.com/browse/MB-19869[MB-19869]
+| *Summary*: Rebalance fails when taking out failed over nodes running views,  in certain circumstances.
+|===
+
+*Tools*
+
+[#table_knownissues_v55-tools,cols="25,66"]
+|===
+| Issue | Description
+
+| https://issues.couchbase.com/browse/MB-28337[MB-28337]
+| *Summary*: The [.cmd]`cbworkloadgen` utility fails to load large number of documents when IPv6 was enabled.
+|===
+
+*Analytics Service (Developer Preview)*
+
+[#table_knownissues_v55-analytics,cols="25,66"]
+|===
+| Issue | Description
+
+| https://issues.couchbase.com/browse/MB-27280[MB-27280]
+ a bucket is in the disconnected state, and
+ the Analytics nodes are at different DCP states.
+| *Summary*: It is possible for a rebalance of the Analytics nodes to always fail if:
+
+
+
+In that case a common DCP state (required for rebalancing) cannot be achieved as no new DCP mutations will be received by the Analytics nodes.
+|===
+
+[#v550-fixed-issues]
+== Fixed Issues
+
+*Query Service*
+
+[#table_fixedissues_query_550,cols="25,66"]
+|===
+| Issue | Description
+
+| https://issues.couchbase.com/browse/MB-25901[MB-25901]
+| Fixed an issue where the ORDER BY operator proceeded to sort even after being stopped and could lead to crashes.
+|===
+
+== Deprecated Features and Platforms
+
+The following functionality is deprecated, will be deprecated or is unsupported.
+
+* Server side moxi or buckets with custom server side moxi ports are deprecated and may be removed from the product in the future.

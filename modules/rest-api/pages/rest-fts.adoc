@@ -1,0 +1,79 @@
+[#topic_ytp_sx4_1v]
+= Full Text Search API
+
+NOTE: The REST APIs for Full Text Search are experimental in this release.
+Any aspect may change significantly in the future.
+
+For Full Text Search, the REST endpoints below can be reached on port 8094, or 18094 when using SSL.
+If running in a multi-node environment, you have to connect to a node with Full Text service enabled.
+
+For more information on required roles and permissions, please consult xref:security:security-roles.adoc[Roles].
+Granting users the appropriate role automatically assigns the required permissions, which are listed here for information purposes since you may see them in the audit log, for example.
+
+== Indexing
+
+*Index Definition*
+
+* xref:rest-api:rest-fts-indexing.adoc#g-api-index[rest-api:rest-fts-indexing.adoc#g-api-index]
+* xref:rest-api:rest-fts-indexing.adoc#g-api-index-name[rest-api:rest-fts-indexing.adoc#g-api-index-name]
+* xref:rest-api:rest-fts-indexing.adoc#p-api-index-name[rest-api:rest-fts-indexing.adoc#p-api-index-name]
+* xref:rest-api:rest-fts-indexing.adoc#d-api-index-name[rest-api:rest-fts-indexing.adoc#d-api-index-name]
+
+*Index Management*
+
+* xref:rest-api:rest-fts-indexing.adoc#p-api-idx-name-ingestcontrol[rest-api:rest-fts-indexing.adoc#p-api-idx-name-ingestcontrol]
+* xref:rest-api:rest-fts-indexing.adoc#p-api-idx-name-planfreezecontrol[rest-api:rest-fts-indexing.adoc#p-api-idx-name-planfreezecontrol]
+* xref:rest-api:rest-fts-indexing.adoc#p-api-idx-name-querycontrol[rest-api:rest-fts-indexing.adoc#p-api-idx-name-querycontrol]
+
+*Index Monitoring*
+
+* xref:rest-api:rest-fts-indexing.adoc#g-api-stats[rest-api:rest-fts-indexing.adoc#g-api-stats]
+* xref:rest-api:rest-fts-indexing.adoc#g-api-stats-index-name[rest-api:rest-fts-indexing.adoc#g-api-stats-index-name]
+
+*Index Querying*
+
+* xref:rest-api:rest-fts-indexing.adoc#g-api-index-name-count[rest-api:rest-fts-indexing.adoc#g-api-index-name-count]
+* xref:rest-api:rest-fts-indexing.adoc#p-api-index-name-query[rest-api:rest-fts-indexing.adoc#p-api-index-name-query]
+
+== Node
+
+*Node Configuration*
+
+* xref:rest-api:rest-fts-node.adoc#g-api-cfg[rest-api:rest-fts-node.adoc#g-api-cfg]
+* xref:rest-api:rest-fts-node.adoc#p-api-cfgrefresh[rest-api:rest-fts-node.adoc#p-api-cfgrefresh]
+* xref:rest-api:rest-fts-node.adoc#p-api-mgrkick[rest-api:rest-fts-node.adoc#p-api-mgrkick]
+* xref:rest-api:rest-fts-node.adoc#g-api-mgrmeta[rest-api:rest-fts-node.adoc#g-api-mgrmeta]
+
+*Node Diagnostics*
+
+* xref:rest-api:rest-fts-node.adoc#g-api-diag[rest-api:rest-fts-node.adoc#g-api-diag]
+* xref:rest-api:rest-fts-node.adoc#g-api-log[rest-api:rest-fts-node.adoc#g-api-log]
+* xref:rest-api:rest-fts-node.adoc#g-api-runtime[rest-api:rest-fts-node.adoc#g-api-runtime]
+* xref:rest-api:rest-fts-node.adoc#g-api-runtime-args[rest-api:rest-fts-node.adoc#g-api-runtime-args]
+* xref:rest-api:rest-fts-node.adoc#p-api-runtime-cpu[rest-api:rest-fts-node.adoc#p-api-runtime-cpu]
+* xref:rest-api:rest-fts-node.adoc#p-api-runtime-memory[rest-api:rest-fts-node.adoc#p-api-runtime-memory]
+
+*Node Management*
+
+* xref:rest-api:rest-fts-node.adoc#p-api-runtime-gc[rest-api:rest-fts-node.adoc#p-api-runtime-gc]
+
+*Node Monitoring*
+
+* xref:rest-api:rest-fts-node.adoc#g-api-runtime-stats[rest-api:rest-fts-node.adoc#g-api-runtime-stats]
+* xref:rest-api:rest-fts-node.adoc#g-api-runtime-statsmem[rest-api:rest-fts-node.adoc#g-api-runtime-statsmem]
+
+== Advanced
+
+*Index Partition Definition*
+
+* xref:rest-api:rest-fts-advanced.adoc#g-api-index[rest-api:rest-fts-advanced.adoc#g-api-index]
+* xref:rest-api:rest-fts-advanced.adoc#g-api-index-name[rest-api:rest-fts-advanced.adoc#g-api-index-name]
+
+*Index Partition Querying*
+
+* xref:rest-api:rest-fts-advanced.adoc#g-api-index-name-count[rest-api:rest-fts-advanced.adoc#g-api-index-name-count]
+* xref:rest-api:rest-fts-advanced.adoc#p-api-index-name-query[rest-api:rest-fts-advanced.adoc#p-api-index-name-query]
+
+*FTS Memory Quota*
+
+* xref:rest-api:rest-fts-advanced.adoc#p-api-fts-memory-quota[rest-api:rest-fts-advanced.adoc#p-api-fts-memory-quota]

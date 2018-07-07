@@ -1,0 +1,33 @@
+[#topic_g1w_qpr_g4]
+= Hardware Requirements
+
+[abstract]
+Follow the recommendations for minimum and recommended hardware and software specifications.
+
+== Minimum Specification
+
+Hardware and software requirements may vary depending on the machine and operating system.
+
+The minimum hardware specifications to install and effectively operate Couchbase Server are:
+
+* Dual-core x86 CPU running at 2GHz.
+* 4GB RAM (physical).
+* A block-based storage device (hard disk, SSD, EBS, iSCSI).
+
+Network file systems such as CIFS and NFS are not supported.
+
+IMPORTANT: You can reduce the CPU and RAM resources below the above-specified minimum for development and testing purposes.
+The specification can be as low as 1GB of free RAM beyond operating system requirements and a single CPU core.
+However, you must use at least the required minimum specification for production.
+
+== Recommended Specifications
+
+The recommended hardware specifications to install and effectively operate Couchbase Server include:
+
+* Four core 64-bit x86 CPU running at 3GHz; six cores when using Cross Datacenter Replication (XDCR) and Views.
+* 16GB RAM (physical).
+* A local block-based storage device (hard disk, SSD).
+Network filesystems such as CIFS and NFS are not supported.
+
+These recommended specifications do not take into account your intended workload.
+You should follow the sizing guidelines detailed in xref:install:sizing-general.adoc[Sizing Guidelines] when deciding on machine specifications to run Couchbase Server.

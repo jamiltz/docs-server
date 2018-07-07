@@ -1,0 +1,14 @@
+[#concept_iy1_2rg_2s]
+= Connector Guides
+
+[abstract]
+Couchbase connectors enable you to exchange data with a number of other platforms.
+
+Connectors are provided for:
+
+* xref:connectors:elasticsearch/overview.adoc[Elasticsearch]
+* xref:connectors:hadoop-1.2/hadoop.adoc#hadoop-1.2[Hadoop]
+* xref:connectors:kafka-3.2/kafka-intro.adoc[Kafka]
+* xref:connectors:spark-2.2/spark-intro.adoc[Spark]
+* xref:connectors:talend/talend.adoc#hadoop-1.2[Talend]
+* xref:connectors:odbc-jdbc-drivers.adoc[Couchbase ODBC and JDBC Drivers]

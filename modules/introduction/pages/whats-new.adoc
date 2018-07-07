@@ -63,7 +63,7 @@ Index partitioning is transparent to queries – one does not have to update the
 With end-to-end compression from client to storage, Couchbase significantly reduces the cost of network, memory, and storage required for your existing workloads.
 Documents are transparently compressed when transferred between the clients and the servers, in the server cache, and on disk.
 Documents are also compressed when transferred between clusters across data centers.
-See xref:architecture:core-data-access-compression.adoc#compression[Data Compression] for more information.
+See xref:understanding-couchbase:buckets-memory-and-storage/compression.adoc[Compression] for more information.
 
 == Ease of Platform Management
 
@@ -86,7 +86,7 @@ Couchbase continues to extend its support for security to enable enterprises to 
 We extend xref:security:security-certs-auth.adoc#topic_pcr_mvh_p1b[X.509 certificate authentication] beyond key-value data access to query and search services for xref:sdk:dotnet/sdk-authentication-overview.adoc#sdk_authentication[all SDK].
 We also support field-level encryption in our SDKs to protect sensitive user data.
 Users can xref:settings:cluster-settings.adoc#topic_h12_hqn_vs[enable log redaction] to prevent leaking sensitive user data when using the logs for troubleshooting production issues.
-Furthermore, we employ system auditing to track all admin and non-admin access, including xref:security:n1ql-auditing.adoc#n1ql-auditing[auditing of query statements].
+Furthermore, we employ system auditing to track all admin and non-admin access, including xref:n1ql:n1ql-language-reference/n1ql-auditing.adoc#n1ql-auditing[auditing of query statements].
 
 *Response Time Observability*
 
@@ -128,8 +128,9 @@ Edit document data from the user interface without the syntactic constraints of 
 
 *SDK enhancements*
 
+Many improvements are exposed through the Couchbase SDK, therefore update to the latest versions to ensure maximum compatibility.
+See the xref:sdk:java/start-using-sdk.adoc#topic_vpj_dh5_xv[SDK documentation] for details.
 
 .SDK versions that support Couchbase Server 5.5 features
 [#fig_rqn_jsr_cdb]
 image::couchbase-5.5-beta-sdk-versions.png[Table listing SDK versions that support Couchbase Server 5.5 features,570]
-{blank}

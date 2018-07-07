@@ -3,11 +3,9 @@
 
 `select::= select-term [ set-op [ ALL ] ] [ order-by-clause | limit-clause | offset-clause ]`
 
-
 .Railroad Diagram: select
 [#fig_iz2_3cl_dx]
 image::select.png[]
-{blank}
 
 `select-term::= subselect | "(" select ")"`
 

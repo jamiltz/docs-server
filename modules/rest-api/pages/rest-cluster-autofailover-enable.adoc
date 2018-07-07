@@ -1,0 +1,90 @@
+[#rest-cluster-autofailover-enable]
+= Enabling and Disabling Auto-Failover
+
+[abstract]
+Auto-failover is enabled and disabled by means of the `POST /settings/autoFailover` HTTP method and URI.
+
+== HTTP method and URI
+
+The auto-failover setting is global, and therefore applies to all nodes in the cluster.
+Setting-changes require authentication.
+
+----
+POST /settings/autoFailover
+----
+
+The following parameters are used:
+
+{blank}
+
+* `enabled=[true|false]`.
+Enables or disables automatic failover.
+* `timeout=`_number-of-seconds_.
+Integer between 5 and 3600.
+Specifies the number of seconds that must elapse, with a node unavailable, before automatic failover is triggered.
+* `maxCount=`_number-of-events_.
+Specifies the number of auto-failover events that will be handled before requiring user intervention.
+A single event could be one node failing over or an entire Server Group.
+The maximum allowed value is three.
+* `failoverServerGroup=[true|false]`.
+Enables or disables automatic failover for server groups, and specifies the number of seconds that must elapse after a node has become unavailable, before automatic failover is triggered.
+Do not enable failover for server groups unless you have set up three of more server groups, and have the capacity to absorb the load of any failed-over group.
+* `failoverOnDataDiskIssues[enabled]=[true|false]&failoverOnDataDiskIssues[timePeriod]=`_number-of-seconds_.
+Integer between 5 and 3600.
+Enables or disables automatic failover for sustained data-disk read/write failures, after the specied time-period.
+
+== Syntax
+
+Curl request syntax:
+
+[source,bourne]
+----
+curl -u [admin]:[password] http://[localhost]:8091/settings/autoFailover -d [parameter]
+----
+
+[#example]
+== Example
+
+Curl request example:
+
+[source,javascript]
+----
+curl -i -X POST -u Administrator:password http://10.142.180.103:8091/settings/autoFailover \
+  -d 'enabled=true&timeout=72' \
+  -d 'failoverServerGroup=true&maxCount=2' \
+  -d 'failoverOnDataDiskIssues[enabled]=true&failoverOnDataDiskIssues[timePeriod]=89'
+----
+
+Raw HTTP request example:
+
+----
+POST /settings/autoFailover HTTP/1.1
+Host: 10.5.2.54:8091
+Content-Type: application/x-www-form-urlencoded
+Authorization: Basic YWRtaW46YWRtaW4=
+Content-Length: 14
+enabled=true&timeout=600
+----
+
+== Response codes
+
+[source,bourne]
+----
+HTTP/1.1 200 OK
+Server: Couchbase Server
+Pragma: no-cache
+Date: Sat, 18 Oct 2014 00:26:28 GMT
+Content-Length: 0
+Cache-Control: no-cache
+----
+
+Possible errors include:
+
+[source,bourne]
+----
+400 Bad Request, The value of "enabled" must be true or false
+400 Bad Request, The value of "timeout" must be a positive integer in a range from 5 to 3600
+400 Bad Request, The value of "failoverOnDataDiskIssues[timePeriod]" must be a positive integer in a range from 5 to 3600
+401 Unauthorized
+This endpoint isn't available yet.
+----

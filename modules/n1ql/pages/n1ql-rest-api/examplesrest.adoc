@@ -1,0 +1,15 @@
+[#concept_hf3_xsx_nq]
+= Examples
+
+Here are some examples of the REST API:
+
+* xref:n1ql:exsuccessful.adoc[Successful request]
+* xref:n1ql:expositional.adoc[Request with positional parameters]
+* xref:n1ql:exnamed.adoc[Request with Named Parameters]
+* xref:n1ql:extimeout.adoc[Request Timeout]
+* xref:n1ql:exrequesterror.adoc[Request error]
+* xref:n1ql:exserviceerror.adoc[Service error]
+* xref:n1ql:exn1qlerror.adoc[N1QL error]
+* xref:n1ql:exunsupportedhttp.adoc[Unsupported HTTP method]
+* xref:n1ql:exauthhttp.adoc[Request with authentication - HTTP header]
+* xref:n1ql:exauthrequest.adoc[Request with authentication - request parameter]

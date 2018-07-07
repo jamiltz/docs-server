@@ -1,0 +1,188 @@
+[#topic8026]
+= Red Hat and CentOS Installation
+
+[abstract]
+Couchbase Server supports Red Hat (RHEL) and RHEL-based operating systems such as CentOS.
+
+Before you start with the installation, ensure that dependency checking tool [.cmd]`pkgconfig` is installed.
+The Couchbase Server package requires this package to verify certain package dependencies have been met.
+
+== Check OpenSSL Dependency
+
+The Couchbase Server RPM performs dependency checks using `pkgconfig` for RHEL.
+Verify that `pkgconfig` is installed, and install it if necessary:
+
+[source,bash]
+----
+sudo yum install -y pkgconfig
+----
+
+Upon successful installation, the following output appears:
+
+----
+Loaded plugins .... Installed: pkgconfig.x86_64 1:0.21-2.el5 Complete!
+----
+
+IMPORTANT: Please ensure that you are running OpenSSL v1.0.1g or higher.
+On Monday, April 7th, 2014, an OpenSSL vulnerability was disclosed which has been called one of the worst security holes in recent internet history.
+The bug, called the Heartbleed bug, was introduced in OpenSSL version 1.0.1.
+It has been in the wild since March of 2012 and is patched with OpenSSL version 1.0.1g released on April 7th, 2014.
+The problem, tagged CVE-2014-0160, is described in detail in this https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2014-0160[NIST article].
+
+For CentOS systems, you can query the version of the OpenSSL package installed on your system by typing:
+
+[source,bash]
+----
+ rpm -q -a | grep "openssl"
+----
+
+You should receive output that looks like this:
+
+----
+openssl-1.0.1e-16.el6_5.7.x86_64
+----
+
+If you are on one of the supported distributions, ensure that your OpenSSL version is up-to-date.
+If your distribution is not supported anymore, it is highly recommended that you transition to a supported operating system due to this bug's severity.
+
+== Installing Using [.cmd]`rpm`
+
+Install Couchbase Server on RHEL using the [.cmd]`rpm` command-line tool with the downloaded RPM package.
+
+Only 64-bit systems are supported.
+See xref:install:install-platforms.adoc#topic1634[Supported Platforms] for details.
+
+*Disable Transparent Huge Pages (THP)*
+
+RHEL6 and other newer Linux distributions are known to have Transparent Huge Pages (THP) feature enabled by default.
+THP can cause issues in database software, including Couchbase Server.
+THP can cause nodes to lose cluster heartbeats, resulting in erroneous automatic fail overs.
+xref:install:thp-disable.adoc#topic_wmm_1ps_pv[Disabling Transparent Huge Pages (THP)] prior to installing Couchbase Server is strongly encouraged.
+
+*Complete the Installation*
+
+You must be logged in as `root` (superuser) or use the [.cmd]`sudo` command to complete the installation.
+Use the following command to install the Couchbase Server package:
+
+[source,bash]
+----
+rpm --install couchbase-server-version.rpm
+----
+
+where [.var]`version` is the version number of the downloaded package.
+
+After the [.cmd]`rpm` command completes, the Couchbase Server service starts automatically.
+It is configured to start automatically under OS runlevels 2, 3, 4, and 5.
+Refer to the Red Hat RPM documentation for more information about installing packages using RPM.
+
+After installation is completed, the installation process displays a message similar to the following:
+
+----
+    Minimum RAM required : 4 GB 
+    System RAM configured : 8174464 kilobytes
+    Minimum number of processors required :  4 cores 
+    Number of processors on the system : 4 cores
+    
+    
+    Starting couchbase-server[ OK ]
+    
+    You have successfully installed Couchbase Server. 
+    Browse to http://host_name:8091/ to configure your server. 
+    Refer to http://couchbase.com for additional resources.
+    
+    Update your firewall configuration 
+    to allow connections to the following ports: 
+    
+    11211, 11210, 11209, 4369, 8091, 8092 and from 21100 to 21299.
+    
+    
+    By using this software you agree to the End User License Agreement. 
+    See /opt/couchbase/LICENSE.txt.
+----
+
+After the installation is completed, use the [.cmd]`service` command to manage the Couchbase Server service, including checking the current status.
+Refer to the Ubuntu documentation for instructions.
+
+To perform the initial Couchbase Server setup, open a web browser and access the Couchbase Web Console.
+
+[#rh-nonroot-nonsudo-]
+== Installing as non-root, non-sudo
+
+Installing on RHEL as a non-root, non-sudo user on a single machine.
+
+A non-sudo, non-root installation still runs Couchbase Server and all Couchbase command-line tools.
+
+. After downloading the Couchbase Server RPM, go to the directory where it is located and extract it:
++
+[source,bash]
+----
+rpm2cpio couchbase-server-enterprise_version.rpm | cpio --extract --make-directories --no-absolute-filenames
+----
++
+In the directory where the files were extracted, the `opt` and `etc` sub-directories are available.
+
+. After you extract the Couchbase Server installation files, go to the sub-directory:
++
+[source,bash]
+----
+cd opt/couchbase
+----
+
+. Run the following script to relocate the Couchbase Server installation to the present working directory (PWD):
++
+[source,bash]
+----
+./bin/install/reloc.sh `pwd`
+----
++
+This enables you to continue the installation as a non-root, non-sudo user.
+
+. To run the server, use
++
+[source,bash]
+----
+./bin/couchbase-server \-- -noinput -detached
+----
+
+. To stop the server, use
++
+[source,bash]
+----
+./bin/couchbase-server -k
+----
+
+== Installing using [.cmd]`yum`
+
+This installation uses a package management system.
+
+To install on RHEL/CentOS version 6 or 7 using [.cmd]`yum`:
+
+. Download and install the appropriate meta package from the https://packages.couchbase.com/releases/couchbase-release/couchbase-release-1.0-5-x86_64.rpm[package download location].
+This will install the package source and the Couchbase public keys:
++
+[source,bash]
+----
+curl -O http://packages.couchbase.com/releases/couchbase-release/couchbase-release-1.0-5-x86_64.rpm 
+sudo rpm -i couchbase-release-1.0-5-x86_64.rpm
+----
+
+. Proceed with installing the actual Couchbase Server package:
++
+[source,bash]
+----
+sudo yum update
+----
++
+Then:
++
+[source,bash]
+----
+sudo yum install couchbase-server
+----
++
+Or:
++
+[source,bash]
+----
+sudo yum install couchbase-server-community
+----

@@ -1,0 +1,365 @@
+[#topic2659]
+= Network Configuration
+
+[abstract]
+Couchbase Server uses a variety of network ports for communication between server components and with the clients accessing the data stored in the Couchbase Server cluster.
+
+The ports listed below must be open on each host for Couchbase Server to operate correctly.
+In addition, certain ports must be available (i.e., not blocked by a firewall or other such mechanism) between each node of a cluster, between nodes of multiple clusters connected via XDCR, between application servers and nodes, and for administrative access.
+
+IMPORTANT: If any port numbers are already in use by other running applications, Couchbase Server will not function properly and may fail to start.
+
+The following is a list of port numbers grouped by category of communication path:
+
+Node-local: Only connected to over localhost, needs to be open on the node but not available externally.:: 11213, 9119, 9998
+
+Node-to-node: Between all nodes within a single cluster.:: 4369, 8091-8096, 9100-9105, 9110-9118, 9120-9122, 9999, 11209, 11210, 21100-21299
+
+Client-to-node: Between any clients/app-servers/SDKs and all nodes of each cluster they require access to.:: Unencrypted*: 8091-8096, 11210, 11211
+Encrypted: 18091-18096†††, 11207
+
+Cluster administration: Administration traffic via the REST API, command-line, and Web UI.:: Unencrypted*: 8091
+Encrypted: 18091
+*Note:* certain support/diagnostic requests may run against ports other than 8091.
+These are expected to execute locally on a node and so do not require external access.
+
+XDCR: Between all source and destination nodes of an XDCR replication stream.:: *v1 (CAPI)*
+8091, 8092
+*v2 (XMEM)*
+Unencrypted*: 8091, 8092, 11210
+Encrypted: 8091, 11207, 18091, 18092
+
+*  If enforcing encryption (SSL/TLS), these ports may be blocked outside of a Couchbase Server cluster but need to remain open between nodes.
+
+The following table provides more description:
+
+[cols="1,1,3,1,1,1,1,1"]
+|===
+| Port Name | Default Port Number Un / Encrypted | Description | Node-to-node | Client-to-Node | Cluster admin | XDCR v1 (CAPI) | XDCR v2 (XMEM)
+
+| epmd port^†^
+| 4369
+| Erlang Port Mapper Daemon
+| Yes
+| No
+| No
+| No
+| No
+
+| rest_port / ssl_rest_port
+| 8091 / 18091
+| REST/HTTP including Web UI
+| Yes
+| Yes
+| Yes
+| Yes
+| Yes
+
+| capi_port / ssl_capi_port
+| 8092 / 18092
+| Views and XDCR access
+| Yes
+| Yes
+| No
+| Yes
+| Yes
+
+| query_port / ssl_query_port
+| 8093 / 18093
+| Query service REST/HTTP traffic
+| Yes
+| Yes
+| No
+| No
+| No
+
+| fts_http_port / fts_ssl_port
+| 8094 / 18094
+| Search service REST/HTTP traffic
+| Yes
+| Yes
+| No
+| No
+| No
+
+| cbas_http_port / cbas_ssl_port
+| 8095 / 18095†††
+| Analytics service REST/HTTP traffic
+| No
+| Yes
+| No
+| No
+| No
+
+| eventing_http_port/ eventing_ssl_port
+| 8096 / 18096
+| Eventing service REST/HTTP traffic
+| No
+| Yes
+| No
+| No
+| 
+
+| indexer_admin_port
+| 9100
+| Indexer service
+| Yes
+| No
+| No
+| No
+| No
+
+| indexer_scan_port
+| 9101
+| Indexer service
+| Yes
+| No
+| No
+| No
+| No
+
+| indexer_http_port
+| 9102
+| Indexer service
+| Yes
+| No
+| No
+| No
+| No
+
+| indexer_stinit_port
+| 9103
+| Indexer service
+| Yes
+| No
+| No
+| No
+| No
+
+| indexer_stcatchup_port
+| 9104
+| Indexer service
+| Yes
+| No
+| No
+| No
+| No
+
+| indexer_stmaint_port
+| 9105
+| Indexer service
+| Yes
+| No
+| No
+| No
+| No
+
+| cbas_admin_port
+| 9110
+| Analytics service
+| Yes
+| No
+| No
+| No
+| No
+
+| cbas_cc_http_port
+| 9111
+| Analytics service
+| Yes
+| No
+| No
+| No
+| No
+
+| cbas_cc_cluster_port
+| 9112
+| Analytics service
+| Yes
+| No
+| No
+| No
+| No
+
+| cbas_cc_client_port
+| 9113
+| Analytics service
+| Yes
+| No
+| No
+| No
+| No
+
+| cbas_console_port
+| 9114
+| Analytics service
+| Yes
+| No
+| No
+| No
+| No
+
+| cbas_cluster_port††††
+| 9115
+| Analytics service
+| Yes
+| No
+| No
+| No
+| No
+
+| cbas_data_port
+| 9116
+| Analytics service
+| Yes
+| No
+| No
+| No
+| No
+
+| cbas_result_port
+| 9117
+| Analytics service
+| Yes
+| No
+| No
+| No
+| No
+
+| cbas_messaging_port
+| 9118
+| Analytics service
+| Yes
+| No
+| No
+| No
+| No
+
+| cbas_auth_port
+| 9119
+| Analytics service
+| No
+| No
+| No
+| No
+| No
+
+| cbas_replication_port
+| 9120
+| Analytics service
+| Yes
+| No
+| No
+| No
+| No
+
+| cbas_metadata_port
+| 9121
+| Analytics service
+| Yes
+| No
+| No
+| No
+| No
+
+| cbas_metadata_callback_port
+| 9122
+| Analytics service
+| Yes
+| No
+| No
+| No
+| No
+
+| xdcr_rest_port
+| 9998
+| XDCR REST port
+| No
+| No
+| No
+| No
+| No
+
+| projector_port
+| 9999
+| Indexer service
+| Yes
+| No
+| No
+| No
+| No
+
+| memcached_dedicated_port
+| 11209
+| Data Service
+| Yes
+| No
+| No
+| No
+| No
+
+| memcached_port / memcached_ssl_port
+| 11210 / 11207
+| Data Service
+| Yes
+| Yes
+| No
+| No
+| Yes
+
+| moxi_port^††^
+| 11211
+| Moxi port
+| No
+| Yes
+| No
+| No
+| No
+
+| moxi_port_internal^††^
+| 11213
+| Moxi port
+| No
+| No
+| No
+| No
+| No
+
+| Internal data ports
+| 21100 to 21299 (inclusive)
+| Node data exchange.
+| Yes
+| No
+| No
+| No
+| No
+|===
+
+† Cannot be remapped
+
+†† Cannot be remapped.
+Deprecated in 5.0 and will be removed in a subsequent release.
+Consider using xref:install:install-client-server.adoc[client-side Moxi] instead.
+
+††† Analytics SSL port not currently used; reserved for future use.
+
+†††† In 5.5 Beta build, this port was named _cbas_hyracks_console_port_.
+
+== Custom Port Mapping
+
+IMPORTANT: Changing the port mappings will require a reset and reconfiguration of any Couchbase Server node.
+
+*Setting up Couchbase Server with Custom Ports*
+
+. Install Couchbase Server (If already running, stop it.
+. Add the new user-defined ports to the [.path]_/opt/couchbase/etc/couchbase/static_config_ file [this will be at wherever you put [.path]_<path to> /couchbase/etc/couchbase/static_config_ for multiple node installations].
+ ** Example, to change the REST API port from 8091 to 9000, add this line:
++
+----
+{rest_port, 9000}
+----
+
+ ** Any ports not listed will be assigned their defaults as listed above
+. (Optional) CAPI port (default 8092) can be edited in the [.path]_/opt/couchbase/etc/couchdb/default.d/capi.ini_ file by replacing 8092 with the new port number.
+. If the Couchbase Server was previously configured, delete the [.path]_opt/couchbase/var/lib/couchbase/config/config.dat_ file to remove the old configuration.
+. Start Couchbase Server.

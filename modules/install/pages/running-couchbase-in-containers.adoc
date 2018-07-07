@@ -1,0 +1,25 @@
+[#run-couchbase-in-containers]
+= Running Couchbase Server in Containers & Orchestration
+
+Couchbase provides the ability to run in the most popular containers, including Docker and Red Hat OpenShift Container Platform.
+This page lists the available options to run Couchbase Server in containers or use container orchestration technologies.
+
+== Run Couchbase Server in Containers
+
+|===
+| Docker | Red Hat OpenShift
+
+| Run Couchbase Server using Docker Hub.
+| Run Couchbase Server using the Red Hat OpenShift Container Platform.
+
+ xref:install:getting-started-docker.adoc#topic_mln_twc_3w[Running Couchbase Server using Docker]
+| 
+ xref:install:couchbase-using-openshift-container.adoc#run-couchbase-openshift-container[Running Couchbase Server Using Red Hat OpenShift]
+| 
+|===
+
+== Couchbase Operator [Beta]: Native Integration with Kubernetes and OpenShift
+
+Couchbase also provides native integration with orchestration technologies such as Kubernetes and OpenShift.
+The Couchbase Operator (Beta) is a Kubernetes and OpenShift native integration that allows you to automate the management of common Couchbase tasks such as the configuration, creation, and scaling of Couchbase clusters.
+For more details, see xref:operator:overview.adoc[operator:overview.adoc].

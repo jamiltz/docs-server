@@ -1,0 +1,140 @@
+[#topic_ncd_gdg_q4]
+= Adding a Node
+
+[abstract]
+Add a node to the cluster during initial installation or after the installation.
+
+Full Administrators and Cluster Administrators can use the UI, CLI, or REST API interface to add a node.
+
+There are several methods for adding a node to a cluster.
+In each case, one or more nodes are marked to be added to the cluster, but it doesn't become an active member of the cluster until you rebalance the cluster.
+
+In a CLI call, the rebalance can optionally be done while adding the new node and using the UI, rebalancing requires an extra step.
+
+== During Initial Installation
+
+When setting up a new Couchbase Server installation, you have the option to join the new node to an existing cluster.
+For detailed instructions, see xref:install:init-setup.adoc#topic12527[Initializing the Cluster].
+
+The node will be created as a new cluster, but the pending status of the node within the new cluster will be indicated, as shown in the example below:
+
+image::../images/admin-tasks-rebalance-node-added.png[,align=left]
+
+== Using the UI
+
+Using the same method, you can add a server that was previously part of this or another cluster.
+During this process, Couchbase Server must be running.
+
+[#image_myt_vqk_zs]
+image::../admin/picts/add-server-new2.png[,align=left]
+
+To add a new node to an existing cluster using the Web Console:
+
+[#ol_dyg_qjq_cz]
+. From the [.uicontrol]*Couchbase Web Console > Servers >* click [.uicontrol]*Add Server*.
+. Enter the following information and click [.uicontrol]*Add Server*.
+
+[#table_wdz_skq_cz,cols="1,4"]
+|===
+| Option | Description
+
+| Server IP Address
+| The IP address or FQDN (Fully Qualified Domain Name) of the server that you want to add.
+It is preferred that you use FQDNs, especially in a cloud hosting environment.
+
+| Assign Server Group
+| Select the server group name from the list.
+For more information about server groups, see xref:clustersetup:manage-groups.adoc#mangage-server-groups[Managing Server Groups].
+
+| Username
+| The username of the administrator account of the node to be added.
+
+| Password
+| The password of the administrator account of the node to be added.
+
+| Services
+| Select the appropriate check box to define the kind of xref:understanding-couchbase:services-and-indexes/services/services.adoc[services] will be provided on the server node that's been added.
+You can add one or more services.
+The options are: Data, Query, Index, Search, Analytics, and Eventing.
+|===
+
+A warning will appear indicating that the operation is destructive on the destination server.
+Any data currently stored on the server will be deleted, and if the server is currently part of another cluster, it will be removed and marked as failed over in that cluster.
+
+Once the information has been entered successfully, the node will be marked as ready to be added to the cluster, and the cluster's pending rebalance count will be updated.
+
+IMPORTANT: Once a node is added with a specific service, you cannot change the type of services on that node.
+You must remove the node, rebalance, and then add it back to the cluster with the services of your choice.
+
+== Using the CLI
+
+Use CLI to add one or more nodes to an existing cluster.
+
+The new nodes must have Couchbase Server installed, and Couchbase Server must be running on each node.
+
+To add a node:
+
+----
+> couchbase-cli server-add \
+            --cluster=localhost:8091  --user cluster-username --password cluster-password \    
+            --server-add=192.168.0.72:8091  --server-add-username=node-username \ 
+            --server-add-password=node-password \
+            --services=data,index,query
+----
+
+where:
+
+.CLI parameters for adding a node
+[cols="1,2"]
+|===
+| Parameter | Description
+
+| `--cluster`
+| The IP address of a node in the existing cluster.
+
+| `--user`
+| The username for the existing cluster.
+
+| `--password`
+| The password for the existing cluster.
+
+| `--server-add`
+| The IP address of the node to be added to the cluster.
+
+| `--server-add-username`
+| The username of the node to be added.
+
+| `--server-add-password`
+| The password of the node to be added.
+|===
+
+If adding was successful, you will see the following response: [.output]`SUCCESS: server-add 192.168.0.72:8091`
+
+If you receive a failure message, you will be notified of the type of failure.
+You can add multiple nodes in one command by supplying multiple `--server-add` command-line options to the command.
+
+NOTE: Once a node has been successfully added, the Couchbase Server cluster indicates that a rebalance is required to complete the operation.
+
+Here’s an example of cluster rebalance after adding a new node: Request syntax with rebalancing:
+
+----
+couchbase-cli rebalance
+            -c [localhost]:8091
+            --server-add=[host]:8091
+            --server-add-username=[administrator]
+            --server-add-password=[password]
+----
+
+You can cancel the addition of a node to a cluster without having to perform a rebalance operation.
+Canceling the operation removes the server from the cluster without having transferred or exchanged any data, since no rebalance operation took place.
+You can cancel the operation using the Couchbase Web Console.
+
+== Using the REST API
+
+Use the [.cmd]`curl` command to add a new node.
+If you are adding another service than data, which is the default, specify that service index or n1ql:
+
+----
+> curl -u cluster-username:cluster-password localhost:8091/controller/addNode\
+          -d "hostname=192.168.0.68&user=node-username&password=node-password&services=n1ql"
+----

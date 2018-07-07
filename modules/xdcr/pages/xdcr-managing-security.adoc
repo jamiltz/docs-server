@@ -1,0 +1,85 @@
+[#topic_sp1_qws_zs]
+= XDCR Security
+
+[abstract]
+XDCR security is configurable
+
+[#xcdr_security_overview]
+== Overview
+
+By default, XDCR uses the _Simple Authentication and Security Layer_ (SASL) framework to determine how username and password should be sent: either as plain text, or as encrypted by one of the members of the _Salted Challenge Response Authentication Mechanism_ family of hash functions; which are SCRAM-SHA1, SCRAM-SHA256, and SCRAM-SHA512.
+Data is sent in plain text.
+No certificate management is required by this default handling.
+
+See xref:security:security-pw-auth.adoc[Password-Based Authentication] for more information on the SASL framework.
+Note that if the credentials received by the target cluster require authentication by an LDAP server, the target cluster communicates with the LDAP server in plain text, using `saslauthd`.
+This is described in xref:security:security-saslauthd-new.adoc[Setting Up saslauthd].
+
+XDCR security can also be achieved by enabling TLS encryption.
+
+[#using_certificate_management]
+== Enabling TLS Encryption
+
+Optionally, encryption can be applied per replication, via TLS certificates.
+See xref:security:security-authorization.adoc[Authorization] for details on the _roles_ that permit this activity.
+Then, proceed as follows:
+
+. On the destination cluster, navigate to *Security > Root Certificate*, and copy the certificate.
++
+{blank}
+
+. On the source cluster, left-click on the *XDCR* tab.
+This brings up the [.uicontrol]*XDCR Replications* screen.
++
+{blank}
+
+. Do one of the following:
++
+{blank}
++
+{blank}
+ ** To create a new cluster-reference, in the [.uicontrol]*Remote Clusters* panel, left-click on the btn:[Add Remote Cluster] button, to the right.
+This brings up the [.uicontrol]*Add Remote Cluster* dialog.
++
+{blank}
+
+ ** To edit an existing cluster-reference, in the [.uicontrol]*Remote Clusters* panel, left-click on the [.uicontrol]*Edit* tab, at the right of the row of an existing cluster-reference.
+This brings up the [.uicontrol]*Edit Remote Cluster* dialog.
++
+{blank}
+
+. In the dialog you have brought up, enter appropriate information for the *Cluster Name*, *IP/Hostname*, *Username for Remote Cluster*, and *Password*.
+Then, check the [.uicontrol]*Enable TLS Encryption* checkbox.
+When the dialog expands vertically, select one of the following encryption-options:
+
+{blank}
+
+{blank}
+ ** *Half*, which enables password encryption only.
++
+{blank}
+
+ ** *Full*, which enables password and data encryption.
++
+{blank}
+
+Paste the copied certificate into the pane at the bottom of the dialog.
+The appearance of the dialog is now approximately as follows: image:picts/xdcr-edit-remote-cluster.png[,360]
+
+Left-click on the btn:[Save] button.
+
+. If you are adding a new cluster-reference, in the *Ongoing Replications* panel, click [.uicontrol]*Add Replication*, provide the cluster and bucket information, and click [.uicontrol]*Replicate*.
+This starts replication.
+
+Alternatively, if you are editing an existing replication, you do not have to take any further action: the existing replication automatically restarts, with TLS enabled.
+During restart, XDCR uses the last checkpoint of the replication stream.
+
+Note that it is good practice periodically to rotate XDCR certificates, and instantiate new ones.
+
+[#xdcr_security_error_messages]
+== XDCR Security Error-Messages
+
+When creating the cluster reference, if certificates on the destination and source clusters are mismatched, the following error message is displayed: `Attention - Got certificate mismatch while trying to send https request to HOST:18091`.
+
+If XDCR is underway, and stops due to a certificate mismatch, the following error message is displayed: `Error replicating vbucket <`_bucketNumber_`>.
+Please see logs for details.`
