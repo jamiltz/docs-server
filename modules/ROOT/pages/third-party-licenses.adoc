@@ -11,4 +11,4 @@ PCRE is a library of functions to support regular expressions whose syntax and s
 
 Regular expression support is provided by the PCRE library package, which is open source software, written by Philip Hazel, and copyright by the University of Cambridge, England.
 
-The source is available at xref:third-party-licenses.dita:ftp:/ftp.csx.cam.ac.uk/pub/software/programming/pcre.adoc[ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/].
+The source is available at xref:ROOT:ftp:/ftp.csx.cam.ac.uk/pub/software/programming/pcre.adoc[ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/].
