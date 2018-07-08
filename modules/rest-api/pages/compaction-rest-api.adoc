@@ -126,4 +126,4 @@ This is known as tombstone purging.
 
 * To learn about the storage architecture and compaction, see xref:understanding-couchbase:buckets-memory-and-storage/storage.adoc[Storage].
 * To update the auto-compaction settings from the Web Console, see xref:settings:configure-compact-settings.adoc[Auto-Compaction].
-* To update the bucket compaction settings using the CLI, see xref:cli:cbcli/couchbase-cli-bucket-compact.adoc[cli:cbcli/couchbase-cli-bucket-compact.adoc].
+* To update the bucket compaction settings using the CLI, see xref:cli:cbcli/couchbase-cli-bucket-compact.adoc[bucket-compact].

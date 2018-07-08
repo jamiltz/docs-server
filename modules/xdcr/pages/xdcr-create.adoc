@@ -144,7 +144,7 @@ This number must be less than or equal to the number of `XDCR Target Nozzles per
 
 A small value of two or four is often sufficient.
 The default is two and the value range is 1-100.
-The CLI command for setting this value is provided in xref:cli:cbcli/couchbase-cli-xdcr-replicate.adoc[cli:cbcli/couchbase-cli-xdcr-replicate.adoc].
+The CLI command for setting this value is provided in xref:cli:cbcli/couchbase-cli-xdcr-replicate.adoc[xdcr-replicate].
 
 | XDCR Target Nozzles per Node
 | This setting determines the number of XDCR target nozzles per node, and this number can be set higher if the target nodes have high processing power.
@@ -376,7 +376,7 @@ image::xdcr-pause-resume.png[,720,align=left]
 
 *Pause and Resume Replication using the CLI*
 
-To use the CLI, see xref:cli:cbcli/couchbase-cli-xdcr-replicate.adoc[cli:cbcli/couchbase-cli-xdcr-replicate.adoc].
+To use the CLI, see xref:cli:cbcli/couchbase-cli-xdcr-replicate.adoc[xdcr-replicate].
 
 *Pause and Resume Replication using the REST API*
 

@@ -72,7 +72,7 @@ Upgrade according to the SDK versions listed in the <<sdk-compatibility,SDK Comp
 TAP is an internal protocol that streams information about data changes between cluster nodes.
 TAP is replaced with a new protocol called Database Change Protocol (xref:architecture:high-availability-replication-architecture.adoc#concept_hj1_njj_vs[DCP]).
 * Starting 5.0, port based buckets can only be created now through the bucket CLI command.
-Use the xref:cli:cbcli/couchbase-cli-bucket-create.adoc#couchbaseclibucketcreate1.idm386415259904[cli:cbcli/couchbase-cli-bucket-create.adoc#couchbaseclibucketcreate1.idm386415259904] command to create a port based bucket.
+Use the xref:cli:cbcli/couchbase-cli-bucket-create.adoc#couchbaseclibucketcreate1.idm386415259904[bucket-create] command to create a port based bucket.
 +
 [caption=Remember]
 IMPORTANT: Server-side moxi which drives port based bucket creation has been deprecated.

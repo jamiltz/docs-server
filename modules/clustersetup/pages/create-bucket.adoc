@@ -78,7 +78,7 @@ There are two methods for making this choice: these are represented by the [.uic
 The method you choose is permanently established for the current bucket: it cannot subsequently be changed.
 For information on the significance of each method, see xref:xdcr:xdcr-conflict-resolution.adoc[XDCR Conflict Resolution].
 +
-Note that you can also set the conflict resolution method using the CLI xref:cli:cbcli/couchbase-cli-bucket-create.adoc[cli:cbcli/couchbase-cli-bucket-create.adoc] command, or the xref:rest-api:rest-bucket-create.adoc#rest-bucket-create[REST API].
+Note that you can also set the conflict resolution method using the CLI xref:cli:cbcli/couchbase-cli-bucket-create.adoc[bucket-create] command, or the xref:rest-api:rest-bucket-create.adoc#rest-bucket-create[REST API].
 
 * [.uicontrol]*Ejection Method*: For Couchbase buckets, the options are [.uicontrol]*Value-only* and [.uicontrol]*Full*.
 If [.uicontrol]*Full* is selected, everything (including data, metadata, key, and value) is ejected.

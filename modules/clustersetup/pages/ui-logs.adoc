@@ -240,9 +240,9 @@ You can  use the CLI command xref:cli:cbcollect-info-tool.adoc#cbcollect-info-to
 
 The other three CLI commands you can use to start and stop log collection and to read the log collection status:
 
-* xref:cli:cbcli/couchbase-cli-collect-logs-start.adoc[cli:cbcli/couchbase-cli-collect-logs-start.adoc]
-* xref:cli:cbcli/couchbase-cli-collect-logs-stop.adoc[cli:cbcli/couchbase-cli-collect-logs-stop.adoc]
-* xref:cli:cbcli/couchbase-cli-collect-logs-status.adoc[cli:cbcli/couchbase-cli-collect-logs-status.adoc]
+* xref:cli:cbcli/couchbase-cli-collect-logs-start.adoc[collect-logs-start]
+* xref:cli:cbcli/couchbase-cli-collect-logs-stop.adoc[collect-logs-stop]
+* xref:cli:cbcli/couchbase-cli-collect-logs-status.adoc[collect-logs-status]
 
 == Collect Logs using the REST API
 
