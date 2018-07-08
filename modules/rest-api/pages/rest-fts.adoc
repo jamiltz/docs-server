@@ -14,66 +14,66 @@ Granting users the appropriate role automatically assigns the required permissio
 
 *Index Definition*
 
-* xref:rest-api:rest-fts-indexing.adoc#g-api-index[rest-api:rest-fts-indexing.adoc#g-api-index]
-* xref:rest-api:rest-fts-indexing.adoc#g-api-index-name[rest-api:rest-fts-indexing.adoc#g-api-index-name]
-* xref:rest-api:rest-fts-indexing.adoc#p-api-index-name[rest-api:rest-fts-indexing.adoc#p-api-index-name]
-* xref:rest-api:rest-fts-indexing.adoc#d-api-index-name[rest-api:rest-fts-indexing.adoc#d-api-index-name]
+* xref:rest-api:rest-fts-indexing.adoc#g-api-index[GET /api/index]
+* xref:rest-api:rest-fts-indexing.adoc#g-api-index-name[GET /api/index/{indexName}]
+* xref:rest-api:rest-fts-indexing.adoc#p-api-index-name[PUT /api/index/{indexName}]
+* xref:rest-api:rest-fts-indexing.adoc#d-api-index-name[DELETE /api/index/{indexName}]
 
 *Index Management*
 
-* xref:rest-api:rest-fts-indexing.adoc#p-api-idx-name-ingestcontrol[rest-api:rest-fts-indexing.adoc#p-api-idx-name-ingestcontrol]
-* xref:rest-api:rest-fts-indexing.adoc#p-api-idx-name-planfreezecontrol[rest-api:rest-fts-indexing.adoc#p-api-idx-name-planfreezecontrol]
-* xref:rest-api:rest-fts-indexing.adoc#p-api-idx-name-querycontrol[rest-api:rest-fts-indexing.adoc#p-api-idx-name-querycontrol]
+* xref:rest-api:rest-fts-indexing.adoc#p-api-idx-name-ingestcontrol[POST /api/index/{indexName}/ingestControl/{op}]
+* xref:rest-api:rest-fts-indexing.adoc#p-api-idx-name-planfreezecontrol[POST /api/index/{indexName}/planFreezeControl/{op}]
+* xref:rest-api:rest-fts-indexing.adoc#p-api-idx-name-querycontrol[POST /api/index/{indexName}/queryControl/{op}]
 
 *Index Monitoring*
 
-* xref:rest-api:rest-fts-indexing.adoc#g-api-stats[rest-api:rest-fts-indexing.adoc#g-api-stats]
-* xref:rest-api:rest-fts-indexing.adoc#g-api-stats-index-name[rest-api:rest-fts-indexing.adoc#g-api-stats-index-name]
+* xref:rest-api:rest-fts-indexing.adoc#g-api-stats[GET /api/stats]
+* xref:rest-api:rest-fts-indexing.adoc#g-api-stats-index-name[GET /api/stats/index/{indexName}]
 
 *Index Querying*
 
-* xref:rest-api:rest-fts-indexing.adoc#g-api-index-name-count[rest-api:rest-fts-indexing.adoc#g-api-index-name-count]
-* xref:rest-api:rest-fts-indexing.adoc#p-api-index-name-query[rest-api:rest-fts-indexing.adoc#p-api-index-name-query]
+* xref:rest-api:rest-fts-indexing.adoc#g-api-index-name-count[GET /api/index/{indexName}/count]
+* xref:rest-api:rest-fts-indexing.adoc#p-api-index-name-query[POST /api/index/{indexName}/query]
 
 == Node
 
 *Node Configuration*
 
-* xref:rest-api:rest-fts-node.adoc#g-api-cfg[rest-api:rest-fts-node.adoc#g-api-cfg]
-* xref:rest-api:rest-fts-node.adoc#p-api-cfgrefresh[rest-api:rest-fts-node.adoc#p-api-cfgrefresh]
-* xref:rest-api:rest-fts-node.adoc#p-api-mgrkick[rest-api:rest-fts-node.adoc#p-api-mgrkick]
-* xref:rest-api:rest-fts-node.adoc#g-api-mgrmeta[rest-api:rest-fts-node.adoc#g-api-mgrmeta]
+* xref:rest-api:rest-fts-node.adoc#g-api-cfg[GET /api/cfg]
+* xref:rest-api:rest-fts-node.adoc#p-api-cfgrefresh[POST /api/cfgRefresh]
+* xref:rest-api:rest-fts-node.adoc#p-api-mgrkick[POST /api/managerKick]
+* xref:rest-api:rest-fts-node.adoc#g-api-mgrmeta[GET /api/managerMeta]
 
 *Node Diagnostics*
 
-* xref:rest-api:rest-fts-node.adoc#g-api-diag[rest-api:rest-fts-node.adoc#g-api-diag]
-* xref:rest-api:rest-fts-node.adoc#g-api-log[rest-api:rest-fts-node.adoc#g-api-log]
-* xref:rest-api:rest-fts-node.adoc#g-api-runtime[rest-api:rest-fts-node.adoc#g-api-runtime]
-* xref:rest-api:rest-fts-node.adoc#g-api-runtime-args[rest-api:rest-fts-node.adoc#g-api-runtime-args]
-* xref:rest-api:rest-fts-node.adoc#p-api-runtime-cpu[rest-api:rest-fts-node.adoc#p-api-runtime-cpu]
-* xref:rest-api:rest-fts-node.adoc#p-api-runtime-memory[rest-api:rest-fts-node.adoc#p-api-runtime-memory]
+* xref:rest-api:rest-fts-node.adoc#g-api-diag[GET /api/diag]
+* xref:rest-api:rest-fts-node.adoc#g-api-log[GET /api/log]
+* xref:rest-api:rest-fts-node.adoc#g-api-runtime[GET /api/runtime]
+* xref:rest-api:rest-fts-node.adoc#g-api-runtime-args[GET /api/runtime/args]
+* xref:rest-api:rest-fts-node.adoc#p-api-runtime-cpu[POST /api/runtime/profile/cpu]
+* xref:rest-api:rest-fts-node.adoc#p-api-runtime-memory[POST /api/runtime/profile/memory]
 
 *Node Management*
 
-* xref:rest-api:rest-fts-node.adoc#p-api-runtime-gc[rest-api:rest-fts-node.adoc#p-api-runtime-gc]
+* xref:rest-api:rest-fts-node.adoc#p-api-runtime-gc[POST /api/runtime/gc]
 
 *Node Monitoring*
 
-* xref:rest-api:rest-fts-node.adoc#g-api-runtime-stats[rest-api:rest-fts-node.adoc#g-api-runtime-stats]
-* xref:rest-api:rest-fts-node.adoc#g-api-runtime-statsmem[rest-api:rest-fts-node.adoc#g-api-runtime-statsmem]
+* xref:rest-api:rest-fts-node.adoc#g-api-runtime-stats[GET /api/runtime/stats]
+* xref:rest-api:rest-fts-node.adoc#g-api-runtime-statsmem[GET /api/runtime/statsMem]
 
 == Advanced
 
 *Index Partition Definition*
 
-* xref:rest-api:rest-fts-advanced.adoc#g-api-index[rest-api:rest-fts-advanced.adoc#g-api-index]
-* xref:rest-api:rest-fts-advanced.adoc#g-api-index-name[rest-api:rest-fts-advanced.adoc#g-api-index-name]
+* xref:rest-api:rest-fts-advanced.adoc#g-api-index[GET /api/pindex]
+* xref:rest-api:rest-fts-advanced.adoc#g-api-index-name[GET /api/pindex/{pindexName}]
 
 *Index Partition Querying*
 
-* xref:rest-api:rest-fts-advanced.adoc#g-api-index-name-count[rest-api:rest-fts-advanced.adoc#g-api-index-name-count]
-* xref:rest-api:rest-fts-advanced.adoc#p-api-index-name-query[rest-api:rest-fts-advanced.adoc#p-api-index-name-query]
+* xref:rest-api:rest-fts-advanced.adoc#g-api-index-name-count[GET /api/pindex/{pindexName}/count]
+* xref:rest-api:rest-fts-advanced.adoc#p-api-index-name-query[POST /api/pindex/{pindexName}/query]
 
 *FTS Memory Quota*
 
-* xref:rest-api:rest-fts-advanced.adoc#p-api-fts-memory-quota[rest-api:rest-fts-advanced.adoc#p-api-fts-memory-quota]
+* xref:rest-api:rest-fts-advanced.adoc#p-api-fts-memory-quota[POST /pools/default]
