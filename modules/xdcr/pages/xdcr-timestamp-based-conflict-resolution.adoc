@@ -40,7 +40,7 @@ A bi-directional XDCR relationship is configured to replicate their updates to e
 When one cluster fails, application traffic can be failed over to the remaining active cluster.
 
 [#image_zfm_45b_yy]
-image::picts/timestamp_datacenter_locality.png[,570]
+image::timestamp_datacenter_locality.png[,570]
 
 == Ensuring Safe Failover
 

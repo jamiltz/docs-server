@@ -35,7 +35,7 @@ To prevent such problems, make sure that you provide one of the following soluti
 {blank}
 
 [#image_lsl_ymv_4v]
-image::../admin/picts/active-servers.png[,align=left]
+image::admin/picts/active-servers.png[,align=left]
 
 . From the [.uicontrol]*Couchbase Web Console > Servers* page, click the [.uicontrol]*name / group* to view the details.
 Select a node that you want to remove and click [.uicontrol]*Remove*.

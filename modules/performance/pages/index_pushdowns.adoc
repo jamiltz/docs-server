@@ -178,7 +178,7 @@ CREATE INDEX `idx_age_name` ON users(age, name);
 ----
 
 [#image_akt_gpw_vz]
-image::../n1ql/n1ql-language-reference/images/IndexKeyOrder.png[,570]
+image::n1ql/n1ql-language-reference/images/IndexKeyOrder.png[,570]
 
 Various age and name values are stored in the index in a tree like structure (represented by the triangle in the above picture) with all the index key values linearly sorted as ordered pairs.
 For instance,

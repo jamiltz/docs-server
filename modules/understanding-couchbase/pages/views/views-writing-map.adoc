@@ -29,7 +29,7 @@ All client libraries provide a method for submitting a query into the view syste
 
 The following diagram shows the name, salary and city fields of the stored JSON documents translated into a table (an array of fields) in the generated view content.
 
-image::views-basic-overview.png[,480]
+image::views/images/views-basic-overview.png[,480]
 
 In this example, a map function is taking the Name, City, and Salary fields from the JSON documents stored in the Couchbase bucket and mapping them to a table of these fields.
 The map function which produces this output might look like this:
@@ -100,7 +100,7 @@ If you elect to output fields in from the source JSON objects that do not exist,
 For example, in the view below, some of the source records do contain all of the fields in the specified view.
 The result in the view result is just the `null` entry for that field in the value output.
 
-image::views-basic-overview-missing.png[,480]
+image::views/images/views-basic-overview-missing.png[,480]
 
 You should check that the field or data source exists during the map processing before emitting the data.
 

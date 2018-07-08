@@ -26,7 +26,7 @@ USE INDEX ( index-ref [ , index-ref2 ]* ) [ USING ( VIEW | GSI ) ]
 ----
 
 [#image_on1_rsp_2cb]
-image::use-index-clause.png[]
+image::n1ql-language-reference/images/use-index-clause.png[]
 
 [#section_vnk_vtp_2cb]
 == Arguments

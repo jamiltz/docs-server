@@ -5,31 +5,31 @@
 
 .Railroad Diagram: select
 [#fig_iz2_3cl_dx]
-image::select.png[]
+image::n1ql-language-reference/images/select.png[]
 
 `select-term::= subselect | "(" select ")"`
 
 .Railroad Diagram: select-term
 [#fig_drp_vfl_dx]
-image::select-term.png[]
+image::n1ql-language-reference/images/select-term.png[]
 
 `subselect::= select-from | from-select`
 
 .Railroad Diagram: subselect
 [#fig_skw_yfl_dx]
-image::subselect.png[]
+image::n1ql-language-reference/images/subselect.png[]
 
 `select-from::= select-clause [ from-clause | let-clause | where-clause | group-by-clause ]`
 
 .Railroad Diagram: select-from
 [#fig_zjx_1gl_dx]
-image::select-from.png[]
+image::n1ql-language-reference/images/select-from.png[]
 
 `from-select::= from-clause [ let-clause ] [ where-clause ] [ group-by-clause ] select-clause`
 
 .Railroad Diagram: from-select
 [#fig_n2r_cgl_dx]
-image::from-select.png[]
+image::n1ql-language-reference/images/from-select.png[]
 
 == SELECT Clause
 
@@ -37,7 +37,7 @@ image::from-select.png[]
 
 .Railroad Diagram: select-clause
 [#fig_hbg_2gl_dx]
-image::select-clause.png[]
+image::n1ql-language-reference/images/select-clause.png[]
 
 == FROM Clause
 
@@ -45,19 +45,19 @@ image::select-clause.png[]
 
 .Railroad Diagram: from-clause
 [#fig_hfr_fgl_dx]
-image::from-clause.png[]
+image::n1ql-language-reference/images/from-clause.png[]
 
 `from-term::= from-keyspace [ [ AS ] alias ] [ use-clause ] | "(" select ")" [ AS ] alias | expr [ [ AS ] alias] | from-term ( join-clause | nest-clause | unnest-clause )`
 
 .Railroad Diagram: from-term
 [#fig_osz_hgl_dx]
-image::from-term.png[]
+image::n1ql-language-reference/images/from-term.png[]
 
 `from-keyspace::= [ namespace : ] keyspace `
 
 .Railroad Diagram: from-keyspace
 [#fig_igd_jgl_dx]
-image::from-keyspace.png[]
+image::n1ql-language-reference/images/from-keyspace.png[]
 
 == JOIN Clause
 
@@ -65,31 +65,31 @@ image::from-keyspace.png[]
 
 .Railroad Diagram: join-clause
 [#fig_lzm_kgl_dx]
-image::join-clause.png[]
+image::n1ql-language-reference/images/join-clause.png[]
 
 `join-type::= INNER |  LEFT [ OUTER ]`
 
 .Railroad Diagram: join-type
 [#fig_t4q_lgl_dx]
-image::join-type.png[]
+image::n1ql-language-reference/images/join-type.png[]
 
 `join-predicate::= lookup-join-predicate | index-join-predicate`
 
 .Railroad Diagram: join-predicate
 [#fig_lzq_mgl_dx]
-image::join-predicate.png[]
+image::n1ql-language-reference/images/join-predicate.png[]
 
 `lookup-join-predicate::= ON [ PRIMARY ] KEYS expr `
 
 .Railroad Diagram: lookup-join-predicate
 [#fig_e5d_4gl_dx]
-image::lookup-join-predicate.png[]
+image::n1ql-language-reference/images/lookup-join-predicate.png[]
 
 `index-join-predicate::= ON [ PRIMARY ] KEY expr FOR alias`
 
 .Railroad Diagram: index-join-predicate
 [#fig_upr_pgl_dx]
-image::index-join-predicate.png[]
+image::n1ql-language-reference/images/index-join-predicate.png[]
 
 == NEST Clause
 
@@ -97,7 +97,7 @@ image::index-join-predicate.png[]
 
 .Railroad Diagram: nest-clause
 [#fig_ndm_rgl_dx]
-image::nest-clause.png[]
+image::n1ql-language-reference/images/nest-clause.png[]
 
 == UNNEST Clause
 
@@ -105,7 +105,7 @@ image::nest-clause.png[]
 
 .Railroad Diagram: unnest-clause
 [#fig_zf4_sgl_dx]
-image::unnest-clause.png[]
+image::n1ql-language-reference/images/unnest-clause.png[]
 
 == USE Clause
 
@@ -113,37 +113,37 @@ image::unnest-clause.png[]
 
 .Railroad Diagram: use-clause
 [#fig_lqy_tgl_dx]
-image::use-clause.png[]
+image::n1ql-language-reference/images/use-clause.png[]
 
 `use-keys-clause::= USE [ PRIMARY ] KEYS expr`
 
 .Railroad Diagram: use-keys-clause
 [#fig_vpb_vgl_dx]
-image::use-keys-clause.png[]
+image::n1ql-language-reference/images/use-keys-clause.png[]
 
 `use-index-clause::= USE INDEX "(" index-ref [ "," index-ref ]* ")"`
 
 .Railroad Diagram: use-index-clause
 [#fig_h3d_wgl_dx]
-image::use-index-clause.png[]
+image::n1ql-language-reference/images/use-index-clause.png[]
 
 `index-ref::= index-name [ index-using ]`
 
 .Railroad Diagram: index-ref
 [#fig_qs5_xgl_dx]
-image::index-ref.png[]
+image::n1ql-language-reference/images/index-ref.png[]
 
 `index-name::= identifier`
 
 .Railroad Diagram: index-name
 [#fig_unb_zgl_dx]
-image::index-name.png[]
+image::n1ql-language-reference/images/index-name.png[]
 
 `index-using::= USING ( VIEW | GSI )`
 
 .Railroad Diagram: index-using
 [#fig_ozd_1hl_dx]
-image::index-using.png[]
+image::n1ql-language-reference/images/index-using.png[]
 
 == LET Clause
 
@@ -151,7 +151,7 @@ image::index-using.png[]
 
 .Railroad Diagram: let-clause
 [#fig_sgz_bhl_dx]
-image::let-clause.png[]
+image::n1ql-language-reference/images/let-clause.png[]
 
 == WHERE Clause
 
@@ -159,13 +159,13 @@ image::let-clause.png[]
 
 .Railroad Diagram: where-clause
 [#fig_gr3_dhl_dx]
-image::where-clause.png[]
+image::n1ql-language-reference/images/where-clause.png[]
 
 `cond::= expr`
 
 .Railroad Diagram: cond
 [#fig_hw5_2hl_dx]
-image::cond.png[]
+image::n1ql-language-reference/images/cond.png[]
 
 == GROUP BY Clause
 
@@ -173,25 +173,25 @@ image::cond.png[]
 
 .Railroad Diagram: group-by-clause
 [#fig_bjj_hhl_dx]
-image::group-by-clause.png[]
+image::n1ql-language-reference/images/group-by-clause.png[]
 
 `letting-clause::= LETTING alias "=" expr [ "," alias = expr ]*`
 
 .Railroad Diagram: letting-clause
 [#fig_ym4_3hl_dx]
-image::letting-clause.png[]
+image::n1ql-language-reference/images/letting-clause.png[]
 
 `having-clause::= HAVING cond`
 
 .Railroad Diagram: having-clause
 [#fig_eks_jhl_dx]
-image::having-clause.png[]
+image::n1ql-language-reference/images/having-clause.png[]
 
 `set-op::= UNION | INTERSECT | EXCEPT`
 
 .Railroad Diagram: set-op
 [#fig_wxb_lhl_dx]
-image::set-op.png[]
+image::n1ql-language-reference/images/set-op.png[]
 
 == ORDER BY Clause
 
@@ -199,13 +199,13 @@ image::set-op.png[]
 
 .Railroad Diagram: order-by-clause
 [#fig_x3n_mhl_dx]
-image::order-by-clause.png[]
+image::n1ql-language-reference/images/order-by-clause.png[]
 
 `ordering-term::= expr [ ASC | DESC ]`
 
 .Railroad Diagram: ordering-term
 [#fig_kn2_4hl_dx]
-image::ordering-term.png[]
+image::n1ql-language-reference/images/ordering-term.png[]
 
 == LIMIT Clause
 
@@ -213,10 +213,10 @@ image::ordering-term.png[]
 
 .Railroad Diagram: limit-clause
 [#fig_dsg_phl_dx]
-image::limit-clause.png[]
+image::n1ql-language-reference/images/limit-clause.png[]
 
 `offset-clause::= OFFSET expr`
 
 .Railroad Diagram: offset-clause
 [#fig_anj_qhl_dx]
-image::offset-clause.png[]
+image::n1ql-language-reference/images/offset-clause.png[]

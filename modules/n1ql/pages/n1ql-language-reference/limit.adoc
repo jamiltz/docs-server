@@ -24,7 +24,7 @@ LIMIT expr
 ----
 
 [#image_skg_gkx_2cb]
-image::limit-clause.png[]
+image::n1ql-language-reference/images/limit-clause.png[]
 
 [#section_wz2_tkx_2cb]
 == Arguments

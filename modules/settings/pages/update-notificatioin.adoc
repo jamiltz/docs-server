@@ -8,7 +8,7 @@ During installation, the [.uicontrol]*Update Notification* option can be optiona
 After installation, Full Administrators and Cluster Administrators can enable or disable the setting from [.uicontrol]*Couchbase Web Console* > [.uicontrol]*Settings* > [.uicontrol]*Software Updates* tab.
 
 [#image_pbt_kh1_1t]
-image::../admin/picts/settings-notifications.png[,600,align=left]
+image::admin/picts/settings-notifications.png[,600,align=left]
 
 To enable or disable the update notifications option, check or uncheck the [.uicontrol]*Enable software update notifications* checkbox.
 

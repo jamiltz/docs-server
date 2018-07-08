@@ -13,7 +13,7 @@ To bring data from other data sources into Couchbase, tCouchbaseInput takes inco
 To import data into Couchbase, define which data fields need to be transformed into JSON attributes.
 Similarly, to export data from Couchbase to other data sources, the tCouchbaseOutput connector uses the schema mapping specified by the user to read JSON documents and transform them into target data formats.
 
-image::talend-integrate.png[,480]
+image::talend/images/talend-integrate.png[,480]
 
 For more information, see the http://docs.couchbase.com/prebuilt/pdfs/talend-datasheet.pdf[Talend Connector for Couchbase datasheet.]
 
@@ -21,4 +21,4 @@ For more information, see the http://docs.couchbase.com/prebuilt/pdfs/talend-dat
 
 To get started with Couchbase Server and Talend:
 
-image::talend-dropdown-menu.png[,240]
+image::talend/images/talend-dropdown-menu.png[,240]

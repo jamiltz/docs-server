@@ -9,23 +9,23 @@ _Full_ and _Cluster_ Administrators can use the Couchbase Web Console, CLI, or R
 Access the Couchbase Web Console, and left-click on the [.uicontrol]*Buckets* tab, in the vertical navigation-bar at the left-hand side:
 
 [#access_bucket_tab]
-image::picts/accessBucketTab.png[,100,align=left]
+image::accessBucketTab.png[,100,align=left]
 
 The [.uicontrol]*Buckets* screen now appears, showing the buckets that have already been defined for your system.
 If you are accessing this screen immediately after cluster-initialization, no buckets are yet defined:
 
 [#buckets_view_initial]
-image::picts/bucketsViewInitial.png[,880,align=left]
+image::bucketsViewInitial.png[,880,align=left]
 
 To create a new bucket, left-click on the btn:[Add Bucket] button, at the upper-right:
 
 [#add-bucket-button]
-image::picts/addBucketButton.png[,110,align=left]
+image::addBucketButton.png[,110,align=left]
 
 This brings up the [.uicontrol]*Add Data Bucket* dialog, which appears as follows:
 
 [#add-data-bucket-dialog-initial]
-image::picts/addDataBucketDialogInitial.png[,320,align=left]
+image::addDataBucketDialogInitial.png[,320,align=left]
 
 Enter a bucket-name into the interactive [.uicontrol]*Name* text-field.
 A bucket name can only contain characters in the ranges of A-Z, a-z, and 0-9; with the addition of the underscore, period, dash and percent characters; and can be no more than 100 characters in length.
@@ -55,7 +55,7 @@ This causes the [.uicontrol]*Add Data Bucket* dialog to expand vertically, as sh
 The advanced bucket-settings for the [.uicontrol]*Couchbase* bucket-type are as follows:
 
 [#add-data-bucket-dialog-expanded]
-image::picts/addDataBucketDialogExpanded.png[,350,align=left]
+image::addDataBucketDialogExpanded.png[,350,align=left]
 
 The fields are as follows:
 
@@ -108,7 +108,7 @@ To see advanced settings for a Memcached bucket, check the [.uicontrol]*Memcache
 The advanced settings now appear as follows:
 
 [#add-data-bucket-dialog-expanded-for-memcached]
-image::picts/addDataBucketDialogExpandedForMemcached.png[,350,align=left]
+image::addDataBucketDialogExpandedForMemcached.png[,350,align=left]
 
 The only advanced setting that applies to Memcached is [.uicontrol]*Flush*, whose function is identical to that described above for Couchbase buckets.
 
@@ -118,7 +118,7 @@ To see advanced settings for an Ephemeral bucket, check the [.uicontrol]*Ephemer
 The advanced settings now appear as follows:
 
 [#add-data-bucket-dialog-expanded-for-ephemeral]
-image::picts/addDataBucketDialogExpandedForEphemeral.png[,350,align=left]
+image::addDataBucketDialogExpandedForEphemeral.png[,350,align=left]
 
 The settings [.uicontrol]*Conflict Resolution*, [.uicontrol]*Bucket Max Time-to-Live*, [.uicontrol]*Compression Mode*, and [.uicontrol]*Flush* are identical in functionality for both Ephemeral and Couchbase buckets.
 
@@ -141,7 +141,7 @@ After the bucket creation is completed, you can get a status-update by any of th
 The newly created bucket is displayed:
 +
 [#new_bucket_display]
-image::picts/newBucketDisplay.png[,720,align=left]
+image::newBucketDisplay.png[,720,align=left]
 +
 {blank}
 +

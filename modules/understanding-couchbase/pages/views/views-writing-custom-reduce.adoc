@@ -8,7 +8,7 @@ In the primary form, a `reduce()` function must convert the data supplied to it 
 
 The core structure of the reduce function execution is shown the figure below.
 
-image::custom-reduce.png[,480]
+image::views/images/custom-reduce.png[,480]
 
 The base format of the `reduce()` function is as follows:
 

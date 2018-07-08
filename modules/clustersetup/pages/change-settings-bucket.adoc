@@ -10,18 +10,18 @@ This section explains how to do so; and notes the possible consequences of such 
 To edit an existing bucket-configuration, access the Couchbase Web Console, and left-click on the [.uicontrol]*Buckets* tab, in the vertical navigation-bar at the left-hand side.
 
 [#access_bucket_tab]
-image::picts/accessBucketTab.png[,80,align=left]
+image::accessBucketTab.png[,80,align=left]
 
 The [.uicontrol]*Buckets* screen now appears, showing the buckets that have already been defined for your system:
 
 [#buckets_view_initial]
-image::picts/bucketsViewInitialEdit.png[,880,align=left]
+image::bucketsViewInitialEdit.png[,880,align=left]
 
 To edit the settings for a particular bucket, left-click on the bucket's row in the UI.
 This expands the row, to display additional information:
 
 [#buckets_view_with_expanded_bucket_row]
-image::picts/bucketsViewWithExpandedBucketRow.png[,820,align=left]
+image::bucketsViewWithExpandedBucketRow.png[,820,align=left]
 
 Values for the current settings for the selected bucket are shown at the left-hand side, in a vertical column under the bucket-name.
 Current [.uicontrol]*Memory* and [.uicontrol]*Disk* status is shown further to the right.
@@ -34,7 +34,7 @@ At the lower right, buttons are provided for deleting, compacting (for Couchbase
 To display the user-interface for editing, left-click on the btn:[Edit] button:
 
 [#edit_bucket_button]
-image::picts/editBucketButton.png[,260,align=left]
+image::editBucketButton.png[,260,align=left]
 
 This displays the [.uicontrol]*Edit Bucket Settings* dialog, which permits changes to be made to a subset of existing settings.
 All the settings contained here are described in detail for the [.uicontrol]*Add Data Bucket* dialog, in the section xref:clustersetup:create-bucket.adoc[Create a Bucket]
@@ -90,7 +90,7 @@ It can be changed at any time for all three types of bucket.
 Note that when flushing is enabled, left-clicking on the bucket's display-row on the [.uicontrol]*Buckets* screen displays the btn:[Flush] button:
 +
 [#flush_bucket_button]
-image::picts/flushBucketButton.png[,360,align=left]
+image::flushBucketButton.png[,360,align=left]
 +
 {blank}
 +

@@ -27,7 +27,7 @@ You can monitor the current configuration, current status, and the last time a r
 Before any replications have been configured, the screen appears as follows:
 
 [#image_vwk_d2t_zs]
-image::picts/xccr-create.png[,920,align=left]
+image::xccr-create.png[,920,align=left]
 
 == Add a Remote Cluster
 
@@ -100,7 +100,7 @@ After you configure and start replication, view the current status and list of r
 The [.uicontrol]*Add Replication* window is displayed where you can configure a new replication from the source to the destination cluster.
 +
 [#image_zds_pjt_zs]
-image::picts/xdcr-create-replication.png[,380,align=left]
+image::xdcr-create-replication.png[,380,align=left]
 
 . In the [.uicontrol]*Replicate From Bucket*, select a bucket from the current cluster to replicate.
 . In the section [.uicontrol]*Remote Cluster*, select a destination cluster.
@@ -226,7 +226,7 @@ For example, the expression `airline|hotel` would match both "unitedairline" and
 To implement filtering, you must explicitly do it by selecting *XDCR > Create Replication > Enable Advanced filtering*.
 
 [#image_i12_h15_zs]
-image::picts/xdcr-adv-filtering.png[,380,align=left]
+image::xdcr-adv-filtering.png[,380,align=left]
 
 IMPORTANT: You cannot change a filtering expression on an existing replication.
 
@@ -370,7 +370,7 @@ To pause and resume replication using the Web Console:
 . To pause, under *Ongoing Replications > Status*, click the [.uicontrol]*Replicating* icon to pause the replication.
 +
 [#image_ltl_q25_zs]
-image::picts/xdcr-pause-resume.png[,720,align=left]
+image::xdcr-pause-resume.png[,720,align=left]
 
 . To resume, under *Ongoing Replications > Status*, click the [.uicontrol]*Paused* triangle icon to continue replicating.
 
@@ -400,7 +400,7 @@ Any errors that occur during replication appear in the XDCR errors panel.
 The following example shows the errors that occur if replication streams from XDCR fail due to the missing vBuckets at the source cluster:
 
 [#image_tfl_mg5_zs]
-image::picts/xdcr-replication-statuis.png[,450,align=left]
+image::xdcr-replication-statuis.png[,450,align=left]
 
 *XDCR Replication and Network Failures*
 

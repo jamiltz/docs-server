@@ -58,7 +58,7 @@ The summary section is designed to provide a quick overview of the cluster activ
 Each graph (or selected graph) shows information based on the currently selected bucket.
 
 [#image_y4j_s33_45]
-image::../admin/picts/web-console-server-stats-summary.png[]
+image::admin/picts/web-console-server-stats-summary.png[]
 
 The following statistics are available:
 
@@ -336,7 +336,7 @@ The displayed statistics are:
 == Monitoring DCP Queues
 
 [#image_iry_sbm_zx]
-image::../admin/picts/dcp-queue-stats.png[]
+image::admin/picts/dcp-queue-stats.png[]
 
 The statistics are detailed below:
 
@@ -392,7 +392,7 @@ The INDEX STATS section provides statistics about the GSI Indexes.
 Statistics are provided per each individual index.
 
 [#image_km2_ncm_zx]
-image::../admin/picts/index-queue-stats.png[]
+image::admin/picts/index-queue-stats.png[]
 
 [#index,cols="1,3"]
 |===
@@ -512,7 +512,7 @@ The Query section provides statistics about the N1QL query service.
 These statistics are aggregated numbers at the query service level across the cluster, and are not per bucket or per node.
 
 [#image_jbq_pcm_zx]
-image::../admin/picts/query-queue-stats.png[]
+image::admin/picts/query-queue-stats.png[]
 
 [#query,cols="1,3"]
 |===

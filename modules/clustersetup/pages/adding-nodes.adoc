@@ -18,7 +18,7 @@ For detailed instructions, see xref:install:init-setup.adoc#topic12527[Initializ
 
 The node will be created as a new cluster, but the pending status of the node within the new cluster will be indicated, as shown in the example below:
 
-image::../images/admin-tasks-rebalance-node-added.png[,align=left]
+image::admin-tasks-rebalance-node-added.png[,align=left]
 
 == Using the UI
 
@@ -26,7 +26,7 @@ Using the same method, you can add a server that was previously part of this or 
 During this process, Couchbase Server must be running.
 
 [#image_myt_vqk_zs]
-image::../admin/picts/add-server-new2.png[,align=left]
+image::admin/picts/add-server-new2.png[,align=left]
 
 To add a new node to an existing cluster using the Web Console:
 

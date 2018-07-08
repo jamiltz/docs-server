@@ -36,7 +36,7 @@ For example, if you have four nodes running the Data service, and one node has f
 The vBucket resources will look like below:
 
 [#image_c2r_ycf_5v]
-image::../admin/picts/vbucket-resources.png[,350,align=left]
+image::admin/picts/vbucket-resources.png[,350,align=left]
 
 The moment you initiate a hard failover  (either by using the Couchbase Web Console, CLI, REST API or automatic failover), the Couchbase Cluster Manager communicates with the remaining nodes in the Data service to begin the process.
 The Cluster Manager has information about the location of all active and replica vBuckets across the cluster, as well as about the physical topology of the cluster.

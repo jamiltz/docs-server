@@ -40,22 +40,22 @@ SELECT [ALL|DISTINCT] ( result-expr [ , result-expr2 ]*
 *Railroad Diagrams for SELECT clause:*
 
 [#image_b51_kng_lbb]
-image::select-clause.png[]
+image::n1ql-language-reference/images/select-clause.png[]
 
 result-expr:
 
 [#image_jy4_3zn_nbb]
-image::select-clause_RR_result-expr.png[]
+image::n1ql-language-reference/images/select-clause_RR_result-expr.png[]
 
 path:
 
 [#image_u4c_c14_nbb]
-image::select-clause_RR_path.png[]
+image::n1ql-language-reference/images/select-clause_RR_path.png[]
 
 alias:
 
 [#image_pqr_x14_nbb]
-image::select-clause_RR_alias.png[]
+image::n1ql-language-reference/images/select-clause_RR_alias.png[]
 
 [#sec_Arguments]
 == Arguments
@@ -157,7 +157,7 @@ SELECT RAW reduces the amount of data returned by eliminating the field attribut
 |===
 +
 [#image_lnm_dsq_mbb]
-image::select-clause_ex1.png[]
+image::n1ql-language-reference/images/select-clause_ex1.png[]
 There are times in which this extra layer might not be desirable since it requires extra output parsing.
 So the RAW qualifier specifies that the expression that follows not to be qualified, as shown in the next example.
 *Example 2*: Comparing SELECT and SELECT RAW listing 5 airport cities alphabetically:
@@ -188,7 +188,7 @@ So the RAW qualifier specifies that the expression that follows not to be qualif
 |===
 +
 [#image_mxc_hsq_mbb]
-image::select-clause_ex2.png[]
+image::n1ql-language-reference/images/select-clause_ex2.png[]
 
 keyspace_name1, keyspace_name2, ..., keyspace_nameX:: [Optional; if the keyspace is unspecified in the SELECT clause, it will be taken from the xref:n1ql:from.adoc#concept_rnt_zfk_np[FROM clause]]
 The name of the keyspace or keyspaces used, separated by a comma.

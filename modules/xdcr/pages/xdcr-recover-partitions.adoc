@@ -17,7 +17,7 @@ You will see whether data is unavailable and which vBuckets are unavailable.
 If you do not have enough replicas for the number of the failed-over nodes, some vBuckets will no longer be available:
 +
 [#image_rzb_vk5_zs]
-image::picts/xdcr-recover-partition-1.png[,720,align=left]
+image::xdcr-recover-partition-1.png[,720,align=left]
 
 . Add new functioning nodes to replace the failed nodes.
 +
@@ -25,7 +25,7 @@ Do not rebalance after you add new nodes to a cluster.
 Typically, you will rebalance after adding nodes to the cluster, but in this scenario the rebalance will destroy the information about the missing vBuckets and you cannot recover it.
 +
 [#image_ngh_bl5_zs]
-image::picts/xdcr-recover-partition-2.png[,720,align=left]
+image::xdcr-recover-partition-2.png[,720,align=left]
 +
 In this example, two nodes failed in a three-node cluster and a new node at `10.3.3.61` was added.
 If you are certain that your cluster can easily handle the workload and recovered data, you may choose to skip this step.
@@ -41,7 +41,7 @@ Once the recovery is completed, you can rebalance your cluster.
 Rebalancing will recreate replica vBuckets and redistribute them evenly across the cluster.
 +
 [#image_wwv_nl5_zs]
-image::picts/xdcr-recover-partition-4.png[,720,align=left]
+image::xdcr-recover-partition-4.png[,720,align=left]
 
 == Recovery Dry-Run
 
@@ -91,7 +91,7 @@ To monitor the progress of recovery:
 You will see an increased number of items during recovery:
 +
 [#image_x1h_cq5_zs]
-image::picts/xdcr-recovery-process-1.png[,450,align=left]
+image::xdcr-recovery-process-1.png[,450,align=left]
 
 . You can also see the number of active vBuckets increase as they are recovered until you reach 1024 vBuckets.
 +
@@ -100,7 +100,7 @@ Click on the [.uicontrol]*vBucket Resources* drop-down:
 {blank}
 +
 [#image_hxy_hq5_zs]
-image::picts/xdcr-recovery-process-2.png[,500,align=left]
+image::xdcr-recovery-process-2.png[,500,align=left]
 +
 Since this tool runs from the command line, you can stop it at any time.
 
@@ -110,7 +110,7 @@ Once the recovery process completes, this button will no longer appear, and you 
 You can also stop it in this panel:
 +
 [#image_z2p_pq5_zs]
-image::picts/xdcr-recovery-process-3.png[,600,align=left]
+image::xdcr-recovery-process-3.png[,600,align=left]
 
 . After the recovery completes, click on the Server Nodes tab and then on Rebalance to rebalance your cluster.
 When `cbrecovery` finishes, it will output a report in the console:

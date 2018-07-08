@@ -27,4 +27,4 @@ Creating a new view on an existing large data set may take a long time to build 
 
 The following diagram shows a brief overview of this process:
 
-image::views-basic-overview.png[,600]
+image::views/images/views-basic-overview.png[,600]

@@ -22,7 +22,7 @@ Each of these options is described below.
 In the [.uicontrol]*Cluster Name* panel, on the [.uicontrol]*Couchbase > New Cluster* dialog, you can enter either a hostname or a specific IP address into the interactive text-field.
 
 [#image_cwm_4rd_dt]
-image::../admin/picts/cluster-setup-host.png[,320,align=left]
+image::admin/picts/cluster-setup-host.png[,320,align=left]
 
 == Provide a Hostname while Adding a Node
 
@@ -31,7 +31,7 @@ This displays the [.uicontrol]*Servers* screen, on which the btn:[Add Server] bu
 Left-click on this button to display the [.uicontrol]*Add Server Node* dialog:
 
 [#add_server_node]
-image::picts/addServerNode.png[,320,align=left]
+image::addServerNode.png[,320,align=left]
 
 Enter either a hostname or IP address into the interactive [.uicontrol]*Server IP Address* text-field.
 

@@ -12,7 +12,7 @@ Some of the more obvious improvements are the modern color palette that shows th
 When you start the Couchbase Web Console, by default the introductory [.uicontrol]*Dashboard* page is displayed.
 
 [#image_smh_qzh_ht]
-image::../admin/picts/web-console.png[,720,align=left]
+image::web-console.png[,720,align=left]
 
 The *Dashboard* screen contains three sections: Services, Data Services, and Buckets.
 
@@ -23,7 +23,7 @@ The *Dashboard* screen contains three sections: Services, Data Services, and Buc
 The [.uicontrol]*Services* section indicates all running services for the cluster.
 
 [#image_mvj_jrs_3z]
-image::picts/ui-services.png[,820]
+image::ui-services.png[,820]
 
 .Services Details
 [#table_services,cols="3,8"]

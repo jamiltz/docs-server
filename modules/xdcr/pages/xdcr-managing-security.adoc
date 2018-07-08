@@ -64,7 +64,7 @@ When the dialog expands vertically, select one of the following encryption-optio
 {blank}
 
 Paste the copied certificate into the pane at the bottom of the dialog.
-The appearance of the dialog is now approximately as follows: image:picts/xdcr-edit-remote-cluster.png[,360]
+The appearance of the dialog is now approximately as follows: image:xdcr-edit-remote-cluster.png[,360]
 
 Left-click on the btn:[Save] button.
 

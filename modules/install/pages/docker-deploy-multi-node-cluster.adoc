@@ -58,7 +58,7 @@ docker inspect --format '{{ .NetworkSettings.IPAddress }}' db2
 
 . From the browser, access the Web Console using [.path]_http://localhost:8091_.
 You are now connected to container named db3.
-If the container is up and running, you will see the Couchbase Server Setup Screen.image:../admin/picts/welcome.png[]
+If the container is up and running, you will see the Couchbase Server Setup Screen.image:admin/picts/welcome.png[]
 . Walk through the Setup wizard and accept the default values.
 +
 You may need to lower the RAM allocated to various services to fit within the bounds of the resource for the containers.
@@ -68,9 +68,9 @@ For detailed information on configuring the server, see xref:install:init-setup.
 
 . Next, we need to add the db1 and db2 containers to the cluster.
  .. On the Web Console, go to the Server Nodes tab and click [.uicontrol]*Add Server* and specify the IP address you captured for db1.
-image:picts/cluster-setup-add-servers.png[,570]
+image:cluster-setup-add-servers.png[,570]
  .. Click [.uicontrol]*Add Server* again and specify the IP address you captured for db2
- .. Click [.uicontrol]*Rebalance*.image:picts/docker-single-node-rebalance.png[,570]
+ .. Click [.uicontrol]*Rebalance*.image:docker-single-node-rebalance.png[,570]
 
 This is all that is needed for a multi-node Couchbase Server cluster deployment using a single physical machine.
 
@@ -157,7 +157,7 @@ docker inspect --format '{{ .NetworkSettings.IPAddress }}' db
 
 . On one of the physical hosts, access the Web Console from the browser using [.path]_http://node-ip:8091_.
 If the container is up and running, you will see the Couchbase Server Setup Screen.
-image:../admin/picts/welcome.png[]
+image:admin/picts/welcome.png[]
 +
 Click Setup, select the Start a new cluster option, and walk through the Setup wizard .
 For detailed information on configuring the server, see xref:install:init-setup.adoc[Initializing the Cluster]
@@ -168,7 +168,7 @@ If the container is up and running, you will see the Couchbase Server Setup Scre
 Click [.uicontrol]*Setup*, select the [.uicontrol]*Join a cluster* option, and walk through the Setup wizard.
 
 . On the last physical host, after you join the cluster, switch to the Server Nodes tab and click [.uicontrol]*Rebalance*.
-image:picts/docker-multi-node-rebalance.png[,570]
+image:docker-multi-node-rebalance.png[,570]
 
 This all that is needed for a multi-node Couchbase Server cluster deployment across multiple physical machines.
 

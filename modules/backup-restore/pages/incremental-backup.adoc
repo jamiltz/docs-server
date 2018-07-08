@@ -33,7 +33,7 @@ Every Sunday, a full backup is made.
 On the other days of the week, a differential incremental backup is made.
 
 [#image_jm5_td2_dt]
-image::../admin/picts/backup-differential-incremental.jpg[,720,align=left]
+image::admin/picts/backup-differential-incremental.jpg[,720,align=left]
 
 == Cumulative incremental backup
 
@@ -45,7 +45,7 @@ Every Sunday, a full backup is made.
 On the other days of the week, a cumulative incremental backup is made.
 
 [#image_y2y_yd2_dt]
-image::../admin/picts/backup-cumulative-incremental.jpg[,720,align=left]
+image::admin/picts/backup-cumulative-incremental.jpg[,720,align=left]
 
 In this example, the Monday backup contains all the changes made since the full backup on Sunday, the Tuesday backup contains all the changes made since the full backup on Sunday, the Wednesday backup contains all the changes made since the full backup on Sunday, and so on.
 For example, a restore operation performed on Wednesday uses the full backup from Sunday and the cumulative incremental backup from Tuesday.
@@ -59,7 +59,7 @@ Every Sunday, a full backup is made.
 For the remainder of the week, depending on the day, either a differential or cumulative incremental backup is made.
 
 [#image_qpn_b22_dt]
-image::../admin/picts/backup-combined-incremental.jpg[,720,align=left]
+image::admin/picts/backup-combined-incremental.jpg[,720,align=left]
 
 In this example, the backup schedule includes differential and cumulative incremental backups on different days.
 On Monday, Tuesday, Wednesday, Friday, and Saturday a differential incremental backup is made.

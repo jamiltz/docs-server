@@ -28,7 +28,7 @@ For more details about user roles, see xref:..:security/security-authorization.a
 == Syntax
 
 [#image_uy5_kzt_pz]
-image::from-term.png[]
+image::n1ql-language-reference/images/from-term.png[]
 
 ----
 FROM from-keyspace [ [ AS ] alias1 ] [ USE KEYS use-clause ]  
@@ -383,7 +383,7 @@ Only documents having those document keys will be included as inputs to a query.
 *Syntax*
 
 [#image_xs4_mtx_1db]
-image::use-keys-clause.png[]
+image::n1ql-language-reference/images/use-keys-clause.png[]
 
 ----
 USE [ PRIMARY ] KEYS expr
@@ -633,7 +633,7 @@ ON*
 *Syntax*
 
 [#image_p21_3vz_1db]
-image::FROM_ansi-join_RR-clause_5.5.png[]
+image::n1ql-language-reference/images/FROM_ansi-join_RR-clause_5.5.png[]
 
 ----
 lhs-expr [join-type] JOIN rhs-expr ON join-clause
@@ -825,7 +825,7 @@ Results:
   ]
 ----
 
-Visual Explain Plan:image:FROM_AnsiJoin-Ex4-BeerVisual1.png[]
+Visual Explain Plan:image:n1ql-language-reference/images/FROM_AnsiJoin-Ex4-BeerVisual1.png[]
 
 If you add `name` as the second index key to the `beer_brewery` index:
 
@@ -838,7 +838,7 @@ WHERE type = "beer"
 then you will get covering index scan, as shown in the Visual Explain Plan:
 
 [#image_fxp_gk1_bdb]
-image::FROM_AnsiJoin-Ex4-BeerVisual2.png[]
+image::n1ql-language-reference/images/FROM_AnsiJoin-Ex4-BeerVisual2.png[]
 
 The following Join types are currently not supported:
 
@@ -1198,7 +1198,7 @@ Couchbase Server version 4.1 and earlier supported only lookup joins.
 *Syntax*
 
 [#image_asp_x3h_bdb]
-image::FROM_lookup-join-clause.png[]
+image::n1ql-language-reference/images/FROM_lookup-join-clause.png[]
 
 ----
 [ join-type ] JOIN from-path [ [ AS ] alias ] ON KEYS on-keys-clause
@@ -1501,7 +1501,7 @@ This is because Index JOINs' `ON KEY` expression must produce a scalar value; wh
 *Syntax*
 
 [#image_cdn_bc3_bdb]
-image::FROM_index-join-clause.png[]
+image::n1ql-language-reference/images/FROM_index-join-clause.png[]
 
 ----
 [ join-type ] JOIN from-path [ [ AS ] alias ]  ON KEY FOR on-key-for-clause
@@ -1557,7 +1557,7 @@ Unnests can be chained.
 *Syntax*
 
 [#image_sg1_dd3_bdb]
-image::FROM_unnest-clause_4.0_RR.png[]
+image::n1ql-language-reference/images/FROM_unnest-clause_4.0_RR.png[]
 
 ----
 [ join-type ] UNNEST path [ [ AS ] alias ]
@@ -1736,7 +1736,7 @@ The `ON` clause can contain any expression, and thus it opens up many more nest 
 *Syntax*
 
 [#image_wwl_cf3_bdb]
-image::FROM_ansi-nest_RR-clause_5.5.png[]
+image::n1ql-language-reference/images/FROM_ansi-nest_RR-clause_5.5.png[]
 
 `lhs-expr`` [``nest-type``] NEST ``rhs-expr`` ON ``nest-clause`
 
@@ -1818,7 +1818,7 @@ Nesting performs a join across two keyspaces.
 But instead of producing a cross-product of the left and right inputs, a single result is produced for each left input, while the corresponding right inputs are collected into an array and nested as a single array-valued field in the result object.
 
 [#image_nxv_yg3_bdb]
-image::FROM_lookup-nest_4.0_RR.png[]
+image::n1ql-language-reference/images/FROM_lookup-nest_4.0_RR.png[]
 
 ----
 [ join-type ] NEST from-path [ [ AS ] alias ] on-keys-clause
@@ -2071,7 +2071,7 @@ This is because Index NESTs' `ON KEY `expression must produce a scalar value; wh
 *Syntax*
 
 [#image_emh_343_bdb]
-image::FROM_index-nest_5.1_rr.png[]
+image::n1ql-language-reference/images/FROM_index-nest_5.1_rr.png[]
 
 ----
 [ nest-type ] NEST from-path [ [ AS ] alias ] ON KEY on-key-clause FOR for-clause

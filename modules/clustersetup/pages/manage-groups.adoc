@@ -20,24 +20,24 @@ This brings up the *Servers* screen.
 Now left-click on the *Groups* tab, at the upper right:
 
 [#groups_tab]
-image::picts/groupsTab.png[,72,align=left]
+image::groupsTab.png[,72,align=left]
 
 This brings up the *Server Groups* screen, which might initially appear as follows:
 
 [#groups_server_groups_screen]
-image::picts/groupsServerGroupsScreen.png[,820,align=left]
+image::groupsServerGroupsScreen.png[,820,align=left]
 
 This display indicates that the cluster currently contains three servers.
 Note that the list of servers is headed by the name *Group 1*: this is because by default, Couchbase Server puts each new server into a group with this name.
 To change the name, left-click on the *edit name* tab, adjacent to the name:
 
 [#groups_edit_group_name_tab]
-image::picts/groupsEditGroupNameTab.png[,140,align=left]
+image::groupsEditGroupNameTab.png[,140,align=left]
 
 This brings up the *Edit Group Name* dialog:
 
 [#groups_edit_group_name_dialog]
-image::picts/groupsEditGroupNameDialog.png[,260,align=left]
+image::groupsEditGroupNameDialog.png[,260,align=left]
 
 If you wish to change the group name, edit it within the interactive text-field, and then left-click on the *Rename Group* button.
 
@@ -49,7 +49,7 @@ To add a new group, proceed as follows:
 . Left-click on the *Add Group* tab, which is located at the upper right of the *Server Groups* screen:
 +
 [#groups_add_group_tab]
-image::picts/groupsAddGroupTab.png[,120,align=left]
+image::groupsAddGroupTab.png[,120,align=left]
 +
 {blank}
 +
@@ -58,7 +58,7 @@ This brings up the *Add Group* dialog:
 {blank}
 +
 [#groups_add_group_dialog]
-image::picts/groupsAddGroupDialog.png[,260,align=left]
+image::groupsAddGroupDialog.png[,260,align=left]
 +
 {blank}
 +
@@ -69,7 +69,7 @@ Then, left-click on the *Add Group* button, to the lower right of the dialog.
 The new group is added, the dialog disappears, and the *Server Groups* screen is now displayed as follows:
 +
 [#groups_server_groups_new_group_added]
-image::picts/groupsServerGroupsNewGroupAdded.png[,820,align=left]
+image::groupsServerGroupsNewGroupAdded.png[,820,align=left]
 +
 {blank}
 +
@@ -86,7 +86,7 @@ Proceed as follows:
 A pop-up menu appears, listing the available groups to which the server can be moved.
 +
 [#groups_access_move_server_tab]
-image::picts/groupsAccessMoveServerTab.png[,740,align=left]
+image::groupsAccessMoveServerTab.png[,740,align=left]
 +
 {blank}
 +
@@ -97,7 +97,7 @@ A *pending move* notification now appears.
 {blank}
 +
 [#groups_pending_move_notification]
-image::picts/groupsPendingMoveNotification.png[,740,align=left]
+image::groupsPendingMoveNotification.png[,740,align=left]
 +
 {blank}
 +
@@ -108,13 +108,13 @@ If you left-click on the *Reset* tab, the pending move is cancelled, and the sel
 Left-click on the *Apply Changes* button to complete the move.
 +
 [#groups_reset_and_apply_changes_buttons]
-image::picts/groupsResetAndApplyChangesButtons.png[,220,align=left]
+image::groupsResetAndApplyChangesButtons.png[,220,align=left]
 
 . Return to the *Servers* screen.
 Note that a rebalance is now recommended, due to the change you have made:
 +
 [#groups_rebalance_following_move]
-image::picts/groupsRebalanceFollowingMove.png[,820,align=left]
+image::groupsRebalanceFollowingMove.png[,820,align=left]
 +
 {blank}
 +
@@ -131,7 +131,7 @@ This expands the row-display.
 The *Remove* button appears at the lower right:
 +
 [#groups_screen_with_open_group]
-image::picts/groupsScreenWithOpenGroup.png[,820,align=left]
+image::groupsScreenWithOpenGroup.png[,820,align=left]
 +
 {blank}
 +
@@ -141,7 +141,7 @@ image::picts/groupsScreenWithOpenGroup.png[,820,align=left]
 A confirmation notification appears:
 +
 [#groups_confirm_server_removal_notice]
-image::picts/groupsConfirmServerRemovalNotice.png[,340,align=left]
+image::groupsConfirmServerRemovalNotice.png[,340,align=left]
 +
 {blank}
 +
@@ -155,7 +155,7 @@ A *Cancel Remove* button is also provided, to allow cancellation:
 {blank}
 +
 [#groups_removal_pending_notification]
-image::picts/groupsRemovalPendingNotification.png[,740,align=left]
+image::groupsRemovalPendingNotification.png[,740,align=left]
 +
 {blank}
 +
@@ -164,7 +164,7 @@ image::picts/groupsRemovalPendingNotification.png[,740,align=left]
 . Left-click on the *Rebalance* button to perform a rebalance, and thereby complete the server-removal process:
 +
 [#groups_rebalance_button]
-image::picts/groupsRebalanceButton.png[,100,align=left]
+image::groupsRebalanceButton.png[,100,align=left]
 +
 {blank}
 +
@@ -173,7 +173,7 @@ At the conclusion of the rebalance, the server has been removed.
 {blank}
 +
 [#groups_following_server_removal]
-image::picts/groupsFollowingServerRemoval.png[,740,align=left]
+image::groupsFollowingServerRemoval.png[,740,align=left]
 +
 {blank}
 +
@@ -183,7 +183,7 @@ Perform server-removal in this way for every server in the group to be deleted, 
 The group that now contains no servers is represented by a row that displays a notification:
 +
 [#groups_empty_group]
-image::picts/groupsEmptyGroup.png[,740,align=left]
+image::groupsEmptyGroup.png[,740,align=left]
 +
 {blank}
 +
@@ -192,7 +192,7 @@ image::picts/groupsEmptyGroup.png[,740,align=left]
 . Left-click on the *delete group* tab:
 +
 [#groups_delete_group]
-image::picts/groupsDeleteGroup.png[,100,align=left]
+image::groupsDeleteGroup.png[,100,align=left]
 +
 {blank}
 +
@@ -201,7 +201,7 @@ A confirmation dialog now appears:
 {blank}
 +
 [#groups_delete_group_confirmation]
-image::picts/groupsDeleteGroupConfirmation.png[,260,align=left]
+image::groupsDeleteGroupConfirmation.png[,260,align=left]
 +
 {blank}
 +
@@ -218,7 +218,7 @@ When a server is added to a cluster, the server can be assigned to an existing g
 The *Add Server Dialog* appears as follows:
 
 [#groups_select_from_add_server_dialog]
-image::picts/groupsSelectFromAddServerDialog.png[,340,align=left]
+image::groupsSelectFromAddServerDialog.png[,340,align=left]
 
 Select one of the existing groups from the controls that are located at the right of the *Assign Group* field.
 

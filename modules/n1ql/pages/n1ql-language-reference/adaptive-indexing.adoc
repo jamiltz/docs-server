@@ -289,7 +289,7 @@ Q8: EXPLAIN SELECT city FROM `travel-sample` USE INDEX (ai_city) WHERE city = "S
 ----
 +
 [#image_bkl_dr2_dbb]
-image::adaptive-indexing_Q7-Q8_Results.png[]
+image::n1ql-language-reference/images/adaptive-indexing_Q7-Q8_Results.png[]
 
 . *Adaptive index requires more storage and memory*, especially in case of Memory Optimized Indexes.
 [#ol_sxn_hcn_5z]

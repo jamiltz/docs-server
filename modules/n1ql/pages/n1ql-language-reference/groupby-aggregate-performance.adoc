@@ -55,13 +55,13 @@ Before Couchbase version 5.5, this query engine fetched relevant data from the i
 This simple query takes about 250 ms.
 
 [#image_lnh_v4q_xcb]
-image::GBAP_Ex0_QP_before55.png[]
+image::n1ql-language-reference/images/GBAP_Ex0_QP_before55.png[]
 
 Now, in Couchbase version 5.5, this query use the same `def_type` index, but executes in under 70 ms.
 In the explain below, you can see fewer steps and the lack of the grouping step after the index scan because the index scan step does the grouping and aggregation as well.
 
 [#image_bln_w4q_xcb]
-image::GBAP_Ex0_QP_after55.png[]
+image::n1ql-language-reference/images/GBAP_Ex0_QP_after55.png[]
 
 As the data and query complexity grows, the performance benefit (both latency and throughput) will grow as well.
 
@@ -116,12 +116,12 @@ Here’s is how this query executes when the indexer executes the GROUP BY and a
 The query engine does not fetch any data from the data service (KV service), as shown below:
 
 [#image_ngr_kzv_xcb]
-image::GBAP_55execution.png[,700]
+image::n1ql-language-reference/images/GBAP_55execution.png[,700]
 
 For your reference, this is how the same query executed before 5.5.
 
 [#image_pbg_4zv_xcb]
-image::GBAP_pre55execution.png[,700]
+image::n1ql-language-reference/images/GBAP_pre55execution.png[,700]
 
 [#section_fw5_ypq_xcb]
 == Examples for Indexer GROUP BY and Aggregation
@@ -204,7 +204,7 @@ In this case, the indexer sends partial group aggregation, which the query merge
 In this scenario (when the grouping is on non-leading keys), any query with aggregation and DISTINCT modifier cannot be accelerated by the indexer, such as `COUNT(DISTINCT id)`.
 
 [#image_fjx_cyy_jdb]
-image::GBAP_ExC_Plan.png[]
+image::n1ql-language-reference/images/GBAP_ExC_Plan.png[]
 
 *Positive query examples on array indexes with GROUP BY on leading index keys*
 
@@ -256,7 +256,7 @@ In this case, the `UNNEST` operation can use the index because the leading `ALL`
 Note, the unwound operation repeats the parent document (`travel-sample`) and the `t.geo.lat` reference would have duplicates compared to the original `travel-sample` documents.
 
 [#image_dkl_w1z_jdb]
-image::GBAP_ExE_Plan.png[]
+image::n1ql-language-reference/images/GBAP_ExE_Plan.png[]
 
 [#section_nyj_2bz_jdb]
 == Query Qualification and Pushdown
@@ -525,7 +525,7 @@ ORDER BY Min_Latitude;
 Explain Plan:
 
 [#image_l3d_gvx_xcb]
-image::GBAP_Ex2A_EP.png[]
+image::n1ql-language-reference/images/GBAP_Ex2A_EP.png[]
 
 ----
 {
@@ -771,7 +771,7 @@ GROUP BY ROUND(distance*stops);
 Query Plan:
 
 [#image_kp1_yxd_ycb]
-image::GBAP_Ex4A_VP.png[]
+image::n1ql-language-reference/images/GBAP_Ex4A_VP.png[]
 
 ----
 ...
@@ -1362,7 +1362,7 @@ ORDER BY SumAbs_Latitude DESC;
 The Example 10 Explain Plan shows that Aggregates are executed by the indexer and is detailed in the <<docs-internal-guid-facfdbc0-bb3d-b00f-2ec0-6bee4921dabc,Aggregate Query Plan table>>:
 
 [#image_kj3_xl2_ycb]
-image::GBAP_Ex10_VP.png[]
+image::n1ql-language-reference/images/GBAP_Ex10_VP.png[]
 
 ----
 {

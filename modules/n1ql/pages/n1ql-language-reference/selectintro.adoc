@@ -128,7 +128,7 @@ The following diagram shows the query execution workflow at a high level and ill
 
 .Query Execution Workflow
 [#fig_knp_lkk_dx]
-image::query_execution.png[,570]
+image::n1ql-language-reference/images/query_execution.png[,570]
 
 The SELECT statement is executed as a sequence of steps.
 Each step in the process produces result objects that are then used as inputs in the next step until all steps in the process are complete.
@@ -139,7 +139,7 @@ The following diagram shows the possible elements and operations during query ex
 
 .Query Execution Phases
 [#fig_t4d_c35_gx]
-image::query_service.svg[,670]
+image::n1ql-language-reference/images/query_service.svg[,670]
 
 Some phases are done serially while others are done in parallel, as specified by their parent operator.
 
@@ -265,7 +265,7 @@ For more details about the data model, see xref:..:sdk/sample-application.adoc#s
 +
 .Data model of travel-sample keyspace
 [#fig_fgp_14k_dx]
-image::../../travel-app/images/travel-app-data-model.png[,570]
+image::travel-app/images/travel-app-data-model.png[,570]
 +
 The first example (*Example 1*) uses a JOIN clause to find the distinct airline details which have routes that start from SFO.
 This example JOINS the document of type "route" with documents of type "airline" using the KEY "airlineid".

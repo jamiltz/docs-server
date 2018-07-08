@@ -57,28 +57,28 @@ The role allows access to Couchbase Web Console, but does not permit the writing
 5+| Role: Cluster Admin (`cluster_admin`) | Resources 4+| Privileges | *Read* | *Write* | *Execute* | *Manage*
 
 | Cluster (except Passwords)
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
 
 | UI (except Passwords)
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
 
 | Security (except Passwords)
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Bucket Data
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 |===
 
 == Security Admin
@@ -92,28 +92,28 @@ The role supports access to Couchbase Web Console, but does not support the read
 5+| Role: Security Admin (`security_admin`) | Resources 4+| Privileges | *Read* | *Write* | *Execute* | *Manage*
 
 | Cluster
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | UI (except Security)
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Security (including UI)
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
 
 | Bucket Data
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 |===
 
 == Read-Only Admin
@@ -128,28 +128,28 @@ This role is also available in Couchbase Server _Community Edition_.
 5+| Role: Read-Only Admin (`ro_admin`) | Resources 4+| Privileges | *Read* | *Write* | *Execute* | *Manage*
 
 | Cluster
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | UI (except Passwords)
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Security (except Passwords)
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Bucket Data
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 |===
 
 == XDCR Admin
@@ -162,34 +162,34 @@ The role allows access to Couchbase Web Console.
 5+| Role: XDCR Admin (`replication_admin`) | Resources 4+| Privileges | *Read* | *Write* | *Execute* | *Manage*
 
 | XDCR for Cluster and Bucket
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
 
 | Bucket Data
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Bucket Settings
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | UI (XDCR)
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
 
 | UI (Other)
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 |===
 
 == Query Curl Access
@@ -208,22 +208,22 @@ In versions of Couchbase Server prior to 5.5, this role was referred to as *Quer
 5+| Role: Query Curl Access (`query_external_access`) | Resources 4+| Privileges | *Read* | *Write* | *Execute* | *Manage*
 
 | Bucket : N1QL, curl
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
 
 | UI
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Pools
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 |===
 
 == Query System Catalog
@@ -237,32 +237,32 @@ The role allows access to Couchbase Web Console, but does not permit the reading
 6+| Role: Query System Catalog (`query_system_catalog`) | Resources 5+| Privileges | *Read* | *Write* | *Execute* | *Manage* | *List*
 
 | Bucket : N1QL, INDEX
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/yes.png[]
 
 | Bucket : N1QL, Meta
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | UI
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Pools
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 |===
 
 {blank}
@@ -278,22 +278,22 @@ The role allows access to Couchbase Web Console, and permits the reading of data
 5+| Role: Analytics Reader (`analytics_reader`) | Resources 4+| Privileges | *Read* | *Write* | *Execute* | *Manage*
 
 | Bucket : Analytics
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Bucket : UI
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Pools
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 |===
 
 {blank}
@@ -308,34 +308,34 @@ The role allows access to Couchbase Web Console, but does not permit the reading
 5+| Role: Bucket Admin (`bucket_admin`) | Resources 4+| Privileges | *Read* | *Write* | *Execute* | *Manage*
 
 | Cluster
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Bucket (including XDCR)
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
 
 | Bucket Data
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Bucket UI
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
 
 | Other UI
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 |===
 
 == Views Admin
@@ -348,34 +348,34 @@ The role allows access to Couchbase Web Console.
 5+| Role: Views Admin (`views_admin`) | Resources 4+| Privileges | *Read* | *Write* | *Execute* | *Manage*
 
 | Bucket Data (Views)
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
 
 | Bucket Data (Other)
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Bucket Settings
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | UI (Views)
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
 
 | UI (Other)
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 |===
 
 == Search Admin
@@ -390,46 +390,46 @@ In versions of Couchbase Server prior to 5.5, this role was referred to as *FTS 
 5+| Role: Search Admin (`fts_admin`) | Resources 4+| Privileges | *Read* | *Write* | *Execute* | *Manage*
 
 | Bucket Data (Search)
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
 
 | Bucket Data (Other)
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Bucket Settings
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | UI (Search)
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
 
 | UI (Other)
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Services and Curl
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Pools
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 |===
 
 == Application Access
@@ -453,46 +453,46 @@ Note that in versions of Couchbase Server prior to 5.5, this role was referred t
 6+| Role: Application Access (`bucket_full_access`) | Resources 5+| Privileges | *Read* | *Write* | *Execute* | *Manage* | *Flush*
 
 | Bucket Data
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
 
 | Bucket Views
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
 
 | N1QL: Index
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
 
 | N1QL: Other
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Bucket
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/yes.png[]
 
 | Pools
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 |===
 
 {blank}
@@ -508,28 +508,28 @@ The role does not allow access to Couchbase Web Console: it is intended to suppo
 5+| Role: Data Reader (`data_reader`) | Resources 4+| Privileges | *Read* | *Write* | *Execute* | *Manage*
 
 | Bucket Docs
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Bucket : Meta
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Bucket : Xattr
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Pools
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 |===
 
 {blank}
@@ -544,22 +544,22 @@ The role does not allow access to Couchbase Web Console: it is intended to suppo
 5+| Role: Data Writer (`data_writer`) | Resources 4+| Privileges | *Read* | *Write* | *Execute* | *Manage*
 
 | Bucket : Docs
-| image:../introduction/images/no.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Bucket : Xattr
-| image:../introduction/images/no.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Pools
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 |===
 
 {blank}
@@ -575,46 +575,46 @@ The role does allow the reading of data.
 5+| Role: Data DCP Reader (`data_dcp_reader`) | Resources 4+| Privileges | *Read* | *Write* | *Execute* | *Manage*
 
 | Bucket: : Docs
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Bucket: : Meta
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Bucket: : DCP
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Bucket: : Sxattr
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Bucket: : Xattr
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Admin: Memcached: Idle
-| image:../introduction/images/no.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Pools
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 |===
 
 {blank}
@@ -630,40 +630,40 @@ The role does not allow access to Couchbase Web Console: it is intended to suppo
 5+| Role: Data Backup (`data_backup`) | Resources 4+| Privileges | *Read* | *Write* | *Execute* | *Manage*
 
 | Bucket: : Data
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Bucket: : Views
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Bucket: : FTS
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/yes.png[]
 
 | Bucket: : Stats
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Bucket: : Settings
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Bucket: : Pools
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 |===
 
 {blank}
@@ -681,16 +681,16 @@ In versions of Couchbase Server prior to 5.5, this role was referred to as *Data
 5+| Role: Data Monitor (`data_monitoring`) | Resources 4+| Privileges | *Read* | *Write* | *Execute* | *Manage*
 
 | Bucket : Stats
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Pools
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 |===
 
 {blank}
@@ -707,28 +707,28 @@ In versions of Couchbase Server prior to 5.5, this role was referred to as *Repl
 5+| Role: XDCR Inbound (`replication_target`) | Resources 4+| Privileges | *Read* | *Write* | *Execute* | *Manage*
 
 | Bucket : Settings
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Bucket : Meta
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Bucket : Stats
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Pools
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 |===
 
 {blank}
@@ -744,28 +744,28 @@ This role allows access to Couchbase Web Console.
 5+| Role: Analytics Manager (`analytics_manager`) | Resources 4+| Privileges | *Read* | *Write* | *Execute* | *Manage*
 
 | Bucket : Analytics
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/yes.png[]
 
 | Bucket : UI
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Bucket : Stats
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Pools
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 |===
 
 {blank}
@@ -780,22 +780,22 @@ This role does not allow access to Couchbase Web Console, and is intended to sup
 5+| Role: Views Reader (`views_reader`) | Resources 4+| Privileges | *Read* | *Write* | *Execute* | *Manage*
 
 | Bucket : Docs
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Bucket : Views
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Pools
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 |===
 
 {blank}
@@ -812,28 +812,28 @@ In versions of Couchbase Server prior to 5.5, this role was referred to as *FTS 
 5+| Role: Search Reader (`fts_searcher`) | Resources 4+| Privileges | *Read* | *Write* | *Execute* | *Manage*
 
 | Bucket : FTS
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Settings: FTS
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | UI
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Pools
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 |===
 
 {blank}
@@ -848,22 +848,22 @@ This role allows access to Couchbase Web Console, but does not support the readi
 5+| Role: Query Select (`query_select`) | Resources 4+| Privileges | *Read* | *Write* | *Execute* | *Manage*
 
 | Bucket : N1QL, SELECT
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
 
 | UI
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Pools
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 |===
 
 {blank}
@@ -878,22 +878,22 @@ The role supports access to Couchbase Web Console, but does not allow the readin
 5+| Role: Query Update (`query_update`) | Resources 4+| Privileges | *Read* | *Write* | *Execute* | *Manage*
 
 | Bucket : N1QL, UPDATE
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
 
 | UI
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Pools
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 |===
 
 {blank}
@@ -908,22 +908,22 @@ The role supports access to Couchbase Web Console, but does not allow the readin
 5+| Role: Query Insert (`query_insert`) | Resources 4+| Privileges | *Read* | *Write* | *Execute* | *Manage*
 
 | Bucket : N1QL, INSERT
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
 
 | UI
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Pools
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 |===
 
 {blank}
@@ -938,22 +938,22 @@ The role supports access to Couchbase Web Console, but does not allow the readin
 5+| Role: Query Delete (`query_delete`) | Resources 4+| Privileges | *Read* | *Write* | *Execute* | *Manage*
 
 | Bucket : N1QL, DELETE
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
 
 | UI
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Pools
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 |===
 
 {blank}
@@ -968,22 +968,22 @@ The role allows access to Couchbase Web Console, but does not permit the reading
 5+| Role: Query Manage Index (`query_manage_index`) | Resources 4+| Privileges | *Read* | *Write* | *Execute* | *Manage*
 
 | Bucket : N1QL, INDEX
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/yes.png[]
 
 | UI
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 
 | Pools
-| image:../introduction/images/yes.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
-| image:../introduction/images/no.png[]
+| image:introduction/images/yes.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
+| image:introduction/images/no.png[]
 |===
 
 {blank}

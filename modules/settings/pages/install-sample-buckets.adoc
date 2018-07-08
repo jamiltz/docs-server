@@ -9,7 +9,7 @@ Only Full Administrators and Cluster Administrators can install sample buckets.
 The *Sample Buckets* screen appears as follows:
 
 [#image_vjy_zgb_1t]
-image::../admin/picts/settings-samples.png[,720,align=left]
+image::admin/picts/settings-samples.png[,720,align=left]
 
 To install sample buckets:
 

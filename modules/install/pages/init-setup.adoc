@@ -17,7 +17,7 @@ If you have chosen to run Couchbase on a port other than `8091`, connect on that
 Once you have connected, the [.uicontrol]*Welcome* screen appears:
 
 [#welcome]
-image::../admin/picts/welcome.png[,400,align=left]
+image::admin/picts/welcome.png[,400,align=left]
 
 The [.uicontrol]*Welcome* screen lets you either [.uicontrol]*Setup New Cluster*, or [.uicontrol]*Join Existing Cluster*.
 Information on joining an existing cluster is provided below, in the section _Join an Existing Cluster_.
@@ -29,7 +29,7 @@ To set up a new cluster, left-click on [.uicontrol]*Setup New Cluster*.
 The [.uicontrol]*New Cluster* screen now appears, as follows:
 
 [#set_up_new_cluster_01]
-image::../admin/picts/setUpNewCluster01.png[,390,align=left]
+image::admin/picts/setUpNewCluster01.png[,390,align=left]
 
 The fields displayed on the screen are:
 
@@ -56,14 +56,14 @@ When you have entered appropriate data into each field, left-click on the btn:[N
 The [.uicontrol]*New Cluster* screen now changes, to show the [.uicontrol]*Terms and Conditions* for the Enterprise Edition of Couchbase Server:
 
 [#ts_and_cs_01]
-image::../admin/picts/TsAndCs01.png[,390,align=left]
+image::admin/picts/TsAndCs01.png[,390,align=left]
 
 Check the [.uicontrol]*I accept the terms & conditions* checkbox.
 Then, to register for updates, left-click on the right-facing arrowhead, adjacent to the [.uicontrol]*Register for updates* notification.
 The screen now expands vertically, as follows:
 
 [#register_for_updates]
-image::../admin/picts/registerForUpdates01.png[,390,align=left]
+image::admin/picts/registerForUpdates01.png[,390,align=left]
 
 To receive updates, fill out the four newly displayed fields with your first and last name, company-name, and email-address.
 Provided that the current node is connected to the internet, the Couchbase Server version-numbers corresponding to each node in your cluster will be anonymously sent to Couchbase: this information is used by Couchbase over time, to provide you with appropriate updates, and to help with product-improvement.
@@ -80,7 +80,7 @@ However, if you wish to customize those settings, left-click on the btn:[Configu
 The [.uicontrol]*Configure* screen now appears, as follows:
 
 [#configure_new_cluster_01]
-image::../admin/picts/configureNewCluster01.png[,390,align=left]
+image::admin/picts/configureNewCluster01.png[,390,align=left]
 
 The displayed fields are:
 
@@ -157,7 +157,7 @@ When you have finished entering your configuration-details, left-click on the [.
 This configures the server accordingly, and brings up the Couchbase Web Console [.uicontrol]*Dashboard*, for the first time.
 
 [#dashboard_01]
-image::../admin/picts/dashboard01.png[,820,align=left]
+image::admin/picts/dashboard01.png[,820,align=left]
 
 == New-Cluster Set-Up: Next Steps
 
@@ -180,7 +180,7 @@ For information on how to set up RBAC users so that they can access the buckets 
 If, while the [.uicontrol]*Welcome Screen* is still displayed, you left-click on [.uicontrol]*Join Existing Cluster*, the [.uicontrol]*Join Cluster* screen appears:
 
 [#join_cluster_initial]
-image::../admin/picts/joinClusterInitial.png[,390,align=left]
+image::admin/picts/joinClusterInitial.png[,390,align=left]
 
 The interactive fields [.uicontrol]*Cluster Host Name/IP Address*, [.uicontrol]*Cluster Admin Username*, and [.uicontrol]*Cluster Admin Password* require you to enter information already defined by the Full Administrator for the cluster-host: see _Set Up a New Cluster_, above.
 
@@ -191,7 +191,7 @@ To change the default configuration, or to review its details, left-click on the
 The screen now expands vertically, as shown below:
 
 [#join_with_default_config]
-image::../admin/picts/joinWithDefaultConfig.png[,390,align=left]
+image::admin/picts/joinWithDefaultConfig.png[,390,align=left]
 
 Newly displayed fields show default values for the Couchbase services (a checked box indicating that the corresponding service will be added to this node), the [.uicontrol]*Host Name/IP Address* for the current node, and default paths for [.uicontrol]*Data*, [.uicontrol]*Indexes*, and [.uicontrol]*Analytics*.
 Specify hostname or IP address, and data and index paths as described above, in _Set Up a New Cluster_.
@@ -202,18 +202,18 @@ For example, _uncheck_ the checkboxes for [.uicontrol]*Query Service*, [.uicontr
 The checkbox-display now appears as follows:
 
 [#join_cluster_service_checkboxes]
-image::../admin/picts/joinClusterServiceCheckboxes.png[,140,align=left]
+image::admin/picts/joinClusterServiceCheckboxes.png[,140,align=left]
 
 Note that due to this change, the button at the lower right has been renamed:
 
 [#join_with_custom_configuration_button]
-image::../admin/picts/joinWithCustomConfigurationButton.png[,240,align=left]
+image::admin/picts/joinWithCustomConfigurationButton.png[,240,align=left]
 
 Left-click on this button, to save the configurations you have specified.
 If the existing cluster previously had (say) only the Data service defined, the [.uicontrol]*New Service Settings* dialog now appears:
 
 [#join_existing_new_service_settings]
-image::../admin/picts/joinExistingNewServiceSettings.png[,390,align=left]
+image::admin/picts/joinExistingNewServiceSettings.png[,390,align=left]
 
 This dialog acknowledges that the Index has been added to the cluster for the first time, and provides the opportunity to edit both of the services now featured (Data and Index), and also to make a selection for the [.uicontrol]*Index Storage Setting*; as is now required due to your addition of the Index service.
 All modifications you now make are applied to each node in the cluster.
@@ -222,7 +222,7 @@ When you have made the appropriate changes, left-click on the btn:[Save Settings
 The Couchbase Web Console [.uicontrol]*Dashboard* for the current node now appears — with a notification confirming the successful saving of a new memory quota:
 
 [#join_cluster_memory_quota_saved]
-image::../admin/picts/joinClusterMemoryQuotaSaved.png[,720,align=left]
+image::admin/picts/joinClusterMemoryQuotaSaved.png[,720,align=left]
 
 The new node has now been successfully added to the existing cluster.
 

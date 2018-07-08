@@ -100,7 +100,7 @@ Node 1 is in delta recovery and a bucket operation is performed.:: The bucket op
 . Rebalance is performed and fails.
 +
 [#image_rdf_1z3_dt]
-image::../admin/picts/delta-node-01.png[,570,align=left]
+image::admin/picts/delta-node-01.png[,570,align=left]
 
 . Cancel the pending delta recovery, specify full recovery, and rebalance.
 +
@@ -112,4 +112,4 @@ Node 1 and Node 2 are in delta node recovery and Node 2 crashes.::
 . Rebalance is performed and fails.
 +
 [#image_wxh_cz3_dt]
-image::../admin/picts/delta-node-02.png[,570,align=left]
+image::admin/picts/delta-node-02.png[,570,align=left]

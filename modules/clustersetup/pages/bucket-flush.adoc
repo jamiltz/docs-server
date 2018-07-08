@@ -9,12 +9,12 @@ _Flushing_ deletes every object that a bucket contains.
 To edit an existing bucket-configuration, access Couchbase Web Console, and left-click on the [.uicontrol]*Buckets* tab, in the vertical navigation-bar at the left-hand side.
 
 [#access_bucket_tab]
-image::picts/accessBucketTab.png[,80,align=left]
+image::accessBucketTab.png[,80,align=left]
 
 The [.uicontrol]*Buckets* screen now appears, showing the buckets that have already been defined for your system:
 
 [#new_bucket_display]
-image::picts/newBucketDisplay.png[,880,align=left]
+image::newBucketDisplay.png[,880,align=left]
 
 To edit the settings for a particular bucket, left-click on the bucket's row in the UI; then, when the btn:[Edit] button appears, left-click on it:
 
@@ -27,7 +27,7 @@ Navigate to the bottom of the expanded dialog, and locate the *Flush* panel.
 This provides a checkbox, the checking of which enables flushing for the current bucket:
 
 [#flush_option_enabled]
-image::picts/flushOptionEnabled.png[,350,align=left]
+image::flushOptionEnabled.png[,350,align=left]
 
 Note that flushing can also be enabled during bucket-creation.
 See xref:install:init-setup.adoc[Initialize the Cluster] for details.
@@ -36,7 +36,7 @@ Once enabled, flushing can be performed by means of the Couchbase Web Console: w
 The displayed options now include the [.uicontrol]*Flush* button.
 
 [#flush_bucket_button]
-image::picts/flushBucketButton.png[,350,align=left]
+image::flushBucketButton.png[,350,align=left]
 
 When the btn:[Flush] button is left-clicked on, flushing of the bucket occurs.
 This causes all items in the bucket to be deleted by the system at the earliest opportunity.

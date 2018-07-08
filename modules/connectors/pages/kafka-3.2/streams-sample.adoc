@@ -252,11 +252,11 @@ It could be done either using property files and `connect-standalone` as in xref
 We will use the last two options.
 
 By default Control Center starts at `http://localhost:9021/`.
-Connector configuration is accessible in the "Kafka Connect" section: image:kafka3-kafka-connect.png[,570]
+Connector configuration is accessible in the "Kafka Connect" section: image:kafka-3.2/images/kafka3-kafka-connect.png[,570]
 
 Clicking on "New source" will open the configuration page of connectors.
 Specify "Connection Name" as `sample` and "Connection Class" as `CouchbaseSourceConnector`.
-Once the connector class is selected, the UI will render a list of all accessible configuration properties: image:kafka3-setup-source-connector.png[,570]
+Once the connector class is selected, the UI will render a list of all accessible configuration properties: image:kafka-3.2/images/kafka3-setup-source-connector.png[,570]
 
 The "Continue" button will lead to the next step where the form values are converted into JSON, which can be used to define the connector using the REST API:
 

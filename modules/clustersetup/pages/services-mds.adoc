@@ -14,7 +14,7 @@ With MDS, admins can achieve both the existing homogeneous scalability model and
 == Homogenous Scaling Model
 
 [#image_a4k_452_2t]
-image::../admin/picts/homogenous-scaling.png[,600,align=left]
+image::admin/picts/homogenous-scaling.png[,600,align=left]
 
 This model is available through MDS and is simple to implement but has a few drawbacks:
 
@@ -25,9 +25,9 @@ While the core data operations can benefit greatly from scale-out with smaller c
 == Independent Scaling Model
 
 [#image_ohl_q52_2t]
-image::../admin/picts/independent-scaling.jpg[,600,align=left]
+image::admin/picts/independent-scaling.jpg[,600,align=left]
 
 Each service zone within a cluster (data, query, and index services) can now scale independently so that the best computational capacity is provided for each of them.
 
 [#image_gwy_r52_2t]
-image::../admin/picts/mds-scaling.png[,600,align=left]
+image::admin/picts/mds-scaling.png[,600,align=left]

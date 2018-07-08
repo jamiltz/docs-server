@@ -12,7 +12,7 @@ Additionally, subsets of information are provided on the *Logs* screen, in Couch
 This may appear as follows:
 
 [#welcome]
-image::picts/loggingScreenBasic.png[,720,align=left]
+image::loggingScreenBasic.png[,720,align=left]
 
 By default, on Linux systems, log files are saved to `/opt/couchbase/var/lib/couchbase/logs`; on MacOS, to `/Users/`_username_`/Library/Application Support/Couchbase/var/lib/couchbase/logs`; and on Windows, to `C:\Program Files\Couchbase\Server\var\lib\couchbase\logs`.
 
@@ -38,12 +38,12 @@ The documentation for this utility, provided xref:cli:cbcollect-info-tool.adoc[h
 Explicit logging can also be performed by means of Couchbase Web Console: on the *Logs* page, left-click on the [.uicontrol]*Collect Information* tab, located near the top.
 
 [#collect_info]
-image::picts/collectInfo.png[,248,align=left]
+image::collectInfo.png[,248,align=left]
 
 This brings up the *Collect Information* screen:
 
 [#collect_info_screen]
-image::picts/collectInformationScreen.png[,720,align=left]
+image::collectInformationScreen.png[,720,align=left]
 
 This allows logs and diagnostic information to be collected either from all or from selected nodes within the cluster.
 It also allows a *Log Redaction Level* to be specified (this is described in xref:clustersetup:logging.adoc#applying_redaction[Applying Redaction], below).
@@ -57,7 +57,7 @@ A notification is displayed, indicating that the collection-process is running.
 When the process has completed, the following information is displayed:
 
 [#collect_info_complete]
-image::picts/collectInformationComplete.png[,720,align=left]
+image::collectInformationComplete.png[,720,align=left]
 
 As this indicates, a set of log files has been created for each node in the cluster.
 Each file is saved as a zip file in the stated temporary location.
@@ -71,12 +71,12 @@ For information on performing upload at the command-prompt, see xref:cli:cbcolle
 To upload by means of Couchbase Web Console, before starting the collection-process, check the [.uicontrol]*Upload to Couchbase* checkbox:
 
 [#upload_to_couchbase_checkbox]
-image::picts/uploadToCouchbaseCheckbox.png[,218,align=left]
+image::uploadToCouchbaseCheckbox.png[,218,align=left]
 
 The display changes to the following:
 
 [#upload_to_couchbase_dialog_basic]
-image::picts/uploadToCouchbaseDialogBasic.png[,302,align=left]
+image::uploadToCouchbaseDialogBasic.png[,302,align=left]
 
 The dialog now features an *Upload to Host* field, which contains the server-location to which the customer-data is uploaded.
 Fields are also provided for *Customer Name* (required) and *Ticket Number* (optional).
@@ -145,7 +145,7 @@ Make sure the [.uicontrol]*Partial Redaction* radio-button is selected.
 Guidance on redaction is displayed below it:
 
 [#partial_redaction_selection]
-image::picts/partialRedactionSelection.png[,682,align=left]
+image::partialRedactionSelection.png[,682,align=left]
 
 Left-click on the btn:[Start Collection] button.
 A notification explains that the collection-process is now running.

@@ -19,7 +19,7 @@ For more information, see xref:clustersetup:manage-groups.adoc#mangage-server-gr
 For more information, see xref:clustersetup:adding-nodes.adoc#topic_ncd_gdg_q4[Adding a Node].
 
 [#image_qh2_dsb_mz]
-image::../admin/picts/ui-server.png[,720]
+image::admin/picts/ui-server.png[,720]
 
 .Server Details
 [cols="3,8"]

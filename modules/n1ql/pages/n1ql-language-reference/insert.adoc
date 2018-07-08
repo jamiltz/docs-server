@@ -132,91 +132,91 @@ SELECT "foo" || meta().id, bar FROM `travel-sample` WHERE type = "hotel"
 
 .Railroad Diagram: insert
 [#fig_tdq_p3n_zw]
-image::insert.png[]
+image::n1ql-language-reference/images/insert.png[]
 
 `keyspace-ref::= [ namespace : ] keyspace [ [ AS ] alias ]`
 
 .Railroad Diagram: keyspace-ref
 [#fig_vng_ckn_zw]
-image::keyspace-ref.png[]
+image::n1ql-language-reference/images/keyspace-ref.png[]
 
 `namespace::= identifier`
 
 .Railroad Diagram: namespace
 [#fig_w21_fkn_zw]
-image::namespace.png[]
+image::n1ql-language-reference/images/namespace.png[]
 
 `keyspace::= identifier`
 
 .Railroad Diagram: keyspace
 [#fig_jl2_hkn_zw]
-image::keyspace.png[]
+image::n1ql-language-reference/images/keyspace.png[]
 
 `insert-values::= [ "(" [ PRIMARY ] KEY , VALUE ")" ] values-clause`
 
 .Railroad Diagram: insert-values
 [#fig_vkv_3kn_zw]
-image::insert-values.png[]
+image::n1ql-language-reference/images/insert-values.png[]
 
 `values-clause::= VALUES "(" expr , expr ")" [, [VALUES] "(" expr , expr ")" ]* `
 
 .Railroad Diagram: values-clause
 [#fig_ild_kkn_zw]
-image::values-clause.png[]
+image::n1ql-language-reference/images/values-clause.png[]
 
 `insert-select::= "(" [ PRIMARY ] KEY expr [ , VALUE expr ] ")" select`
 
 .Railroad Diagram: insert-select
 [#fig_gx4_mkn_zw]
-image::insert-select.png[]
+image::n1ql-language-reference/images/insert-select.png[]
 
 `returning-clause::= RETURNING result-expr [ , result-expr ]* ] | ( RAW | ELEMENT | VALUE ) expr`
 
 .Railroad Diagram: returning-clause
 [#fig_dqz_nkn_zw]
-image::returning-clause.png[]
+image::n1ql-language-reference/images/returning-clause.png[]
 
 `result-expr::= ( [ path.]"*" | expr [ [ AS ] alias ] )`
 
 .Railroad Diagram: result-expr
 [#fig_zz4_pkn_zw]
-image::result-expr.png[]
+image::n1ql-language-reference/images/result-expr.png[]
 
 `path::= identifier ( ("[" expr "]" )*[.path] ) | ( [ ("[" expr "]" )*].path )`
 
 .Railroad Diagram: path
 [#fig_qzy_qkn_zw]
-image::path.png[]
+image::n1ql-language-reference/images/path.png[]
 
 `alias::= identifier`
 
 .Railroad Diagram: alias
 [#fig_gbd_skn_zw]
-image::alias.png[]
+image::n1ql-language-reference/images/alias.png[]
 
 `expr:= ( literal | identifier | nested-expr | case-expr | logical-term | comparison-term | arithmetic-term | concatenation-term | function-call | subquery-expr | collection-expr | construction-expr | "(" expr")" )`
 
 .Railroad Diagram: expr
 [#fig_fpq_tkn_zw]
-image::expr.png[]
+image::n1ql-language-reference/images/expr.png[]
 
 `identifier::= unescaped-identifier | escaped-identifier`
 
 .Railroad Diagram: identifier
 [#fig_ck2_dln_zw]
-image::identifier.png[]
+image::n1ql-language-reference/images/identifier.png[]
 
 `unescaped-identifier::= [a-zA-Z_] ( [0-9a-zA-Z_$] )*`
 
 .Railroad Diagram: unescaped-identifier
 [#fig_tsr_2ln_zw]
-image::unescaped-identifier.png[]
+image::n1ql-language-reference/images/unescaped-identifier.png[]
 
 `escaped-identifier::= `JSON-string``
 
 .Railroad Diagram: escaped-identifier
 [#fig_nld_3ln_zw]
-image::escaped-identifier.png[]
+image::n1ql-language-reference/images/escaped-identifier.png[]
 
 [#insert-semantics]
 == Semantics/Description

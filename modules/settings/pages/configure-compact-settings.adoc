@@ -16,7 +16,7 @@ To access the Auto-Compaction settings:
 Left-click on the btn:[Add Bucket] button:
 +
 [#add-bucket-button]
-image::../clustersetup/picts/addBucketButton.png[,120,align=left]
+image::clustersetup/picts/addBucketButton.png[,120,align=left]
 +
 {blank}
 +
@@ -68,7 +68,7 @@ This brings up the [.uicontrol]*Auto-Compaction* screen.
 The [.uicontrol]*Auto-Compaction* view of the [.uicontrol]*Settings* screen appears as follows.
 
 [#auto_compact_defaultNewUI]
-image::../admin/picts/auto-compact-defaultNewUI.png[,820,align=left]
+image::admin/picts/auto-compact-defaultNewUI.png[,820,align=left]
 
 All settings on this screen are also provided on the dialogs whereby you establish custom-settings for an individual new or existing bucket.
 
@@ -80,7 +80,7 @@ The settings are described below.
 The [.uicontrol]*Database Fragmentation* panel appears as follows:
 
 [#database_fragmentationNewUI]
-image::../admin/picts/database-fragmentationNewUI.png[,360,align=left]
+image::admin/picts/database-fragmentationNewUI.png[,360,align=left]
 
 Compaction is triggered when database-fragmentation reaches the point specified by means of this interface.
 You can specify the fragmentation-level as a percentage (the upper field, selected by checking the adjacent checkbox); or as a number of megabytes (the lower).

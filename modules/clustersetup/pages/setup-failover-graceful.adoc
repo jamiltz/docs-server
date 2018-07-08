@@ -33,7 +33,7 @@ If not, first fix the problems and rebalance the cluster.
 For each bucket, look at the `vBucket Resources` section of the metrics, then look at the active and replica vBucket graphs to confirm that each graph has 1024 for that bucket.
 +
 [#image_zqj_cbm_5v]
-image::../admin/picts/graceful-failover.png[,550,align=left]
+image::admin/picts/graceful-failover.png[,550,align=left]
 
 For example:
 

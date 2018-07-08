@@ -201,4 +201,4 @@ See xref:data:extended-attributes-fundamentals.adoc[Extended Attributes] for mor
 The following diagram indicates the respective maximum sizes of the components of a Couchbase Server data-item.
 
 [#item-maximum-sizes]
-image::item-maximum-sizes.png[,520,align=left]
+image::data/images/item-maximum-sizes.png[,520,align=left]

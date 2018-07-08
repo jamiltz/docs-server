@@ -219,19 +219,19 @@ $JAVA_HOME/bin/policytool -file $JAVA_HOME/jre/lib/security/java.policy
 When the applet-window appears, verify that the policy-file displayed in the upper editable text field is the one you intend to edit:
 
 [#policyToolInitial]
-image::policyToolInitial.png[,480,align=left]
+image::elasticsearch/images/policyToolInitial.png[,480,align=left]
 
 To add the required security-settings, left-click on the btn:[Add Policy Entry] button.
 The [.uicontrol]*Policy Entry* window now appears:
 
 [#policyToolPolicyEnter01]
-image::policyToolPolicyEnter01.png[,480,align=left]
+image::elasticsearch/images/policyToolPolicyEnter01.png[,480,align=left]
 
 Left-click on the btn:[Add Permission] button.
 The [.uicontrol]*Permissions* dialog appears
 
 [#policyToolFirstEntry]
-image::policyToolFirstEntry.png[,480,align=left]
+image::elasticsearch/images/policyToolFirstEntry.png[,480,align=left]
 
 This dialog will now be used to add each of the required permissions.
 Proceed as follows:
@@ -239,17 +239,17 @@ Proceed as follows:
 . Open the [.uicontrol]*Permission* drop-down menu, and select [.uicontrol]*AuthPermission*:
 +
 [#policyToolAuthPermission]
-image::policyToolAuthPermission.png[,480,align=left]
+image::elasticsearch/images/policyToolAuthPermission.png[,480,align=left]
 
 . Open the [.uicontrol]*Target Name* drop-down menu, and select [.uicontrol]*modifyPrincipals*.
 +
 [#policyToolModifyPrincipals]
-image::policyToolModifyPrincipals.png[,480,align=left]
+image::elasticsearch/images/policyToolModifyPrincipals.png[,480,align=left]
 
 . Left-click the btn:[OK] button.
 +
 [#policyToolClickOK]
-image::policyToolClickOK.png[,320,align=left]
+image::elasticsearch/images/policyToolClickOK.png[,320,align=left]
 +
 {blank}
 +
@@ -258,7 +258,7 @@ The [.uicontrol]*Policy Entry* dialog now appears as follows:
 {blank}
 +
 [#policyToolpolicyEntryFirstEntry]
-image::policyToolpolicyEntryFirstEntry.png[,360,align=left]
+image::elasticsearch/images/policyToolpolicyEntryFirstEntry.png[,360,align=left]
 
 {blank}
 
@@ -277,7 +277,7 @@ Then, from the [.uicontrol]*Actions*, drop-down menu, select first [.uicontrol]*
 The [.uicontrol]*Permissions* dialog now appears as follows:
 
 [#policyToolSocketPermission]
-image::policyToolSocketPermission.png[,480,align=left]
+image::elasticsearch/images/policyToolSocketPermission.png[,480,align=left]
 
 Left-click the btn:[OK] button.
 
@@ -287,7 +287,7 @@ Then, left-click the btn:[OK] button.
 The [.uicontrol]*Policy Tool* and [.uicontrol]*Policy Entry* dialog now appear as follows:
 
 [#policyTooldone]
-image::policyTooldone.png[,480,align=left]
+image::elasticsearch/images/policyTooldone.png[,480,align=left]
 
 == Couchbase Document Expiration
 

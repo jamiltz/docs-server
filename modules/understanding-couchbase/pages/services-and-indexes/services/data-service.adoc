@@ -13,7 +13,7 @@ The Data Service must run on at least one node of every cluster.
 The architecture of the Data Service is illustrated as follows:
 
 [#data_service_architecture]
-image::dataServiceArchitecture.png[,780,align=left]
+image::services-and-indexes/services/images/dataServiceArchitecture.png[,780,align=left]
 
 The principal components are:
 

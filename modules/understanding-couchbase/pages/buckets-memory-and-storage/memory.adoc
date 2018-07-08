@@ -88,7 +88,7 @@ If an item has not been recently used, it is a candidate for ejection.
 The relationship of `mem_low_wat` and `mem_high_wat` to the bucket's overall memory quota is illustrated as follows:
 
 [#tunable_memory]
-image::tunableMemory.png[,416]
+image::buckets-memory-and-storage/images/tunableMemory.png[,416]
 
 The default setting for `mem_low_wat` is 75%.
 The default setting for `mem_high_wat` is 85%.

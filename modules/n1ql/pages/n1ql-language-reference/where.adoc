@@ -27,7 +27,7 @@ WHERE cond [ bool_type cond2 ]*
 ----
 
 [#image_cyr_nnz_fcb]
-image::where-clause.png[]
+image::n1ql-language-reference/images/where-clause.png[]
 
 [#section_a5z_tnz_fcb]
 == Arguments

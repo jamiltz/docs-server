@@ -44,7 +44,7 @@ For more details about user roles, see xref:..:security/security-authorization.a
 == Syntax
 
 [#image_exl_4yp_2cb]
-image::let-clause.png[]
+image::n1ql-language-reference/images/let-clause.png[]
 
 ----
 LET (alias = expr) [, (alias2 = expr2)]*

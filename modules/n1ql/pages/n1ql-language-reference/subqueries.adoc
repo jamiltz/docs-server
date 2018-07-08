@@ -10,7 +10,7 @@ The outer levels of queries are called outer or parent queries, and inner level 
 *Syntax*
 
 [#image_et5_tdk_mz]
-image::subquery-expr.png[,270]
+image::n1ql-language-reference/subquery-expr.png[,270]
 
 [#ul_g4q_brj_mz]
 * A subquery in N1QL is limited to a xref:n1ql:select-syntax.adoc#topic_vr1_zzk_dx[SELECT] query, whereas the outermost parent query can be any DML statement such as SELECT, INSERT, UPDATE, DELETE or MERGE.

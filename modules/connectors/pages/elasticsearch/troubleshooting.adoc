@@ -14,7 +14,7 @@ In Couchbase Web Console, left-click on the [.uicontrol]*Data Buckets* tab; then
 This provides statistics related to data replication to Elasticsearch, including the rate of transfer:
 +
 [#outboundXDCRops]
-image::outboundXDCRops.png[,320,align=left]
+image::elasticsearch/images/outboundXDCRops.png[,320,align=left]
 +
 {blank}
 +
@@ -32,7 +32,7 @@ To get the number for Couchbase, in the Couchbase Web Console, left-click on the
 For example:
 +
 [#itemCount]
-image::itemCount.png[,240,align=left]
+image::elasticsearch/images/itemCount.png[,240,align=left]
 +
 {blank}
 +
