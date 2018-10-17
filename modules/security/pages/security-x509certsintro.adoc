@@ -1,4 +1,7 @@
 = X.509 for TLS
+:gen_keystore: {examplesdir}/gen_keystore.sh
+:openssl-san: {examplesdir}/openssl-san.cnf
+:v3_ca: {examplesdir}/v3_ca.ext
 
 [abstract]
 Couchbase Server uses X.509 certificates to encrypt Cross Data Center Replication (XDCR) and other client-server communications.

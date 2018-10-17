@@ -18,9 +18,9 @@ export USERNAME=travel-sample
 
 # Delete folders if they already exist
 if [ -d "$TOPDIR" ]; then rm -Rf $TOPDIR; fi
-export INBOX=/Applications/Couchbase\ Server.app/Contents/Resources/couchbase-core/var/lib/couchbase/inbox/
+export INBOX=/Users/jamesnocentini/Library/Application\ Support/Couchbase/var/lib/couchbase/inbox/
 if [ -e "$INBOX" ]; then
- rm -Rf /Applications/Couchbase\ Server.app/Contents/Resources/couchbase-core/var/lib/couchbase/inbox/
+ rm -Rf /Users/jamesnocentini/Library/Application\ Support/Couchbase/var/lib/couchbase/inbox/
 fi
 
 mkdir ${TOPDIR}
@@ -71,11 +71,11 @@ if [ "${OS}" = "ubuntu" ]; then
 	chmod a+x /opt/couchbase/var/lib/couchbase/inbox/${NODE}.key
 elif [ "${OS}" = "macos" ]; then
 	echo Copying files to macOS path
-	mkdir /Applications/Couchbase\ Server.app/Contents/Resources/couchbase-core/var/lib/couchbase/inbox/
-	cp ./${CHAIN}.pem /Applications/Couchbase\ Server.app/Contents/Resources/couchbase-core/var/lib/couchbase/inbox/${CHAIN}.pem
-	chmod a+x /Applications/Couchbase\ Server.app/Contents/Resources/couchbase-core/var/lib/couchbase/inbox/${CHAIN}.pem
-	cp ./${NODE_DIR}/${NODE}.key /Applications/Couchbase\ Server.app/Contents/Resources/couchbase-core/var/lib/couchbase/inbox/${NODE}.key
-	chmod a+x /Applications/Couchbase\ Server.app/Contents/Resources/couchbase-core/var/lib/couchbase/inbox/${NODE}.key
+	mkdir /Users/jamesnocentini/Library/Application\ Support/Couchbase/var/lib/couchbase/inbox/
+	cp ./${CHAIN}.pem /Users/jamesnocentini/Library/Application\ Support/Couchbase/var/lib/couchbase/inbox/${CHAIN}.pem
+	chmod a+x /Users/jamesnocentini/Library/Application\ Support/Couchbase/var/lib/couchbase/inbox/${CHAIN}.pem
+	cp ./${NODE_DIR}/${NODE}.key /Users/jamesnocentini/Library/Application\ Support/Couchbase/var/lib/couchbase/inbox/${NODE}.key
+	chmod a+x /Users/jamesnocentini/Library/Application\ Support/Couchbase/var/lib/couchbase/inbox/${NODE}.key
 else
 	echo "Error: the first param must be `ubuntu` or `macos`"
 fi
