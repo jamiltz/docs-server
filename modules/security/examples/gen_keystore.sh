@@ -32,7 +32,7 @@ openssl req -new -key ${INTERMEDIATE}.key -out ${INTERMEDIATE}.csr \
 
 cat <<EOF>> ./v3_ca.ext
 subjectKeyIdentifier = hash
-authorityKeyIdentifier = keyid:always,issuer:always
+authorityKeyIdentifier = keyid,issuer:always
 basicConstraints = CA:true
 EOF
 
