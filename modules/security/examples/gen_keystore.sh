@@ -52,11 +52,24 @@ openssl x509 -req -in ${NODE}.csr -CA ../${INT_DIR}/${INTERMEDIATE}.pem \
 cd ..
 cat ./${NODE_DIR}/${NODE}.pem ./${INT_DIR}/${INTERMEDIATE}.pem > ${CHAIN}.pem
 
-mkdir /opt/couchbase/var/lib/couchbase/inbox/
-cp ./${CHAIN}.pem /opt/couchbase/var/lib/couchbase/inbox/${CHAIN}.pem
-chmod a+x /opt/couchbase/var/lib/couchbase/inbox/${CHAIN}.pem
-cp ./${NODE_DIR}/${NODE}.key /opt/couchbase/var/lib/couchbase/inbox/${NODE}.key
-chmod a+x /opt/couchbase/var/lib/couchbase/inbox/${NODE}.key
+OS=${1:-ubuntu} # or macos
+if [ "${OS}" = "ubuntu" ]; then
+	echo Copying files to Ubuntu path
+	mkdir /opt/couchbase/var/lib/couchbase/inbox/
+	cp ./${CHAIN}.pem /opt/couchbase/var/lib/couchbase/inbox/${CHAIN}.pem
+	chmod a+x /opt/couchbase/var/lib/couchbase/inbox/${CHAIN}.pem
+	cp ./${NODE_DIR}/${NODE}.key /opt/couchbase/var/lib/couchbase/inbox/${NODE}.key
+	chmod a+x /opt/couchbase/var/lib/couchbase/inbox/${NODE}.key
+elif [ "${OS}" = "macos" ]; then
+	echo Copying files to macOS path
+	mkdir /Applications/Couchbase\ Server.app/Contents/Resources/couchbase-core/var/lib/couchbase/inbox/
+	cp ./${CHAIN}.pem /Applications/Couchbase\ Server.app/Contents/Resources/couchbase-core/var/lib/couchbase/inbox/${CHAIN}.pem
+	chmod a+x /Applications/Couchbase\ Server.app/Contents/Resources/couchbase-core/var/lib/couchbase/inbox/${CHAIN}.pem
+	cp ./${NODE_DIR}/${NODE}.key /Applications/Couchbase\ Server.app/Contents/Resources/couchbase-core/var/lib/couchbase/inbox/${NODE}.key
+	chmod a+x /Applications/Couchbase\ Server.app/Contents/Resources/couchbase-core/var/lib/couchbase/inbox/${NODE}.key
+else
+	echo "Error: the first param must be `ubuntu` or `macos`"
+fi
 
 curl -X POST --data-binary "@./${ROOT_DIR}/${ROOT_CA}.pem" \
 http://${ADMINCRED}@${ip}:8091/controller/uploadClusterCA
