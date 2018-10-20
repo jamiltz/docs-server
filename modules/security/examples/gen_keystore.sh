@@ -11,7 +11,7 @@ export NODE=pkey
 export CHAIN=chain
 
 export ADMINCRED=Administrator:password
-export ip=10.143.173.101
+export ip=127.0.0.1
 export USERNAME=travel-sample
 
 mkdir ${TOPDIR}
