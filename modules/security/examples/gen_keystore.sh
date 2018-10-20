@@ -75,10 +75,6 @@ curl -X POST --data-binary "@./${ROOT_DIR}/${ROOT_CA}.pem" \
 http://${ADMINCRED}@${ip}:8091/controller/uploadClusterCA
 curl -X POST http://${ADMINCRED}@${ip}:8091/node/controller/reloadCertificate
 
-couchbase-cli ssl-manage -c ${ip}:8091:8091 -u Administrator -p password \
---upload-cluster-ca=./${ROOT_DIR}/${ROOT_CA}.pem
-couchbase-cli ssl-manage -c ${ip}:8091 -u Administrator -p password \
---set-node-certificate
 
 curl -u ${ADMINCRED} -v -X POST http://${ip}:8091/settings/clientCertAuth \
 -d '{"state": "enable","prefixes": [{"path": "subject.cn","prefix": "","delimiter": ""}]}'
