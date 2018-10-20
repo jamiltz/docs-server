@@ -62,13 +62,9 @@ image::pict/back-to-safety.png[,450,align=left]
 To avoid such warnings, a server should always provide a complete _trust chain_.
 The trust chain contains your certificate, concatenated with all intermediate certificates.
 
-[[configuring-x.509]]
-== Configuring X.509
-
-This section explains how to configure X.509 certificates for TLS in Couchbase Server.
 Note that choosing a root CA, the CA hierarchy, and obtaining a certificate from that CA chain to set up a Couchbase cluster are not within the scope of this document.
 
-*X.509 Certificate Requirements and Best Practices*
+== Requirements
 
 Here are the basic requirements for using X.509 certificates in Couchbase:
 
@@ -77,6 +73,9 @@ Here are the basic requirements for using X.509 certificates in Couchbase:
 * The current system time must fall between the times set in the certificate's properties `valid from` and `valid to`.
 * Common name: This can be a certificate with a `nodename` (preferable), IP address, URI (`www.example.com`), or URI with a subject alternative name (SAN) certificate (`example.com` and `example.net`).
 * The node certificate must be designated for server authentication, by setting the optional field of the certificate's property `enhanced key usage` to `Server Authentication`.
+
+[[configuring-x.509]]
+== Best Practices
 
 Recommended, best practices include:
 
@@ -199,12 +198,16 @@ For example:
 image::pict/chain-pem.png[,500,align=left]
 
 [#sslconfig]
-== Configure X.509 Certificates
+== Create Certificates
 
-The following steps configure X.509 certificates on Ubuntu 16: a root certificate is created with a single intermediate certificate and a single node certificate; and a chain certificate is created from the intermediate and node certificates.
+This section explains how to configure X.509 certificates for TLS in Couchbase Server on Ubuntu 16.
+
+A root certificate is created with a single intermediate certificate and a single node certificate; and a chain certificate is created from the intermediate and node certificates.
 The chain certificate and node private key are then made active for the current Couchbase Server-node.
 
 Proceed as follows, using the `sudo` command where appropriate.
+
+=== Generate root Certificate
 
 . Create environment variables for the naming of a directory-structure, within which will reside the certificates you create for root, intermediate, and node.
 +
@@ -322,6 +325,8 @@ Thus, the node certificate, which appears in the first position, has been signed
 +
 Note also that the root certificate is never included in the chain.
 
+=== Deploy Certificate
+
 . Manually copy the node private key (`pkey.key`) and the chain file (`chain.pem`) to the `inbox` folder of the Couchbase Server-node:
 +
 [source,bash]
@@ -332,40 +337,68 @@ chmod a+x /opt/couchbase/var/lib/couchbase/inbox/${CHAIN}.pem
 cp ./${NODE_DIR}/${NODE}.key /opt/couchbase/var/lib/couchbase/inbox/${NODE}.key
 chmod a+x /opt/couchbase/var/lib/couchbase/inbox/${NODE}.key
 ----
-
 . Upload the root certificate, and activate it:
 +
+[{tabs}]
+====
+REST API::
++
+--
 [source,bash]
 ----
 curl -X POST --data-binary "@./${ROOT_DIR}/${ROOT_CA}.pem" \
 http://${ADMINCRED}@${ip}:8091/controller/uploadClusterCA
 curl -X POST http://${ADMINCRED}@${ip}:8091/node/controller/reloadCertificate
 ----
+--
+
+CLI::
 +
-Note that alternatively, the following command-line interfaces can be used:
-+
+--
 [source,bash]
 ----
-couchbase-cli ssl-manage -c ${ip}:8091:8091 -u Administrator -p password \
---upload-cluster-ca=./${ROOT_DIR}/${ROOT_CA}.pem
-couchbase-cli ssl-manage -c ${ip}:8091 -u Administrator -p password \
---set-node-certificate
+couchbase-cli ssl-manage -c ${ip}:8091:8091 \
+              -u Administrator -p password \
+              --upload-cluster-ca=./${ROOT_DIR}/${ROOT_CA}.pem
+
+couchbase-cli ssl-manage -c ${ip}:8091 \
+              -u Administrator -p password \
+              --set-node-certificate
 ----
+--
+====
+. If the previous operation is successful, the certificate's fields and fingerprint are displayed on the Root Certificate tab of the Couchbase Console.
++
+image::signed-cert-ui.png[]
+
+== Enable Client Certificates
 
 . For the current Couchbase Server-node, enable the client certificate:
 +
+[{tabs}]
+====
+UI::
++
+--
+image:enable-client-cert.png[]
+--
+
+REST API::
++
+--
 [source,bash]
 ----
 curl -u ${ADMINCRED} -v -X POST http://${ip}:8091/settings/clientCertAuth \
 -d '{"state": "enable","prefixes": [{"path": "subject.cn","prefix": "","delimiter": ""}]}'
 ----
+--
+====
 +
 For further information on certificate-deployment, see xref:cli:cbcli/couchbase-cli-ssl-manage.adoc[ssl-manage] and xref:rest-api:rest-encryption.adoc[Encryption On-the-Wire API].
 
-[#cert_auth_for_java_client]
-== Provide Certificate-Based Authentication for a Java Client
+== Create Client Certificate
 
-Once the root certificate for a Couchbase Server-node has been deployed, a Java client can authenticate by means of an appropriately prepared keystore, and so gain access to the Data, Query, and Search Services.
+Once the root certificate for a Couchbase Server-node has been deployed, a client can authenticate by means of an appropriately prepared keystore, and so gain access to the Data, Query, and Search Services.
 
 For an overview, see xref:security-certs-auth.adoc[Certificate-Based Authentication]
 
