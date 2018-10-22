@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 export TOPDIR=SSLCA
 export ROOT_DIR=rootdir
 export NODE_DIR=nodedir
