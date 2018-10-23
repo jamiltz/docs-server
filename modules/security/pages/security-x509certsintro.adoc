@@ -328,6 +328,35 @@ Thus, the node certificate, which appears in the first position, has been signed
 +
 Note also that the root certificate is never included in the chain.
 
+//. Create a new file called *ssl.conf* with the following.
+//+
+//[source,bash]
+//----
+//[ req ]
+//default_bits        = 2048
+//distinguished_name  = req_distinguished_name
+//req_extensions      = req_ext
+//prompt              = no
+//
+//[ req_distinguished_name ]
+//countryName         = US
+//stateOrProvinceName = California
+//localityName        = San Jose
+//organizationName    = XYZ Inc
+//commonName          = travel-sample
+//
+//[ req_ext ]
+//subjectAltName = @alt_names
+//[alt_names]
+//DNS.1   = node1-user1.xyz.com
+//DNS.2   = node1-user2.xyz.com
+//----
+//When using X.509 certificates for authentication, Couchbase Server searches for the RBAC username in the certificate sent by the client.
+//In the https://developer.couchbase.com/documentation/server/current/security/security-x509certsintro.html#story-h2-2[X.509 Certificates for Couchbase Server] instructions, you specified `commonName` as the field to use for the RBAC username.
+//Hence, the `commonName` field is set to `travel-sample`.
+//. Create a new file called *sync-gateway-config.json* with the following.
+//+
+
 === Install Certificate
 
 . Manually copy the node private key (`pkey.key`) and the chain file (`chain.pem`) to the `inbox` folder of the Couchbase Server-node:
