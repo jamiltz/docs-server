@@ -16,6 +16,13 @@ export ADMINCRED=Administrator:password
 export ip=127.0.0.1
 export USERNAME=travel-sample
 
+# Delete folders if they already exist
+if [ -d "$TOPDIR" ]; then rm -Rf $TOPDIR; fi
+export INBOX=/Applications/Couchbase\ Server.app/Contents/Resources/couchbase-core/var/lib/couchbase/inbox/
+if [ -e "$INBOX" ]; then
+ rm -Rf /Applications/Couchbase\ Server.app/Contents/Resources/couchbase-core/var/lib/couchbase/inbox/
+fi
+
 mkdir ${TOPDIR}
 cd ${TOPDIR}
 mkdir ${ROOT_DIR}
