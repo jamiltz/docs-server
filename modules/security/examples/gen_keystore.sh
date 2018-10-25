@@ -2,16 +2,19 @@
 
 set -e
 
-ROOT_CA=ca
+ADMINCRED=Administrator:password
+CHAIN=chain
 INTERMEDIATE=int
 NODE=pkey
-CHAIN=chain
-CLUSTER=${1:-172.23.123.176}
-ip=${2:-127.0.0.1}
-USERNAME=${2:-sdkqecertuser}
-SSH_PASSWORD=${3:-couchbase}
+ROOT_CA=ca
 
-ADMINCRED=Administrator:password
+IP=${2:-127.0.0.1}
+OS=${1:-centos} # or macos
+USERNAME=${3:-travel-sample}
+
+# Example commands
+# ./gen_keystore.sh macos 127.0.0.1 travel-sample
+# ./gen_keystore.sh centos 192.168.33.10 foo-bar
 
 echo Generate ROOT CA
 # Generate ROOT CA
@@ -37,31 +40,30 @@ openssl x509 -req -in ${NODE}.csr -CA ${INTERMEDIATE}.pem -CAkey ${INTERMEDIATE}
 cat ${NODE}.pem ${INTERMEDIATE}.pem ${ROOT_CA}.pem > ${CHAIN}.pem
 
 # Install certificate to inbox
-OS=${1:-centos} # or macos
 if [ "${OS}" = "centos" ]; then
 	echo Copying files to Ubuntu path
 	INBOX=/opt/couchbase/var/lib/couchbase/inbox/
-	mkdir ${INBOX}
+	mkdir -p ${INBOX}
 	cp ./${CHAIN}.pem ${INBOX}${CHAIN}.pem
 	chmod a+x ${INBOX}${CHAIN}.pem
 	cp ./${NODE}.key ${INBOX}${NODE}.key
 	chmod a+x ${INBOX}${NODE}.key
 elif [ "${OS}" = "macos" ]; then
 	echo Copying files to macOS path
-	INBOX=/Users/jamesnocentini/Library/Application\ Support/Couchbase/var/lib/couchbase/inbox/
-	mkdir ${INBOX}
-	cp ./${CHAIN}.pem ${INBOX}${CHAIN}.pem
-	chmod a+x ${INBOX}${CHAIN}.pem
-	cp ./${NODE}.key ${INBOX}${NODE}.key
-	chmod a+x ${INBOX}${NODE}.key
+	mkdir -p /Users/jamesnocentini/Library/Application\ Support/Couchbase/var/lib/couchbase/inbox/
+	cp ./${CHAIN}.pem /Users/jamesnocentini/Library/Application\ Support/Couchbase/var/lib/couchbase/inbox/${CHAIN}.pem
+	chmod a+x /Users/jamesnocentini/Library/Application\ Support/Couchbase/var/lib/couchbase/inbox/${CHAIN}.pem
+	cp ./${NODE}.key /Users/jamesnocentini/Library/Application\ Support/Couchbase/var/lib/couchbase/inbox/${NODE}.key
+	chmod a+x /Users/jamesnocentini/Library/Application\ Support/Couchbase/var/lib/couchbase/inbox/${NODE}.key
 else
-	echo "Error: the first param must be `ubuntu` or `macos`"
+	echo "Error: the first param must be `centos` or `macos`"
 fi
 
 # Upload ROOT CA and activate it
-curl -s -o /dev/null --data-binary "@./${ROOT_CA}.pem" \
-		http://${ADMINCRED}@${ip}:8091/controller/uploadClusterCA
-curl -sX POST http://${ADMINCRED}@${ip}:8091/node/controller/reloadCertificate
+curl -vX POST --data-binary "@./${ROOT_CA}.pem" \
+		http://${ADMINCRED}@${IP}:8091/controller/uploadClusterCA
+curl -vX POST http://${ADMINCRED}@${IP}:8091/node/controller/reloadCertificate
+
 # Enable client cert
 POST_DATA='{"state": "enable","prefixes": [{"path": "subject.cn","prefix": "","delimiter": ""}]}'
-curl -s -H "Content-Type: application/json" -X POST -d "${POST_DATA}" http://${ADMINCRED}@${ip}:8091/settings/clientCertAuth
+curl -vX POST -H "Content-Type: application/json" -d "${POST_DATA}" http://${ADMINCRED}@${IP}:8091/settings/clientCertAuth
