@@ -1,30 +1,17 @@
 #!/bin/bash
 
 set -e
+
 ROOT_CA=ca
 INTERMEDIATE=int
 NODE=pkey
 CHAIN=chain
 CLUSTER=${1:-172.23.123.176}
+ip=${2:-127.0.0.1}
 USERNAME=${2:-sdkqecertuser}
 SSH_PASSWORD=${3:-couchbase}
-CLUSTER_VERSION=${4:-5.5.0-1979}
-USE_JSON=false
-
-if [[ $CLUSTER_VERSION =~ ^([0-9]+)\.([0-9]+) ]]
-then
-    major=${BASH_REMATCH[1]}
-    minor=${BASH_REMATCH[2]}
-fi
-
-if (($minor>=5)); then
-    USE_JSON=true
-fi
-
 
 ADMINCRED=Administrator:password
-SSH="sshpass -p $SSH_PASSWORD ssh -o StrictHostKeyChecking=no"
-SCP="sshpass -p $SSH_PASSWORD scp -o StrictHostKeyChecking=no"
 
 echo Generate ROOT CA
 # Generate ROOT CA
@@ -49,57 +36,32 @@ openssl x509 -req -in ${NODE}.csr -CA ${INTERMEDIATE}.pem -CAkey ${INTERMEDIATE}
 # Generate certificate chain file
 cat ${NODE}.pem ${INTERMEDIATE}.pem ${ROOT_CA}.pem > ${CHAIN}.pem
 
-INBOX=/opt/couchbase/var/lib/couchbase/inbox/
-CHAIN=chain.pem
+# Install certificate to inbox
+OS=${1:-centos} # or macos
+if [ "${OS}" = "centos" ]; then
+	echo Copying files to Ubuntu path
+	INBOX=/opt/couchbase/var/lib/couchbase/inbox/
+	mkdir ${INBOX}
+	cp ./${CHAIN}.pem ${INBOX}${CHAIN}.pem
+	chmod a+x ${INBOX}${CHAIN}.pem
+	cp ./${NODE}.key ${INBOX}${NODE}.key
+	chmod a+x ${INBOX}${NODE}.key
+elif [ "${OS}" = "macos" ]; then
+	echo Copying files to macOS path
+	INBOX=/Users/jamesnocentini/Library/Application\ Support/Couchbase/var/lib/couchbase/inbox/
+	mkdir ${INBOX}
+	cp ./${CHAIN}.pem ${INBOX}${CHAIN}.pem
+	chmod a+x ${INBOX}${CHAIN}.pem
+	cp ./${NODE}.key ${INBOX}${NODE}.key
+	chmod a+x ${INBOX}${NODE}.key
+else
+	echo "Error: the first param must be `ubuntu` or `macos`"
+fi
 
-# loop through nodes
-echo Get node IPs
-hosts=`curl -su Administrator:password http://${CLUSTER}:8091/pools/nodes|jq '.nodes[].hostname'`
-arr_hosts=( $hosts )
-echo Loop through nodes
-for host in "${arr_hosts[@]}"
-do
-	ip=`echo $host|sed 's/\"\([^:]*\):.*/\1/'`
-	# Copy private key and chain file to a node:/opt/couchbase/var/lib/couchbase/inbox
-	echo "Setup Certificate for ${ip}"
-#	${SSH} root@${ip} "mkdir ${INBOX}" 2>/dev/null || true
-#	${SCP} chain.pem root@${ip}:${INBOX}
-#	${SCP} pkey.key root@${ip}:${INBOX}
-#	${SSH} root@${ip} "chmod a+x ${INBOX}${CHAIN}"
-#	${SSH} root@${ip} "chmod a+x ${INBOX}${NODE}.key"
-
-	cp ./chain.pem /Users/jamesnocentini/Library/Application\ Support/Couchbase/var/lib/couchbase/inbox/chain.pem
-	chmod a+x /Users/jamesnocentini/Library/Application\ Support/Couchbase/var/lib/couchbase/inbox/chain.pem
-	cp ./pkey.key /Users/jamesnocentini/Library/Application\ Support/Couchbase/var/lib/couchbase/inbox/pkey.key
-	chmod a+x /Users/jamesnocentini/Library/Application\ Support/Couchbase/var/lib/couchbase/inbox/pkey.key
-
-
-	# Upload ROOT CA and activate it
-	curl -s -o /dev/null --data-binary "@./${ROOT_CA}.pem" \
-    	http://${ADMINCRED}@${ip}:8091/controller/uploadClusterCA
-	curl -sX POST http://${ADMINCRED}@${ip}:8091/node/controller/reloadCertificate
-	# Enable client cert
-	if ${USE_JSON} ;then
-        	POST_DATA='{"state": "enable","prefixes": [{"path": "subject.cn","prefix": "","delimiter": ""}]}'
-        	curl -s -H "Content-Type: application/json" -X POST -d "${POST_DATA}" http://${ADMINCRED}@${ip}:8091/settings/clientCertAuth
-	else
-        	curl -s -d "state=enable" -d "delimiter=" -d "path=subject.cn" -d "prefix=" http://${ADMINCRED}@${ip}:8091/settings/clientCertAuth
-    	fi
-done
-
-# Create keystore file and import ROOT/INTERMEDIATE/CLIENT cert
-KEYSTORE_FILE=keystore.jks
-STOREPASS=123456
-
-rm -f ${KEYSTORE_FILE}
-keytool -genkey -keyalg RSA -alias selfsigned -keystore ${KEYSTORE_FILE} -storepass ${STOREPASS} -validity 360 -keysize 2048 -noprompt \
--dname "CN=${USERNAME}, OU=None, O=None, L=None, S=None, C=US" \
--keypass ${STOREPASS} -storetype pkcs12
-
-keytool -certreq -alias selfsigned -keyalg RSA -file my.csr -keystore ${KEYSTORE_FILE} -storepass ${STOREPASS} -noprompt -storetype pkcs12
-openssl x509 -req -in my.csr -CA ${INTERMEDIATE}.pem -CAkey ${INTERMEDIATE}.key -CAcreateserial -out clientcert.pem -days 365
-echo Adding ROOT CA
-keytool -import -trustcacerts -file ${ROOT_CA}.pem -alias root -keystore ${KEYSTORE_FILE} -storepass ${STOREPASS} -noprompt -storetype pkcs12
-echo Adding Intermediate
-keytool -import -trustcacerts -file ${INTERMEDIATE}.pem -alias int -keystore ${KEYSTORE_FILE} -storepass ${STOREPASS} -noprompt -storetype pkcs12
-keytool -import -keystore ${KEYSTORE_FILE} -file clientcert.pem -alias selfsigned -storepass ${STOREPASS} -noprompt -storetype pkcs12
+# Upload ROOT CA and activate it
+curl -s -o /dev/null --data-binary "@./${ROOT_CA}.pem" \
+		http://${ADMINCRED}@${ip}:8091/controller/uploadClusterCA
+curl -sX POST http://${ADMINCRED}@${ip}:8091/node/controller/reloadCertificate
+# Enable client cert
+POST_DATA='{"state": "enable","prefixes": [{"path": "subject.cn","prefix": "","delimiter": ""}]}'
+curl -s -H "Content-Type: application/json" -X POST -d "${POST_DATA}" http://${ADMINCRED}@${ip}:8091/settings/clientCertAuth
